@@ -1,4 +1,6 @@
 set nocompatible              " be improved, required
+set laststatus=2
+set encoding=utf-8
 filetype off                  " required
 set relativenumber
 set number
@@ -18,6 +20,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'lervag/vimtex'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
