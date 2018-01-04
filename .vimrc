@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
+Plugin 'tpope/vim-fugitive'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'lervag/vimtex'
 Plugin 'scrooloose/nerdcommenter'
@@ -82,6 +83,7 @@ vnoremap H 0
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
+
 vnoremap K 10k
 
 " Mappings for tree list netrw
