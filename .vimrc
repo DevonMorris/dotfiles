@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'lervag/vimtex'
 Plugin 'scrooloose/nerdcommenter'
@@ -67,6 +68,7 @@ nnoremap <S-Tab> <C-O>
 " Mappings for Git (vim-fugitive and git-gutter)
 nnoremap <leader>gc :Gcommit <CR>
 nnoremap <leader>gp :Gpush <CR>
+nnoremap <leader>gb :Gbrowse <CR>
 nmap <leader>ga <Plug>GitGutterStageHunk
 nmap <leader>gd <Plug>GitGutterPreviewHunk
 nmap <leader>gj <Plug>GitGutterNextHunk
