@@ -112,6 +112,11 @@ augroup END
 nnoremap <leader>ll :w<CR>:!rubber --pdf --warn all %<CR>
 nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
 
+" This is for airline and powerline
+" Note: If symbols don't appear install them with
+" `sudo apt install fonts-powerline`
+let g:airline_powerline_fonts = 1
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
