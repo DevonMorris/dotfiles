@@ -107,7 +107,9 @@ nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
 
 " This is for airline and powerline
 " Note: If symbols don't appear install them with
-" `sudo apt install fonts-powerline`
+" `sudo apt install fonts-powerline` Ubuntu
+" or from https://github.com/powerline/fonts for macOS
+" Note: there is a fix for iTerm2 mentioned in their README
 let g:airline_powerline_fonts = 1
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
