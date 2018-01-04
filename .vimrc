@@ -92,14 +92,6 @@ nnoremap <leader>ex :Vex <CR>
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 
-"abbreviations for cpp
-function CppAbbrevs()
-	iabbrev #i #include 
-	iabbrev io iostream
-	iabbrev str string
-	iabbrev std; using<space>namespace<space>std;
-endfunction
-
 autocmd FileType make set noexpandtab softtabstop=0
 
 augroup cpp
