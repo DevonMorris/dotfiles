@@ -23,6 +23,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'SirVer/ultisnips'
 
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 set completeopt-=preview
@@ -110,6 +113,10 @@ nnoremap <leader>ll :w<CR>:!rubber --pdf --warn all %<CR>
 nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
 
 " Omni Complete
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
