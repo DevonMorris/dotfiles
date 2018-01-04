@@ -117,7 +117,7 @@ nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
 " Omni Complete
 " set omnifunc=syntaxcomplete#Complete
 
-" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
