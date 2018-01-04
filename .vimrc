@@ -88,6 +88,7 @@ vnoremap J 10j
 vnoremap K 10k
 
 " Mappings for tree list netrw
+nnoremap <leader>ex :Vex <CR>
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 
