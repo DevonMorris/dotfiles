@@ -64,14 +64,13 @@ nnoremap <leader>k <C-W><C-K>
 " Mapping for jumping
 nnoremap <S-Tab> <C-O>
 
-" Mappings to compile/run files
-nnoremap <leader>go :!python %<cr>
-nnoremap <leader>gcc :!gcc % -o %:r<cr>
-nnoremap <leader>gpp :!g++ -std=c++0x % -o %:r<cr>
-nnoremap <leader>cpp :!clang++ -std=c++11 -stdlib=libc++ % -o %:r<cr>
-nnoremap <leader>rpp :!./%:r <cr>
-
-" Mapping to autosave new file
+" Mappings for Git (vim-fugitive and git-gutter)
+nnoremap <leader>gc :Gcommit <CR>
+nnoremap <leader>gp :Gpush <CR>
+nmap <leader>ga <Plug>GitGutterStageHunk
+nmap <leader>gd <Plug>GitGutterPreviewHunk
+nmap <leader>gj <Plug>GitGutterNextHunk
+nmap <leader>gk <Plug>GitGutterPrevHunk
 
 " Mappings to go to end of line and beginning of line
 nnoremap L $
