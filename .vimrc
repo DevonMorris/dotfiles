@@ -22,8 +22,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
+Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
