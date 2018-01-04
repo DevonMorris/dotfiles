@@ -22,7 +22,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'lervag/vimtex'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/vim-snippets'
@@ -104,8 +104,8 @@ autocmd FileType make set noexpandtab softtabstop=0
 augroup cpp
 	autocmd!
 	autocmd BufNewFile,BufRead *.cpp call CppAbbrevs()
-    set tabstop=2
-    set shiftwidth=2
+  set tabstop=2
+  set shiftwidth=2
 augroup END
 
 " Remap for latex compiling
