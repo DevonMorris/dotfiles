@@ -56,6 +56,9 @@ vnoremap jk <esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Mapping to edit ~/.vim/.ycm_extra_conf.py
+nnoremap <leader>ycm :vsplit ~/.vim/.ycm_extra_conf.py<cr>
+
 " Mappings to move between panes
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
@@ -96,7 +99,6 @@ autocmd FileType make set noexpandtab softtabstop=0
 
 augroup cpp
 	autocmd!
-	autocmd BufNewFile,BufRead *.cpp call CppAbbrevs()
   set tabstop=2
   set shiftwidth=2
 augroup END
