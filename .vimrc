@@ -26,6 +26,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/vim-snippets'
+Plugin 'taketwo/vim-ros'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,6 +75,7 @@ nnoremap <leader>gp :Gpush <CR>
 nnoremap <leader>gb :Gbrowse <CR>
 nmap <leader>ga <Plug>GitGutterStageHunk
 nmap <leader>gd <Plug>GitGutterPreviewHunk
+nmap <leader>gu <Plug>GitGutterUndoHunk
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 
