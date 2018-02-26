@@ -122,3 +122,5 @@ let g:ycm_confirm_extra_conf = 1
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+au FileType c,cpp setlocal comments-=:// comments+=f://
