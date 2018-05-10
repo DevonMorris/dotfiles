@@ -2,7 +2,7 @@ set nocompatible              " be improved, required
 set laststatus=2
 set encoding=utf-8
 filetype off                  " required
-set relativenumber
+" set relativenumber
 set number
 
 " set the runtime path to include Vundle and initialize
