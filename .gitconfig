@@ -1,0 +1,9 @@
+[user]
+	email = devonmorris1992@gmail.com
+	name = Devon Morris
+[push]
+	default = simple
+[core]
+	editor = vim
+[alias]
+	subup = submodule update --init --recursive
