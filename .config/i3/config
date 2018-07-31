@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -43,10 +43,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -67,10 +67,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+n split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+m split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -93,9 +93,14 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+#
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -105,9 +110,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -131,10 +136,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -159,3 +164,28 @@ bar {
 # Keybindings for brightness Mac
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Fix for "Natural Scrolling"
+exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+
+# Background stored as wallpaper.jpg
+exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
+
+# Keybindings for audio up/down and mute Mac 
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+# Move certain programs to certain workspaces
+assign [class="Firefox"] $workspace2
+assign [class="Slack"] $workspace3
+# assign [class="X-terminal-emulator"] $workspace1
+
+# Swap caps and ctrl
+exec setxkbmap -option ctrl:swapcaps
+
+# Start slack on startup
+exec slack
+
+# Start terminal on startup
+exec terminator
