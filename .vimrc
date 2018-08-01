@@ -41,7 +41,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set t_Co=256
-colorscheme gruvbox
+colorscheme monokai
 set background=dark
 
 let mapleader = "\\"
@@ -124,3 +124,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 au FileType c,cpp setlocal comments-=:// comments+=f://
+
+" Don't override background
+hi Normal guibg=NONE ctermbg=NONE
+highlight NonText ctermbg=NONE
