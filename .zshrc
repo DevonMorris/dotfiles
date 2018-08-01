@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/devon/.oh-my-zsh
+  export ZSH="/home/devon/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,7 +60,6 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  vundle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -89,6 +88,13 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#
+source /opt/ros/kinetic/setup.zsh
+export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
-
-# Commands to run upon starting zsh
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
