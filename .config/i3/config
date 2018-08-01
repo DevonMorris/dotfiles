@@ -172,9 +172,9 @@ exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
 
 # Keybindings for audio up/down and mute Mac 
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 
 # Move certain programs to certain workspaces
 assign [class="Firefox"] $workspace2
