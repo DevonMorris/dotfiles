@@ -99,14 +99,15 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 #
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace1 "1: Terminals"
+set $workspace2 "2: Firefox"
+set $workspace3 "3: Slack"
+set $workspace4 "4: Gazebo"
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -118,7 +119,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -209,6 +210,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 # Move certain programs to certain workspaces
 assign [class="Firefox"] $workspace2
 assign [class="Slack"] $workspace3
+assign [class="Gazeb"] $workspace4
 # assign [class="X-terminal-emulator"] $workspace1
 
 # Swap caps and ctrl
@@ -222,3 +224,7 @@ exec slack
 
 # Start terminal on startup
 exec terminator
+
+# Move workspaces
+bindsym $mod+ctrl+l move workspace to output right
+bindsym $mod+ctrl+h move workspace to output right
