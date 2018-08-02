@@ -9,7 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+# Mod for Win keyboard
+set $mod Mod1
+# Mod for Mac keyboard
+# set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -183,6 +186,9 @@ assign [class="Slack"] $workspace3
 
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:swapcaps
+
+# turn on compositing manager
+exec --no-startup-id compton
 
 # Start slack on startup
 exec slack
