@@ -5,7 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 git fonts-powerline wget compton pavucontrol
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi
 
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Copying .gitconfig to home directory${NC}"
@@ -58,5 +58,6 @@ unzip fontawesome-free-5.2.0-desktop.zip
 sudo mv fontawesome-free-5.2.0-desktop /usr/local/share/fonts
 
 # Copy over i3 config
+echo -e "${CYAN}Copying i3 Config${NC}"
 i3-config-wizard
 cp .config/i3/config ~/.config/i3/config
