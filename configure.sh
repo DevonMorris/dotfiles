@@ -5,7 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger
 
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Copying .gitconfig to home directory${NC}"
