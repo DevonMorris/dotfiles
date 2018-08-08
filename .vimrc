@@ -26,7 +26,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/vim-snippets'
-Plugin 'taketwo/vim-ros'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,7 +117,8 @@ let g:airline_powerline_fonts = 1
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 1
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+
+" Trigger configuration for ultisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -128,3 +128,9 @@ au FileType c,cpp setlocal comments-=:// comments+=f://
 " Don't override background
 hi Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
+
+" Use YCM to jump like ctags
+nnoremap <c-]> :YcmCompleter GoTo<CR>
+
+" Use YCM to view documentation
+nnoremap <leader>doc :YcmCompleter GetDoc<CR>
