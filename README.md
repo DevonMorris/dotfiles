@@ -30,3 +30,20 @@ This is the old way I used to use YouCompleteMe. It still may be helpful for som
 I have two different YouCompleteMe configuration files. The one in `.vim/.ycm_extra_conf.py` helps with cmake stuff (Borrowed from [Bastian Rieck](http://bastian.rieck.ru/blog/posts/2015/ycm_cmake/)). The YouCompleteMe file `./.ycm_extra_conf.py` helps with completetion associated with [ROS](http://www.ros.org/). It requires you to set the `$ROS_WORKSPACE` environment variable. This can be done by going to your catkin workspace and running `export ROS_WORKSPACE=$(pwd)`. Note: this needs to be copied to your catkin workspace to work.
 
 ## i3 Window Manager
+I use [i3wm](https://i3wm.org/) for my desktop environment. This is trickier to put in my dotfiles, since each computer needs to be changed slightly (especially for multi-monitor setups). I've opted for putting all my different configs into the `.config/i3/config`. Although the configuration will be installed in the correct place, it will need to be modified for the specific computer in use.
+
+Some of the major changes I've made to the default i3wm configuration are
+
+* Switching movement and resize from `j,k,l,;` to the classic vim movement keys `h,j,k,l`
+* Using `Mod+q` to kill a window instead of `Mod+Shift+q`
+* Replacing `dmenu_run` with `rofi`
+* Changing splitting directions with `Mod+n` and `Mod+m`
+* Named workspaces
+* Changing window colors
+* Adding i3lock with `Mod1+Mod2+l`
+* "Natural Scrolling" on touchpads
+* Changing caps lock to additional ctrl
+* Adding a wallpaper with `feh`
+* Adding brightness and audio controls through `xbacklight` and `pavucontrol`
+
+I've had success removing the default desktop environment on Ubuntu 16.04 on some computers. However, on other computers, removing Gnome and gdb breaks the system. I may eventually get to the bottom of this ¯\_(ツ)_/¯.

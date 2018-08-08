@@ -225,7 +225,7 @@ assign [class="rqt_gui"] $workspace7
 # assign [class="X-terminal-emulator"] $workspace1
 
 # Swap caps and ctrl
-exec setxkbmap -option ctrl:swapcaps
+exec setxkbmap -option ctrl:nocaps
 
 # turn on compositing manager
 #exec --no-startup-id compton
