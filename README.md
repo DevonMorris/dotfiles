@@ -15,7 +15,7 @@ Some of my favorite packages are
 * [Ultisnips](https://github.com/SirVer/ultisnips)
 * [Vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
-### New YCM Configuration
+### YCM Configuration
 If you are working with cmake or ROS (which really uses cmake under the hood), it is easiest to follow [Option 1](https://github.com/Valloric/YouCompleteMe#c-family-semantic-completion) in the YCM README. Basically, it boils down to putting
 
 ```
@@ -23,11 +23,6 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 
 in your `CMakeLists.txt`
-
-### Old YCM Configuration 
-This is the old way I used to use YouCompleteMe. It still may be helpful for some so I'll leave it in the README.
-
-I have two different YouCompleteMe configuration files. The one in `.vim/.ycm_extra_conf.py` helps with cmake stuff (Borrowed from [Bastian Rieck](http://bastian.rieck.ru/blog/posts/2015/ycm_cmake/)). The YouCompleteMe file `./.ycm_extra_conf.py` helps with completetion associated with [ROS](http://www.ros.org/). It requires you to set the `$ROS_WORKSPACE` environment variable. This can be done by going to your catkin workspace and running `export ROS_WORKSPACE=$(pwd)`. Note: this needs to be copied to your catkin workspace to work.
 
 ## i3 Window Manager
 I use [i3wm](https://i3wm.org/) for my desktop environment. This is trickier to put in my dotfiles, since each computer needs to be changed slightly (especially for multi-monitor setups). I've opted for putting all my different configs into the `.config/i3/config`. Although the configuration will be installed in the correct place, it will need to be modified for the specific computer in use.

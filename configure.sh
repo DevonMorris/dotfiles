@@ -8,22 +8,21 @@ echo -e "${CYAN}Installing prerequsite packages${NC}"
 sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger
 
 # Copying .gitconfig into home directory
-echo -e "${CYAN}Copying .gitconfig to home directory${NC}"
-cp .gitconfig ~
+echo -e "${CYAN}Symlinking .gitconfig to home directory${NC}"
+ln -svf `pwd`/.gitconfig $HOME/.gitconfig
 
 # Copy vimrc into home folder
-echo -e "${CYAN}Copying .vimrc to home directory${NC}"
-cp .vimrc ~
-cp -r .vim ~ 
+echo -e "${CYAN}Symlinking .vimrc to home directory${NC}"
+ln -svf `pwd`/.vimrc $HOME/.vimrc
 
 # Install Vundle package manager
 echo -e "${CYAN}Installing Vundle package manager${NC}"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 # Install monokai theme
 wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
-mkdir ~/.vim/colors
-mv monokai.vim ~/.vim/colors/
+mkdir -p $HOME/.vim/colors
+mv monokai.vim $HOME/.vim/colors/
 
 # Install vim plugins
 vim -c PluginInstall -c q -c q
@@ -31,7 +30,7 @@ vim -c PluginInstall -c q -c q
 # Compile YCM with C language sematic support
 echo -e "${CYAN}Compliling YCM${NC}"
 pushd .
-cd ~/.vim/bundle/YouCompleteMe
+cd $HOME/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 popd
 
@@ -44,12 +43,12 @@ echo -e "${CYAN}Installing Oh My Zsh${NC}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -B)"
 
 # Copy over .zshrc
-echo -e "${CYAN}Copying .zshrc to home directory${NC}"
-cp .zshrc ~
+echo -e "${CYAN}Symlinking .zshrc to home directory${NC}"
+ln -svf `pwd`/.zshrc $HOME/.zshrc
 
 # Copy over wallpaper
 echo -e "${CYAN}Copying Wallpaper to Pictures directory${NC}"
-cp -r Pictures ~
+cp -r Pictures $HOME
 
 # Get font awesome
 echo -e "${CYAN}Installing font awesome${NC}"
@@ -60,4 +59,4 @@ sudo mv fontawesome-free-5.2.0-desktop /usr/local/share/fonts
 # Copy over i3 config
 echo -e "${CYAN}Copying i3 Config${NC}"
 i3-config-wizard
-cp .config/i3/config ~/.config/i3/config
+cp .config/i3/config $HOME/.config/i3/config
