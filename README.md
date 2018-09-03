@@ -1,4 +1,4 @@
-# Configuration Files for \*nix systems
+# Configuration Files for Linux systems
 
 ## Configure.sh Script
 Ideally, you should just run this script and your computer will be customized exactly like mine. Basically, this file forcibly symlinks the config files in this repo to your home folder. If you don't want to lose your old config, you should back up your files before running `./configure.sh`. For i3wm additional tweaking will probably be necessary due to monitor resolutions, keyboard layouts and media controls.
