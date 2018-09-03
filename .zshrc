@@ -94,11 +94,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
-source /opt/ros/kinetic/setup.zsh
+source /opt/ros/melodic/setup.zsh
 export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
-alias vimrc="vim ~/.vimrc"
-
 alias vim="vim --servername VIM"
+
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias i3config="vim ~/.config/i3/config"
+alias gitconfig="vim ~/.gitconfig"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
