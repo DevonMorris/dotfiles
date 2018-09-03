@@ -203,8 +203,8 @@ bindsym $mod+$mod1+l exec i3lock --color 475263
 # Fix for "Natural Scrolling"
 exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
-# Background stored as wallpaper.jpg
-exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
+# Background stored as wallpaper.png
+exec feh --bg-scale /home/devon/Pictures/wallpaper.png
 
 # Keybindings for audio up/down and mute Mac 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
