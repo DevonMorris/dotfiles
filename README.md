@@ -1,6 +1,7 @@
 # Configuration Files for \*nix systems
 
 ## Configure.sh Script
+Ideally, you should just run this script and your computer will be customized exactly like mine. Basically, this file forcibly symlinks the config files in this repo to your home folder. If you don't want to lose your old config, you should back up your files before running `./configure.sh`. For i3wm additional tweaking will probably be necessary due to monitor resolutions, keyboard layouts and media controls.
 
 ## Vim
 I personally use [Vundle](https://github.com/VundleVim/Vundle.vim) as my package manager in vim.
@@ -22,7 +23,7 @@ If you are working with cmake or ROS (which really uses cmake under the hood), i
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 
-in your `CMakeLists.txt`
+in your `CMakeLists.txt`. If you're feeling really really adventurous for ROS you can put this line in your top-level cmake file `/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake`. That way all future ROS projects will export their compile commands for YCM to use.
 
 ## i3 Window Manager
 I use [i3wm](https://i3wm.org/) for my desktop environment. This is trickier to put in my dotfiles, since each computer needs to be changed slightly (especially for multi-monitor setups). I've opted for putting all my different configs into the `.config/i3/config`. Although the configuration will be installed in the correct place, it will need to be modified for the specific computer in use.
