@@ -97,4 +97,6 @@ source $ZSH/oh-my-zsh.sh
 source /opt/ros/kinetic/setup.zsh
 export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
+alias vimrc="vim ~/.vimrc"
+
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
