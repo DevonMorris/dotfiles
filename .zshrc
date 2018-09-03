@@ -99,4 +99,6 @@ export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
 alias vimrc="vim ~/.vimrc"
 
+alias vim="vim --servername VIM"
+
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
