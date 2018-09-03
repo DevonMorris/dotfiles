@@ -26,6 +26,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
+Plugin 'taketwo/vim-ros'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,6 +80,9 @@ nmap <leader>gu <Plug>GitGutterUndoHunk
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 
+" Mappings for ctrlp plugin
+let g:ctrlp_map = '<c-f>'
+
 " Mappings to go to end of line and beginning of line
 nnoremap L $
 vnoremap L $
@@ -95,6 +100,7 @@ vnoremap K 10k
 nnoremap <leader>ex :Vex <CR>
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
+let g:netrw_liststyle = 3
 
 autocmd FileType make set noexpandtab softtabstop=0
 
@@ -105,8 +111,8 @@ augroup cpp
 augroup END
 
 " Remap for latex compiling
-nnoremap <leader>ll :w<CR>:!rubber --pdf --warn all %<CR>
-nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
+" nnoremap <leader>ll :w<CR>:!rubber --pdf --warn all %<CR>
+" nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
 
 " This is for airline and powerline
 " Note: If symbols don't appear install them with
@@ -128,6 +134,8 @@ au FileType c,cpp setlocal comments-=:// comments+=f://
 " Don't override background
 hi Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
+" But let pop upmenu override background so you can tell it's a popup
+highlight Pmenu ctermbg=darkgray guibg=darkgray
 
 " Use YCM to jump like ctags
 nnoremap <c-]> :YcmCompleter GoTo<CR>
