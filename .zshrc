@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
-source /opt/ros/melodic/setup.zsh
+source /opt/ros/kinetic/setup.zsh
 export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
 alias vim="vim --servername VIM"
@@ -103,5 +103,11 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
+alias nb="jupyter notebook"
+
+mem()
+{
+   ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'
+}
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
