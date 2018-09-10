@@ -5,7 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc
 
 # Installing qutebrowser
 echo -e "${CYAN}Installing qutebrowser${NC}"
@@ -16,6 +16,8 @@ then
   cd qutebrowser
   tox -e mkvenv-pypi-old
   echo -e '#!/bin/bash\n'$(pwd)'/.venv/bin/python3 -m qutebrowser "$@"' > ~/.local/bin/qutebrowser
+  chmod +x ~/.local/bin/qutebrowser
+  ./scripts/asciidoc2html.py
   popd
 elif [[ `lsb_release -rs` == "18.04" ]] 
 then
