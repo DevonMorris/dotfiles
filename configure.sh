@@ -89,4 +89,3 @@ i3-config-wizard
 cp .config/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
 cp .config/i3status/config $HOME/.config/i3status/config
-cp .config/i3status/config
