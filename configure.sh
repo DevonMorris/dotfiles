@@ -9,7 +9,7 @@ sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol 
 
 # Installing qutebrowser
 echo -e "${CYAN}Installing qutebrowser${NC}"
-if [[ `lsb_release -rs` == "16.04" ]] # replace 8.04 by the number of release you want
+if [[ `lsb_release -rs` == "16.04" ]]
 then
   git clone https://github.com/qutebrowser/qutebrowser.git
   pushd .
@@ -23,6 +23,16 @@ elif [[ `lsb_release -rs` == "18.04" ]]
 then
   sudo apt install qutebrowser
 fi
+
+# Installing lastpass cli
+if [[ `lsb_release -rs` == "16.04" ]] # replace 8.04 by the number of release you want
+then
+  sudo apt install libcurl3 libcurl3-openssl-dev libssl1.0 libssl1.0-dev
+elif [[ `lsb_release -rs` == "18.04" ]] 
+then
+  sudo apt install qutebrowser
+fi
+
 
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Symlinking .gitconfig to home directory${NC}"
@@ -77,3 +87,6 @@ sudo mv fontawesome-free-5.2.0-desktop /usr/local/share/fonts
 echo -e "${CYAN}Copying i3 Config${NC}"
 i3-config-wizard
 cp .config/i3/config $HOME/.config/i3/config
+mkdir -p $HOME/.config/i3status
+cp .config/i3status/config $HOME/.config/i3status/config
+cp .config/i3status/config
