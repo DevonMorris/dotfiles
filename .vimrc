@@ -125,7 +125,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 1
 
 " Trigger configuration for ultisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["/home/devon/.vim/UltiSnips", "~/.vim/bundle/vim-snippets/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
