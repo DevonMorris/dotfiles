@@ -1,0 +1,27 @@
+priority -1
+
+snippet rotx "Matrix for rotation about x"
+\begin{bmatrix}
+1 &     0    &    0      \\
+0 & \cos($0) & -\sin($0) \\
+0 & \sin($0) & \cos($0)
+\end{bmatrix}
+endsnippet
+
+snippet roty "Matrix for rotation about y"
+\begin{bmatrix}
+\cos($0)  & 0 & \sin($0) \\
+0 			  & 1 &    0     \\
+-\sin($0) & 0 & \cos($0)
+\end{bmatrix}
+endsnippet
+
+snippet rotz "Matrix for rotation about z"
+\begin{bmatrix}
+\cos($0) & -\sin($0) & 0 \\
+\sin($0) & \cos($0)  & 0 \\
+0     &    0      & 1
+\end{bmatrix}
+endsnippet
+
+# vim:ft=snippets:

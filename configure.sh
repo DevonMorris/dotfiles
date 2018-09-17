@@ -61,6 +61,10 @@ cd $HOME/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 popd
 
+# Copying Ultisnips
+echo -e "${CYAN}Symlinking UltiSnips to .vim directory${NC}"
+ln -svf `pwd`/UltiSnips $HOME/.vim
+
 # Set default shell to zsh
 echo -e "${CYAN}Changing shell to zsh${NC}"
 chsh -s $(which zsh)
