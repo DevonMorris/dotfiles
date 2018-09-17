@@ -104,6 +104,7 @@ alias zshrc="vim ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
+alias matlab="matlab -nosplash -nodesktop"
 
 mem()
 {
