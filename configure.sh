@@ -46,11 +46,6 @@ ln -svf `pwd`/.vimrc $HOME/.vimrc
 echo -e "${CYAN}Installing Vundle package manager${NC}"
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
-# Install monokai theme
-wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
-mkdir -p $HOME/.vim/colors
-mv monokai.vim $HOME/.vim/colors/
-
 # Install vim plugins
 vim -c PluginInstall -c q -c q
 
