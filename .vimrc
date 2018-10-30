@@ -1,39 +1,50 @@
+" Vim .vimrc
+" author: Devon Morris
+" contact: devonmorris1992@gmail.com
+" date: Oct 26 2018
+
+"""""""""""""" Plugins """""""""""""""""""
+" Install vim-plug automatically if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" vim-plug plugin manager
+call plug#begin('~/.vim/plugged')
+
+" Typing and Syntax/Linting
+Plug 'w0rp/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
+Plug 'scrooloose/nerdcommenter'
+
+" Git Integration
+Plug 'airblade/vim-gitgutter'
+
+" Multi-entry selection UI. FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Sytle
+Plug 'vim-airline/vim-airline'
+Plug 'flazz/vim-colorschemes'
+
+call plug#end()
+
+"""""""""""" General Configuration """"""""""""""
+
+" Don't assume I want a line comment after another line comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 set nocompatible              " be improved, required
-set laststatus=2
 set encoding=utf-8
-filetype off                  " required
-" set relativenumber
+set lazyredraw
 set number
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'lervag/vimtex'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'SirVer/ultisnips'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'honza/vim-snippets'
-Plugin 'kien/ctrlp.vim'
-Plugin 'taketwo/vim-ros'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-set completeopt-=preview
-
-set lazyredraw
+set completeopt=menu
 
 filetype plugin indent on    " required
 filetype plugin on
@@ -71,17 +82,12 @@ nnoremap <leader>k <C-W><C-K>
 nnoremap <S-Tab> <C-O>
 
 " Mappings for Git (vim-fugitive and git-gutter)
-nnoremap <leader>gc :Gcommit <CR>
-nnoremap <leader>gp :Gpush <CR>
-nnoremap <leader>gb :Gbrowse <CR>
 nmap <leader>ga <Plug>GitGutterStageHunk
 nmap <leader>gd <Plug>GitGutterPreviewHunk
 nmap <leader>gu <Plug>GitGutterUndoHunk
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 
-" Mappings for ctrlp plugin
-let g:ctrlp_map = '<c-f>'
 
 " Mappings to go to end of line and beginning of line
 nnoremap L $
@@ -93,7 +99,6 @@ vnoremap H 0
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
-
 vnoremap K 10k
 
 " Mappings for tree list netrw
@@ -110,27 +115,47 @@ augroup cpp
   set shiftwidth=2
 augroup END
 
-" Remap for latex compiling
-" nnoremap <leader>ll :w<CR>:!rubber --pdf --warn all %<CR>
-" nnoremap <leader>lv :!mupdf %:r.pdf &<CR><CR>
+augroup py
+	autocmd!
+  set tabstop=4
+  set shiftwidth=4
+augroup END
+
+""""""""""""""""" Plugin Configuration """""""""""""
+"" ALE
+" Use LSP linters
+" To use clang, make sure to install clang and update alternatives 
+" https://askubuntu.com/questions/970640/trying-to-install-atom-unable-to-start-clangd-language-server
+" Is a good resource, but this needs to be done for each linter
+let g:ale_linters = {'cpp': ['clang', 'clangd', 'clangcheck', 'clangtidy', 'clang-format'], 'python':['pyls'], 'cmake': ['cmakelint']}
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_echo_msg_error_str = '✖'
+let g:ale_echo_msg_warning_str = '⚠'
+let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
+let g:ale_c_parse_compile_commands=1
+let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
+
+" Use Ale to jump to definition, etc.
+nnoremap <leader>info :ALEHover<CR>
+nnoremap <c-]>  :ALEGoToDefinition<CR>
+nnoremap <leader>ref :ALEFindReferences<CR>
+
+" Show ale errors in airline status bar
+let g:airline#extensions#ale#enabled = 1
 
 " This is for airline and powerline
 " Note: If symbols don't appear install them with
 " `sudo apt install fonts-powerline` Ubuntu
-" or from https://github.com/powerline/fonts for macOS
-" Note: there is a fix for iTerm2 mentioned in their README
 let g:airline_powerline_fonts = 1
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 1
-
-" Trigger configuration for ultisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetDirectories=["/home/devon/.vim/UltiSnips", "~/.vim/bundle/vim-snippets/UltiSnips"]
+" Trigger configuration for ultisnips. 
+let g:UltiSnipsSnippetDirectories=["/home/devon/.vim/UltiSnips", "~/.vim/plugged/vim-snippets/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-au FileType c,cpp setlocal comments-=:// comments+=f://
 
 " Don't override background
 hi Normal guibg=NONE ctermbg=NONE
@@ -138,8 +163,12 @@ highlight NonText ctermbg=NONE
 " But let pop upmenu override background so you can tell it's a popup
 highlight Pmenu ctermbg=darkgray guibg=darkgray
 
-" Use YCM to jump like ctags
-nnoremap <c-]> :YcmCompleter GoTo<CR>
+" FZF
+" leader + f to search files
+" Ctrl+t, Ctrl+x, Ctrl+v to open in tab, split, vsplit
+nnoremap <leader>f :Files<CR>
+" leader + s (for UltiSnips) to insert a snippet
+nnoremap <leader>s :Snippets<CR>
 
-" Use YCM to view documentation
-nnoremap <leader>doc :YcmCompleter GetDoc<CR>
+" Make vimtex use xelatex
+let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
