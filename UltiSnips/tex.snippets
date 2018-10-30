@@ -28,7 +28,8 @@ snippet rotz "Matrix for rotation about z"
 endsnippet
 
 snippet DH "Table for DH parameters for a robot"
-\begin{center}
+\begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|r|}
  \hline
  Link & $\theta_i$ & $d_i$ & $a_i$ & $\alpha_i$ \\\\
@@ -36,7 +37,9 @@ snippet DH "Table for DH parameters for a robot"
  $0
  \hline
 \end{tabular}
-\end{center}
+\label{$1}
+\caption{$2}
+\end{table}
 
 endsnippet
 # vim:ft=snippets:
