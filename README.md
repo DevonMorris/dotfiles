@@ -43,7 +43,6 @@ Some of the major changes I've made to the default i3wm configuration are
 * Adding a wallpaper with `feh`
 * Adding brightness and audio controls through `xbacklight` and `pavucontrol`
 
-I've had success removing the default desktop environment on Ubuntu 16.04 on some computers. However, on other computers, removing Gnome and gdb breaks the system. I may eventually get to the bottom of this ¯\\\_(ツ)\_/¯.
 To remove the default desktop environment I make an `~/.xinitrc` with the lines
 
 ```
