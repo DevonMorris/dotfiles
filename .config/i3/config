@@ -41,7 +41,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" 
+bindsym $mod+d exec rofi -show run -lines 20 -eh 1 -width 20 -padding 10 -opacity "10" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -location 1
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -99,14 +99,16 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 #
-set $workspace1 "1: Terminals"
-set $workspace2 "2: Web"
-set $workspace3 "3: Slack"
-set $workspace4 "4: Gazebo"
-set $workspace5 "5: Mavproxy"
-set $workspace6 "6: Ardupilot"
-set $workspace7 "7: rqt"
-set $workspace8 "8: plotter"
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace0 "0"
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -240,6 +242,3 @@ exec terminator
 # Move workspaces
 bindsym $mod+ctrl+l move workspace to output right
 bindsym $mod+ctrl+h move workspace to output right
-
-# Fix monitor layout for BlackJaguar
-# exec --no-startup-id xrandr --output HDMI-1-3 --off --output DVI-D-0 --primary --mode 1680x1050 --pos 0x0 --rotate normal --output HDMI-1-2 --off --output HDMI-1-1 --off --output DP-1 --mode 1680x1050 --pos 1680x0 --rotate normal --output HDMI-0 --off --output DP-1-3 --off --output DP-1-2 --off --output DP-1-1 --off --output DP-0 --off
