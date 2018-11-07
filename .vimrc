@@ -162,9 +162,9 @@ let g:ale_c_parse_compile_commands=1
 let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
 
 " Use Ale to jump to definition, etc.
-nnoremap <leader>info :ALEHover<CR>
-nnoremap <c-]>  :ALEGoToDefinition<CR>
-nnoremap <leader>ref :ALEFindReferences<CR>
+nnoremap <leader>i :ALEHover<CR>
+nnoremap <leader>d  :ALEGoToDefinition<CR>
+nnoremap <leader>r :ALEFindReferences<CR>
 
 " Show ale errors in airline status bar
 let g:airline#extensions#ale#enabled = 1
