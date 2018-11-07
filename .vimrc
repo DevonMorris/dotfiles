@@ -1,7 +1,7 @@
 " Vim .vimrc
 " author: Devon Morris
 " contact: devonmorris1992@gmail.com
-" date: Oct 26 2018
+" date: Nov 7 2018
 
 """""""""""""" Plugins """""""""""""""""""
 " Install vim-plug automatically if not installed
@@ -14,12 +14,16 @@ endif
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
 
-" Typing and Syntax/Linting
+" Syntax/Linting
 Plug 'w0rp/ale'
+Plug 'lervag/vimtex'
+
+" Typing
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
 
 " Git Integration
 Plug 'airblade/vim-gitgutter'
@@ -28,9 +32,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Sytle
+" Style
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -42,7 +48,15 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set nocompatible              " be improved, required
 set encoding=utf-8
 set lazyredraw
-set number
+
+set number relativenumber
+
+" Only use 'hybrid' numbers in focused terminal
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 set completeopt=menu
 
@@ -87,22 +101,31 @@ nmap <leader>gk <Plug>GitGutterPrevHunk
 
 
 " Mappings to go to end of line and beginning of line
+" I should really grow out of these some day
 nnoremap L $
 vnoremap L $
 nnoremap H 0
 vnoremap H 0
 
 " Mappings to move up and down faster
+" I should really grow out of these some day
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
 vnoremap K 10k
 
+" Mappings to move up and down lines visually
+" It only makes a difference on long lines that wrap
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+nnoremap k gk
+
 " Mappings for tree list netrw
-nnoremap <leader>ex :Vex <CR>
-let g:netrw_banner = 0
-let g:netrw_winsize = 20
-let g:netrw_liststyle = 3
+nnoremap <leader>ex :NERDTreeToggle <CR>
+
+" Treat _ as word separator
+set iskeyword-=_
 
 autocmd FileType make set noexpandtab softtabstop=0
 
@@ -146,6 +169,7 @@ let g:airline#extensions#ale#enabled = 1
 " This is for airline and powerline
 " Note: If symbols don't appear install them with
 " `sudo apt install fonts-powerline` Ubuntu
+" This font is also required for the ale_msgs
 let g:airline_powerline_fonts = 1
 
 " Trigger configuration for ultisnips. 
@@ -166,6 +190,9 @@ highlight Pmenu ctermbg=darkgray guibg=darkgray
 nnoremap <leader>f :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
+
+" Use nerdtree instead of netrw
+cnoremap Ex NERDTreeToggle
 
 " Make vimtex use xelatex
 let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
