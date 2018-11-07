@@ -242,3 +242,5 @@ exec terminator
 # Move workspaces
 bindsym $mod+ctrl+l move workspace to output right
 bindsym $mod+ctrl+h move workspace to output right
+
+exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
