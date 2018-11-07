@@ -127,6 +127,9 @@ nnoremap <leader>ex :NERDTreeToggle <CR>
 " Treat _ as word separator
 set iskeyword-=_
 
+" Stop playing around with clipboards
+set clipboard=unnamedplus
+
 autocmd FileType make set noexpandtab softtabstop=0
 
 augroup cpp
