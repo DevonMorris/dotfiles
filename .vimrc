@@ -70,6 +70,9 @@ set t_Co=256
 colorscheme molokai
 set background=dark
 
+" This is for editing tags in xml files
+set matchpairs+=<:>
+
 let mapleader = "\\"
 nmap <space> <leader>
 vmap <space> <leader>
