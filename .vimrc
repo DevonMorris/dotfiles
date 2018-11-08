@@ -28,7 +28,7 @@ Plug 'tpope/vim-surround'
 " Git Integration
 Plug 'airblade/vim-gitgutter'
 
-" Multi-entry selection UI. FZF
+" Multi-entry selection UI. FZF, and silver searcher
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -196,6 +196,9 @@ highlight Pmenu ctermbg=darkgray guibg=darkgray
 nnoremap <leader>f :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
+" leader + ag for ag searching based on cwd
+nnoremap <leader>ag :Ag<CR>
+
 
 " Use nerdtree instead of netrw
 cnoremap Ex NERDTreeToggle
