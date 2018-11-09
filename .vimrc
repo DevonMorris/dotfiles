@@ -32,7 +32,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Style
+" Sytle
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
@@ -102,6 +102,9 @@ nmap <leader>gu <Plug>GitGutterUndoHunk
 nmap <leader>gj <Plug>GitGutterNextHunk
 nmap <leader>gk <Plug>GitGutterPrevHunk
 
+" Open splits the way I want
+set splitright
+set splitbelow
 
 " Mappings to go to end of line and beginning of line
 " I should really grow out of these some day
@@ -205,3 +208,8 @@ cnoremap Ex NERDTreeToggle
 
 " Make vimtex use xelatex
 let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
+
+" Nerdtree mappings
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+cnoremap Ex NERDTreeToggle
