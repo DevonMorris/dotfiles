@@ -23,6 +23,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Git Integration
 Plug 'airblade/vim-gitgutter'
