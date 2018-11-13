@@ -5,34 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc
-
-# Installing qutebrowser
-echo -e "${CYAN}Installing qutebrowser${NC}"
-if [[ `lsb_release -rs` == "16.04" ]]
-then
-  git clone https://github.com/qutebrowser/qutebrowser.git
-  pushd .
-  cd qutebrowser
-  tox -e mkvenv-pypi-old
-  echo -e '#!/bin/bash\n'$(pwd)'/.venv/bin/python3 -m qutebrowser "$@"' > ~/.local/bin/qutebrowser
-  chmod +x ~/.local/bin/qutebrowser
-  ./scripts/asciidoc2html.py
-  popd
-elif [[ `lsb_release -rs` == "18.04" ]] 
-then
-  sudo apt install qutebrowser
-fi
-
-# Installing lastpass cli
-if [[ `lsb_release -rs` == "16.04" ]] # replace 8.04 by the number of release you want
-then
-  sudo apt install libcurl3 libcurl3-openssl-dev libssl1.0 libssl1.0-dev
-elif [[ `lsb_release -rs` == "18.04" ]] 
-then
-  sudo apt install qutebrowser
-fi
-
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol rofi arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag
 
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Symlinking .gitconfig to home directory${NC}"
@@ -42,19 +15,8 @@ ln -svf `pwd`/.gitconfig $HOME/.gitconfig
 echo -e "${CYAN}Symlinking .vimrc to home directory${NC}"
 ln -svf `pwd`/.vimrc $HOME/.vimrc
 
-# Install Vundle package manager
-echo -e "${CYAN}Installing Vundle package manager${NC}"
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-
 # Install vim plugins
-vim -c PluginInstall -c q -c q
-
-# Compile YCM with C language sematic support
-echo -e "${CYAN}Compliling YCM${NC}"
-pushd .
-cd $HOME/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
-popd
+vim -c PlugInstall -c q -c q
 
 # Copying Ultisnips
 echo -e "${CYAN}Symlinking UltiSnips to .vim directory${NC}"
