@@ -1,6 +1,7 @@
 " Vim .vimrc
-" author: Devon Morris " contact: devonmorris1992@gmail.com
-" date: Nov 7 2018
+" author: Devon Morris 
+" contact: devonmorris1992@gmail.com
+" date: Nov 13 2018
 
 """""""""""""" Plugins """""""""""""""""""
 " Install vim-plug automatically if not installed
@@ -101,10 +102,7 @@ nnoremap <S-Tab> <C-O>
 
 " Mappings for Git (vim-fugitive and git-gutter)
 nmap <leader>ga <Plug>GitGutterStageHunk
-nmap <leader>gd <Plug>GitGutterPreviewHunk
 nmap <leader>gu <Plug>GitGutterUndoHunk
-nmap <leader>gj <Plug>GitGutterNextHunk
-nmap <leader>gk <Plug>GitGutterPrevHunk
 
 " Open splits the way I want
 set splitright
@@ -189,8 +187,8 @@ highlight Pmenu ctermbg=darkgray guibg=darkgray
 nnoremap <leader>f :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
-" leader + ag for ag searching based on cwd
-nnoremap <leader>ag :Ag<CR>
+" leader + gr for ag searching based on cwd (think grep)
+nnoremap <leader>gr :Ag<CR>
 
 
 " Use nerdtree instead of netrw
