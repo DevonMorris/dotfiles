@@ -22,7 +22,7 @@ To work with ALE in C++ you have to export your `compile_commands.json. This is 
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 
-in your `CMakeLists.txt`. If you're feeling really really adventurous for ROS you can put this line in your top-level cmake file `/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake`. That way all future ROS projects will export their compile commands for YCM to use.
+in your `CMakeLists.txt`. If you're feeling really really adventurous for ROS you can put this line in your top-level cmake file `/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake`. That way all future ROS projects will export their compile commands for ALE to use.
 
 In ALE, you also  have to select which linters you want to use. For C++, I'm currently using the Clang stack. The linters work pretty well with exception of header files. There is this [issue](https://github.com/w0rp/ale/issues/782) explaining the nuances of why it doesn't work and some rather hacky fixes.
 
