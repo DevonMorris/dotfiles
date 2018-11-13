@@ -85,7 +85,7 @@ set backspace=indent,eol,start
 " Escape Mappings for insert, visual and command modes
 inoremap jk <esc>
 vnoremap jk <esc>
-cnoremap jk <esc>
+cnoremap jk <C-c>
 
 " Mappings to edit .vimrc and source/save .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
