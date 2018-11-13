@@ -1,6 +1,5 @@
 " Vim .vimrc
-" author: Devon Morris
-" contact: devonmorris1992@gmail.com
+" author: Devon Morris " contact: devonmorris1992@gmail.com
 " date: Nov 7 2018
 
 """""""""""""" Plugins """""""""""""""""""
@@ -32,11 +31,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Sytle
+" Style
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
+
+" Note taking/Journaling 
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -50,6 +52,7 @@ set encoding=utf-8
 set lazyredraw
 
 set number relativenumber
+set incsearch
 
 " Only use 'hybrid' numbers in focused terminal
 augroup numbertoggle
@@ -78,9 +81,10 @@ nmap <space> <leader>
 vmap <space> <leader>
 set backspace=indent,eol,start
 
-" Escape Mappings for insert and visual modes
+" Escape Mappings for insert, visual and command modes
 inoremap jk <esc>
 vnoremap jk <esc>
+cnoremap jk <esc>
 
 " Mappings to edit .vimrc and source/save .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -105,20 +109,6 @@ nmap <leader>gk <Plug>GitGutterPrevHunk
 " Open splits the way I want
 set splitright
 set splitbelow
-
-" Mappings to go to end of line and beginning of line
-" I should really grow out of these some day
-nnoremap L $
-vnoremap L $
-nnoremap H 0
-vnoremap H 0
-
-" Mappings to move up and down faster
-" I should really grow out of these some day
-nnoremap J 10j
-nnoremap K 10k
-vnoremap J 10j
-vnoremap K 10k
 
 " Mappings to move up and down lines visually
 " It only makes a difference on long lines that wrap
