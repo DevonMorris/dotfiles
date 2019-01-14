@@ -1,4 +1,6 @@
-priority -1
+priority -99
+
+extends tex, texmath
 
 snippet rotx "Matrix for rotation about x"
 \begin{bmatrix}
@@ -27,6 +29,14 @@ snippet rotz "Matrix for rotation about z"
 
 endsnippet
 
+snippet skew "Skew symmetric matrix of vector"
+\begin{bmatrix}
+0 & -$3 & $2 \\\\
+$3 & 0 & -$1 \\\\
+-$2 & $1 & 0
+\end{bmatrix}
+endsnippet
+
 snippet DH "Table for DH parameters for a robot"
 \begin{table}
 \centering
@@ -41,5 +51,9 @@ snippet DH "Table for DH parameters for a robot"
 \caption{$2}
 \end{table}
 
+endsnippet
+
+snippet lr< "Inner product"
+\langle $1, $2 \rangle
 endsnippet
 # vim:ft=snippets:

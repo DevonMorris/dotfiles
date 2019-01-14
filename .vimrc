@@ -67,8 +67,8 @@ set completeopt=menu
 filetype plugin indent on    " required
 filetype plugin on
 syntax on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set t_Co=256
 colorscheme molokai
@@ -126,17 +126,24 @@ set clipboard=unnamedplus
 
 autocmd FileType make set noexpandtab softtabstop=0
 
-augroup cpp
-	autocmd!
+augroup py
+  autocmd!
+  set tabstop=4
+  set shiftwidth=4
+augroup END
+
+augroup c
+  autocmd!
   set tabstop=2
   set shiftwidth=2
 augroup END
 
-augroup py
-	autocmd!
-  set tabstop=4
-  set shiftwidth=4
+augroup h
+  autocmd!
+  set tabstop=2
+  set shiftwidth=2
 augroup END
+
 
 """"""""""""""""" Plugin Configuration """""""""""""
 "" ALE
@@ -154,6 +161,7 @@ let g:ale_echo_msg_warning_str = '⚠'
 let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 let g:ale_c_parse_compile_commands=1
 let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
+let g:ale_lint_on_text_changed = 'never'
 
 " Use Ale to jump to definition, etc.
 nnoremap <leader>i :ALEHover<CR>
@@ -170,7 +178,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Trigger configuration for ultisnips. 
-let g:UltiSnipsSnippetDirectories=["/home/devon/.vim/UltiSnips", "~/.vim/plugged/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips","/home/devon/.vim/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -188,7 +196,7 @@ nnoremap <leader>f :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
 " leader + gr for ag searching based on cwd (think grep)
-nnoremap <leader>gr :Ag<CR>
+nnoremap <leader>ag :Ag<CR>
 
 
 " Use nerdtree instead of netrw
