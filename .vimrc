@@ -100,10 +100,6 @@ nnoremap <leader>k <C-W><C-K>
 " Mapping for jumping
 nnoremap <S-Tab> <C-O>
 
-" Mappings for Git (vim-fugitive and git-gutter)
-nmap <leader>ga <Plug>GitGutterStageHunk
-nmap <leader>gu <Plug>GitGutterUndoHunk
-
 " Open splits the way I want
 set splitright
 set splitbelow
@@ -125,24 +121,11 @@ set iskeyword-=_
 set clipboard=unnamedplus
 
 autocmd FileType make set noexpandtab softtabstop=0
+autocmd FileType c setlocal ts=2 sw=2 expandtab
+autocmd FileType cpp setlocal ts=2 sw=2 expandtab
+autocmd FileType py setlocal ts=4 sw=4 expandtab
 
-augroup py
-  autocmd!
-  set tabstop=4
-  set shiftwidth=4
-augroup END
 
-augroup c
-  autocmd!
-  set tabstop=2
-  set shiftwidth=2
-augroup END
-
-augroup h
-  autocmd!
-  set tabstop=2
-  set shiftwidth=2
-augroup END
 
 
 """"""""""""""""" Plugin Configuration """""""""""""
