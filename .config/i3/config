@@ -18,7 +18,7 @@ set $mod1 Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:DejaVu Sans Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -41,7 +41,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 20 -eh 1 -width 20 -padding 10 -opacity "10" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -location 1
+bindsym $mod+d exec dmenu_run -nb '#2f343f' -sb '#e6db74'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -171,14 +171,14 @@ set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $urgent-bg-color     #F92672
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
+client.focused          $bg-color           $bg-color          $text-color          #F92672
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #F92672
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #F92672
+client.urgent $urgent-bg-color $urgent-bg-color $text-color #F92672
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -200,47 +200,22 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # lockscreen
-bindsym $mod+$mod1+l exec i3lock --color 475263
+bindsym $mod+$mod1+l exec i3lock --color 2f343f
 
 # Fix for "Natural Scrolling"
 exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Background stored as wallpaper.png
-exec feh --bg-scale /home/devon/Pictures/wallpaper.png
+exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
 
 # Keybindings for audio up/down and mute Mac 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
 
-# Move certain programs to certain workspaces
-assign [class="Firefox"] $workspace2
-assign [class="qutebrowser"] $workspace2
-assign [class="Slack"] $workspace3
-assign [class="Gazeb"] $workspace4
-
-assign [class="Mavproxy.py"] $workspace5
-assign [class="XTerm"] $workspace6
-assign [class="rqt_image_view"] $workspace7
-assign [class="rqt_reconfigure"] $workspace7
-assign [class="rqt_gui"] $workspace7
-# assign [name="Handoff Plotter"] $workspace8
-# assign [class="X-terminal-emulator"] $workspace1
-
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:nocaps
 
-# turn on compositing manager
-#exec --no-startup-id compton
-
-# Start slack on startup
-exec slack
-
-# Start terminal on startup
-exec terminator
-
-# Move workspaces
-bindsym $mod+ctrl+l move workspace to output right
 bindsym $mod+ctrl+h move workspace to output right
 
 exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
