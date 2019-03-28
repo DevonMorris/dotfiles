@@ -1,7 +1,12 @@
 " Vim .vimrc
 " author: Devon Morris 
 " contact: devonmorris1992@gmail.com
-" date: Nov 13 2018
+" date: Mar 28 2019
+
+"""""""""""""" Start Server """""""""""""""""""
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
 
 """""""""""""" Plugins """""""""""""""""""
 " Install vim-plug automatically if not installed
@@ -10,6 +15,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -24,9 +30,6 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-
-" Git Integration
-Plug 'airblade/vim-gitgutter'
 
 " Multi-entry selection UI. FZF, and silver searcher
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -54,6 +57,12 @@ set lazyredraw
 
 set number relativenumber
 set incsearch
+
+" Hide buffers that have edits
+set hidden
+
+" Add mouse support for noobs who use my computer
+set mouse=a
 
 " Only use 'hybrid' numbers in focused terminal
 augroup numbertoggle
@@ -153,12 +162,13 @@ nnoremap <leader>r :ALEFindReferences<CR>
 
 " Show ale errors in airline status bar
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " This is for airline and powerline
 " Note: If symbols don't appear install them with
 " `sudo apt install fonts-powerline` Ubuntu
 " This font is also required for the ale_msgs
-let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
 
 " Trigger configuration for ultisnips. 
 let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips","/home/devon/.vim/UltiSnips"]
@@ -167,8 +177,10 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Don't override background
-hi Normal guibg=NONE ctermbg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
+highlight clear LineNr
+highlight clear Signcolumn
 " But let pop upmenu override background so you can tell it's a popup
 highlight Pmenu ctermbg=darkgray guibg=darkgray
 
@@ -186,7 +198,7 @@ nnoremap <leader>ag :Ag<CR>
 cnoremap Ex NERDTreeToggle
 
 " Make vimtex use xelatex
-let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
+let g:vimtex_view_method = 'zathura'
 
 " Nerdtree mappings
 autocmd StdinReadPre * let s:std_in=1

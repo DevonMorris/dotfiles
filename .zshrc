@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/devon/.oh-my-zsh"
+export ZSH="/home/devon/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -90,18 +90,14 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
-source /opt/ros/kinetic/setup.zsh
+source /opt/ros/melodic/setup.zsh
 export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
-alias vim="vim --servername VIM"
+#alias vim="vim --servername VIM"
 
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
