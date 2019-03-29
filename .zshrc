@@ -94,6 +94,7 @@ export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
 #alias vim="vim --servername VIM"
 
+alias molokai="vim ~/.oh-my-zsh/themes/molokai.zsh-theme"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
