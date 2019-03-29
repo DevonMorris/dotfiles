@@ -127,7 +127,7 @@ nnoremap <leader>ex :NERDTreeToggle <CR>
 set iskeyword-=_
 
 " Stop playing around with clipboards
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 autocmd FileType make set noexpandtab softtabstop=0
 autocmd FileType c setlocal ts=2 sw=2 expandtab
