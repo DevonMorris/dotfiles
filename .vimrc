@@ -181,6 +181,7 @@ highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
 highlight clear LineNr
 highlight clear Signcolumn
+highlight clear VertSplit
 " But let pop upmenu override background so you can tell it's a popup
 highlight Pmenu ctermbg=darkgray guibg=darkgray
 
