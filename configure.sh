@@ -5,7 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 i3lock git fonts-powerline wget compton pavucontrol zathura arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag fonts-font-awesome libncurses5-dev dbus-x11
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget pavucontrol zathura arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag fonts-font-awesome libncurses5-dev dbus-x11 xdotool
 
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Symlinking .gitconfig to home directory${NC}"
