@@ -25,6 +25,7 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.debug.silent": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
