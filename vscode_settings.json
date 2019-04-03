@@ -1,0 +1,58 @@
+{
+  // Molokai Color Scheme Settings
+  "workbench.colorCustomizations": {
+    "editor.background": "#2f343f",
+    "tab.inactiveBackground": "#292e38",
+    "input.background": "#2f343f",
+    "activityBar.background": "#2f343f",
+    "sideBar.background": "#2f343f",
+    "editor.lineHighlightBackground": "#292e38",
+    "editorWidget.background": "#292e38",
+    "dropdown.background": "#292e38",
+    "editorSuggestWidget.background": "#292e38",
+    "panel.background": "#2f343f",
+    "menu.background": "#2f343f",
+    "terminal.background": "#2f343f",
+    "statusBar.background": "#292e38",
+    "editorGroupHeader.tabsBackground": "#292e38",
+    "tab.activeModifiedBorder": "#f92672",
+    "tab.inactiveModifiedBorder": "#f92672"
+  },
+  "workbench.editor.highlightModifiedTabs": true,
+  "python.jediEnabled": false,
+  "editor.lineNumbers": "relative",
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "e", "v"],
+      "after": [""]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "python.pythonPath": "/usr/bin/python",
+  "workbench.colorTheme": "Dark (Molokai)",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "editor.fontSize": 12,
+  "editor.fontFamily": "'DejaVu Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "terminal.integrated.fontFamily":"DejaVu Sans Mono",
+  "terminal.integrated.fontSize": 12,
+  "workbench.activityBar.visible": false,
+  "window.menuBarVisibility": "toggle"
+}
