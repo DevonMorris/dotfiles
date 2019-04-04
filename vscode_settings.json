@@ -1,7 +1,23 @@
 {
+  // Language specific settings
+  "[cpp]":{
+    "editor.wordBasedSuggestions": false,
+    "editor.tabSize": 2
+  },
+  "[python]":{
+    "editor.wordBasedSuggestions": false,
+    "editor.tabSize": 4
+  },
+  "[latex]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.wordWrap": "on"
+  },
   // Molokai Color Scheme Settings
   "workbench.colorCustomizations": {
     "editor.background": "#2f343f",
+    "editorGroupHeader.tabsBackground": "#2f343f",
     "tab.inactiveBackground": "#292e38",
     "input.background": "#2f343f",
     "activityBar.background": "#2f343f",
@@ -14,17 +30,18 @@
     "menu.background": "#2f343f",
     "terminal.background": "#2f343f",
     "statusBar.background": "#292e38",
-    "editorGroupHeader.tabsBackground": "#292e38",
+    "editorGroupHeader.tabjsBackground": "#292e38",
     "tab.activeModifiedBorder": "#f92672",
     "tab.inactiveModifiedBorder": "#f92672"
   },
   "workbench.editor.highlightModifiedTabs": true,
+  "workbench.list.keyboardNavigation": "simple",
   "python.jediEnabled": false,
   "editor.lineNumbers": "relative",
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
+  "vim.hlsearch": false,
   "vim.debug.silent": true,
   "vim.insertModeKeyBindings": [
     {
@@ -38,8 +55,40 @@
       "commands": [":nohl"]
     },
     {
-      "before": ["<leader>", "e", "v"],
-      "after": [""]
+      "before": ["<C-b>"],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": ["<C-b>"],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": [
+        "workbench.action.terminal.focus"
+      ]
+    },
+    {
+      "before": ["<leader>", "l", "v"],
+      "commands": [
+        "latex-workshop.view"
+      ],
+      "when": "editorTextFocus && !latex-workshop:altkeymap"
+    }
+  ],
+  "latex-workshop.view.pdf.invert": 0.9,
+  "terminal.integrated.commandsToSkipShell": [
+    // Ensure the toggle sidebar visibility keybinding skips the shell
+    "workbench.action.toggleSidebarVisibility",
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.leader": "<space>",
@@ -47,11 +96,15 @@
     "<C-a>": false,
     "<C-f>": false
   },
+  "edit.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.overviewRulerBorder": false,
   "python.pythonPath": "/usr/bin/python",
   "workbench.colorTheme": "Dark (Molokai)",
   "latex-workshop.view.pdf.viewer": "tab",
   "editor.fontSize": 12,
   "editor.fontFamily": "'DejaVu Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.minimap.enabled": false,
   "terminal.integrated.fontFamily":"DejaVu Sans Mono",
   "terminal.integrated.fontSize": 12,
   "workbench.activityBar.visible": false,
