@@ -27,7 +27,7 @@
     "dropdown.background": "#292e38",
     "editorSuggestWidget.background": "#292e38",
     "panel.background": "#2f343f",
-    "menu.background": "#2f343f",
+    "menu.background": "#2f34j3f",
     "terminal.background": "#2f343f",
     "statusBar.background": "#292e38",
     "editorGroupHeader.tabjsBackground": "#292e38",
@@ -73,11 +73,23 @@
       ]
     },
     {
+      "before": ["<C-t>"],
+      "commands": [
+        "workbench.action.showAllSymbols"
+      ]
+    },
+    {
       "before": ["<leader>", "l", "v"],
       "commands": [
-        "latex-workshop.view"
+        "latex-workshop.synctex"
       ],
       "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
+    {
+      "before": ["<leader>", "e", "v"],
+      "commands": [
+        "workbench.action.openSettingsJson"
+      ],
     }
   ],
   "latex-workshop.view.pdf.invert": 0.9,
