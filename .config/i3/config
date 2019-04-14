@@ -167,18 +167,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
+set $border              #282828
+set $bg-color 	         #458588
+set $inactive-bg-color   #282828
+set $text-color          #eedbb2
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #F92672
-set $blue                #669def
+set $indicator           #b16286
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $blue             $text-color          #F92672
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #F92672
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #F92672
+client.focused          $border             $bg-color          $text-color          $indicator
+client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $border
+client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $indicator
 client.urgent $urgent-bg-color $urgent-bg-color $text-color #F92672
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -186,7 +187,7 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #F92672
 bar {
     status_command i3status
     colors {
-      background $bg-color
+      background $inactive-bg-color
           separator #757575
       #                  border             background         text
       focused_workspace  $bg-color          $bg-color          $text-color
@@ -210,16 +211,21 @@ exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
 
 # Keybindings for audio up/down and mute Mac 
-BINDSYM xf86aUDIOraiseVolume exec pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #DECREASE SOUND VOLUMe
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # No title bars
 for_window [class="^.*"] border pixel 2
 
+# Scratchpad
+bindsym $mod+semicolon move scratchpad
+bindsym $mod+apostrophe scratchpad show
+
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:nocaps
 
-bindsym $mod+ctrl+h move workspace to output right
+bindsym $mod+ctrl+l move workspace to output right
+bindsym $mod+ctrl+h move workspace to output left
 
 exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
