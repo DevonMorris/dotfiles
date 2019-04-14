@@ -7,7 +7,7 @@ export ZSH="/home/devon/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="molokai"
+ZSH_THEME="gruvbox"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -90,9 +90,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-export PATH=$PATH:$HOME/dev/ardupilot/Tools/autotest
 
 #alias vim="vim --servername VIM"
+source /opt/ros/melodic/setup.zsh
 
 alias molokai="vim ~/.oh-my-zsh/themes/molokai.zsh-theme"
 alias vimrc="vim ~/.vimrc"
@@ -102,6 +102,7 @@ alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
 alias matlab="matlab -nosplash -nodesktop"
+alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 
 mem()
 {
