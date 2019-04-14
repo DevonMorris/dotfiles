@@ -80,7 +80,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set t_Co=256
-colorscheme molokai
+colorscheme gruvbox
 set background=dark
 
 " This is for editing tags in xml files
@@ -127,7 +127,7 @@ nnoremap <leader>ex :NERDTreeToggle <CR>
 set iskeyword-=_
 
 " Stop playing around with clipboards
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 autocmd FileType make set noexpandtab softtabstop=0
 autocmd FileType c setlocal ts=2 sw=2 expandtab
@@ -168,7 +168,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Note: If symbols don't appear install them with
 " `sudo apt install fonts-powerline` Ubuntu
 " This font is also required for the ale_msgs
-let g:airline_theme='molokai'
+let g:airline_theme='gruvbox'
 
 " Trigger configuration for ultisnips. 
 let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips","/home/devon/.vim/UltiSnips"]
