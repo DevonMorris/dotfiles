@@ -1,23 +1,33 @@
-! Molokai theme
-*background: #2f343f
-*foreground: #d0d0d0
-*cursorColor: #d0d0d0
-*color0: #101010
-*color1: #960050
-*color2: #66aa11
-*color3: #c47f2c
-*color4: #30309b
-*color5: #7e40a5
-*color6: #3579a8
-*color7: #9999aa
-*color8: #303030
-*color9: #ff0090
-*color10: #80ff00
-*color11: #ffba68
-*color12: #5f5fee
-*color13: #bb88dd
-*color14: #4eb4fa
-*color15: #d0d0d0
+
+! Gruvbox theme
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -40,25 +50,6 @@ URxvt*keysym.Shift-Control-V: eval:paste_clipboard
 URxvt*keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt*iso14755: false
 URxvt*iso14755_52: false
-
-URxvt*background: #2f343f
-URxvt*foreground: #CCCCCC
-URxvt*color0: #101010
-URxvt*color1: #960050
-URxvt*color2: #66aa11
-URxvt*color3: #c47f2c
-URxvt*color4: #30309b
-URxvt*color5: #7e40a5
-URxvt*color6: #3579a8
-URxvt*color7: #9999aa
-URxvt*color8: #303030
-URxvt*color9: #ff0090
-URxvt*color10: #80ff00
-URxvt*color11: #ffba68
-URxvt*color12: #5f5fee
-URxvt*color13: #bb88dd
-URxvt*color14: #4eb4fa
-URxvt*color15: #d0d0d0
 
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true for Powerline:size=12
 URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
