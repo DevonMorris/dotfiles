@@ -64,6 +64,9 @@ set hidden
 " Add mouse support for noobs who use my computer
 set mouse=a
 
+" Highlight current line
+set cursorline
+
 " Only use 'hybrid' numbers in focused terminal
 augroup numbertoggle
   autocmd!
