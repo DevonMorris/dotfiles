@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 
 " Syntax/Linting
 Plug 'w0rp/ale'
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'lervag/vimtex'
 
 " Typing
@@ -75,6 +76,7 @@ augroup numbertoggle
 augroup END
 
 set completeopt=menu
+set completeopt+=noinsert
 
 filetype plugin indent on    " required
 filetype plugin on
@@ -146,7 +148,7 @@ autocmd FileType py setlocal ts=4 sw=4 expandtab
 " To use clang, make sure to install clang and update alternatives 
 " https://askubuntu.com/questions/970640/trying-to-install-atom-unable-to-start-clangd-language-server
 " Is a good resource, but this needs to be done for each linter
-let g:ale_linters = {'cpp': ['clang', 'clangd', 'clangcheck', 'clangtidy', 'clang-format'], 'python':['pyls'], 'cmake': ['cmakelint']}
+let g:ale_linters = {'cpp': ['ccls'], 'python':['pyls'], 'cmake': ['cmakelint']}
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
@@ -159,9 +161,9 @@ let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'perf
 let g:ale_lint_on_text_changed = 'never'
 
 " Use Ale to jump to definition, etc.
-nnoremap <leader>i :ALEHover<CR>
-nnoremap <leader>d  :ALEGoToDefinition<CR>
-nnoremap <leader>r :ALEFindReferences<CR>
+nnoremap <leader>gh :ALEHover<CR>
+nnoremap <leader>gd  :ALEGoToDefinition<CR>
+nnoremap <leader>gr :ALEFindReferences<CR>
 
 " Show ale errors in airline status bar
 let g:airline#extensions#ale#enabled = 1
