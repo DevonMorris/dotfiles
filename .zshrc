@@ -101,7 +101,7 @@ alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
-#alias matlab="matlab -nosplash -nodesktop"
+alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
