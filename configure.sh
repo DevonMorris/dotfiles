@@ -7,6 +7,14 @@ NC='\033[0m'
 echo -e "${CYAN}Installing prerequsite packages${NC}"
 sudo apt install feh zsh i3 i3lock git fonts-powerline wget pavucontrol zathura arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag fonts-font-awesome libncurses5-dev dbus-x11 xdotool xclip compton scrot
 
+# Copying .Xresources
+echo -e "${CYAN}Symlinking .Xresources to home directory${NC}"
+ln -svf `pwd`/.Xresources $HOME/.Xresources
+
+# Copying .xinitrc
+echo -e "${CYAN}Symlinking .xinitrc to home directory (Make sure to generate proper screen layout)${NC}"
+ln -svf `pwd`/.xinitrc $HOME/.xinitrc
+
 # Copying .gitconfig into home directory
 echo -e "${CYAN}Symlinking .gitconfig to home directory${NC}"
 ln -svf `pwd`/.gitconfig $HOME/.gitconfig
