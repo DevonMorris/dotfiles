@@ -40,8 +40,8 @@ Xft.hintstyle: hintfull
 URxvt.scrollBar: false
 
 URxvt*depth: 32
-URxvt*transparent: false
-URxvt*fading: 0
+URxvt*fading: 15
+URxvt*background: rgba:2800/2800/2800/bb00
 URxvt*loginShell: true
 URxvt*saveLines: 20000
 URxvt*internalBorder: 3
