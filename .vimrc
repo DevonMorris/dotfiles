@@ -199,14 +199,9 @@ nnoremap <leader>s :Snippets<CR>
 " leader + gr for ag searching based on cwd (think grep)
 nnoremap <leader>ag :Ag<CR>
 
-
-" Use nerdtree instead of netrw
-cnoremap Ex NERDTreeToggle
-
 " Make vimtex use xelatex
 let g:vimtex_view_method = 'zathura'
 
 " Nerdtree mappings
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-cnoremap Ex NERDTreeToggle
