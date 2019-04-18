@@ -57,6 +57,7 @@ set encoding=utf-8
 set lazyredraw
 
 set number relativenumber
+set numberwidth=2
 set incsearch
 
 " Hide buffers that have edits
@@ -150,7 +151,7 @@ autocmd FileType py setlocal ts=4 sw=4 expandtab
 " Is a good resource, but this needs to be done for each linter
 let g:ale_linters = {'cpp': ['ccls'], 'python':['pyls'], 'cmake': ['cmakelint']}
 let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 0
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = '✖'
