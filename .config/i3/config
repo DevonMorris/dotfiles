@@ -235,3 +235,7 @@ bindsym $mod+ctrl+h move workspace to output left
 workspace_auto_back_and_forth yes
 
 exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
+
+# Gaps if i3-gaps is installed
+#gaps inner 7 
+#smart_gaps on
