@@ -94,7 +94,6 @@ source $ZSH/oh-my-zsh.sh
 #alias vim="vim --servername VIM"
 source /opt/ros/melodic/setup.zsh
 
-alias molokai="vim ~/.oh-my-zsh/themes/molokai.zsh-theme"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
@@ -103,6 +102,7 @@ alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
 alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
+alias grep="ag"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
