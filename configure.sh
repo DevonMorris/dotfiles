@@ -56,8 +56,7 @@ echo -e "${CYAN}Copying Wallpaper to Pictures directory${NC}"
 cp -r Pictures $HOME
 
 # Copy over i3 config
-echo -e "${CYAN}Copying i3 Config${NC}"
-i3-config-wizard
-cp .config/i3/config $HOME/.config/i3/config
+echo -e "${CYAN}Symlinking i3 Config${NC}"
+ln -svf `pwd`/.config/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
-cp .config/i3status/config $HOME/.config/i3status/config
+ln-svf `pwd`/.config/i3status/config $HOME/.config/i3status/config
