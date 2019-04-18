@@ -215,6 +215,11 @@ exec feh --bg-scale /home/devon/Pictures/wallpaper.jpg
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #DECREASE SOUND VOLUMe
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+# Playerctl stuff
+bindsym XF86AudioPlay exec playerctl play-pause # Play or Pause
+bindsym XF86AudioNext exec playerctl next # Next Song
+bindsym XF86AudioPrev exec playerctl previous # Next Song
+bindsym XF86Tools [class="Spotify"] scratchpad show
 
 # No title bars
 for_window [class="^.*"] border pixel 2
