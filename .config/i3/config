@@ -72,10 +72,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+n split h
+bindsym $mod+o split h
 
 # split in vertical orientation
-bindsym $mod+m split v
+bindsym $mod+i split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -92,10 +92,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+n focus child
 
 # switch to workspace
 #
@@ -223,6 +223,7 @@ for_window [class="^.*"] border pixel 2
 bindsym $mod+apostrophe move scratchpad
 bindsym $mod+semicolon [class="Spotify"] scratchpad show
 bindsym $mod+slash [class="Slack"] scratchpad show
+bindsym $mod+backslash scratchpad show
 
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:nocaps
