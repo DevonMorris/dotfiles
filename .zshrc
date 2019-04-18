@@ -111,6 +111,7 @@ source /opt/ros/melodic/setup.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Make zsh be vim
 #bindkey 'jk' vi-cmd-mode
