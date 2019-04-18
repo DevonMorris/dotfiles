@@ -107,6 +107,14 @@ alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
 
+source /opt/ros/melodic/setup.zsh
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+
+# Make zsh be vim
+#bindkey 'jk' vi-cmd-mode
+
 mem()
 {
    ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'
@@ -117,3 +125,5 @@ export PATH=$HOME/.local/bin:$PATH
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
