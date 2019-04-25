@@ -41,7 +41,7 @@ URxvt.scrollBar: false
 
 URxvt*depth: 32
 URxvt*fading: 15
-URxvt*background: rgba:2800/2800/2800/bb00
+URxvt*background: rgba:2800/2800/2800/cc00
 URxvt*loginShell: true
 URxvt*saveLines: 20000
 URxvt*internalBorder: 3
@@ -51,5 +51,12 @@ URxvt*keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt*iso14755: false
 URxvt*iso14755_52: false
 
+
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true for Powerline:size=12
 URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+
+!-*- Perl extensions -*-
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select,font-size
+URxvt.keysym.C-equal:     font-size:increase
+URxvt.keysym.C-S-equal:   font-size:incglobal
