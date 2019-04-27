@@ -92,26 +92,28 @@ source $ZSH/oh-my-zsh.sh
 #
 
 #alias vim="vim --servername VIM"
-source /opt/ros/melodic/setup.zsh
+# source /opt/ros/melodic/setup.zsh
 
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
+alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
 alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
+alias polybarconfig="vim ~/.config/polybar/config"
 alias grep="ag"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
 
-source /opt/ros/melodic/setup.zsh
+#source /opt/ros/melodic/setup.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
+#export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Make zsh be vim
 #bindkey 'jk' vi-cmd-mode
