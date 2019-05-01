@@ -33,9 +33,7 @@ Some of the major changes I've made to the default i3wm configuration are
 
 * Switching movement and resize from `j,k,l,;` to the classic vim movement keys `h,j,k,l`
 * Using `Mod+q` to kill a window instead of `Mod+Shift+q`
-* Replacing `dmenu_run` with `rofi`
-* Changing splitting directions with `Mod+n` and `Mod+m`
-* Named workspaces
+* Changing splitting directions with `Mod+i` and `Mod+o`
 * Changing window colors
 * Adding i3lock with `Mod1+Mod2+l`
 * "Natural Scrolling" on touchpads
@@ -56,4 +54,3 @@ sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
 Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
-
