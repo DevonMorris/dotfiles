@@ -111,7 +111,7 @@ source /opt/ros/melodic/setup.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
+#export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Make zsh be vim
 #bindkey 'jk' vi-cmd-mode
@@ -128,3 +128,5 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PROMPT_COMMAND="pwd > /tmp/whereami"
+precmd() { eval "$PROMPT_COMMAND" }
