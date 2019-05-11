@@ -22,6 +22,7 @@ set $menu dmenu_path | dmenu -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#ebd
 
 font pango:DejaVu Sans Mono 8
 
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -178,7 +179,11 @@ input 1452:627:bcm5974 {
 # Scratchpad:
 #
     bindsym $mod+apostrophe move scratchpad
-    bindsym $mod+semicolon [class="Spotify"] scratchpad show
+    for_window [instance="music"] move container to scratchpad
+    exec $ns urxvt -name music -e ncmpcpp
+    bindsym $mod+semicolon [instance="music"] scratchpad show
+    bindsym $mod+Shift+semicolon exec $ns urxvt -name music -e ncmpcpp
+    # bindsym $mod+semicolon [class="Spotify"] scratchpad show
     bindsym $mod+slash [class="Slack"] scratchpad show
     bindsym $mod+backslash scratchpad show
 
@@ -234,6 +239,9 @@ client.focused          $bg-color           $bg-color          $text-color      
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $border     $border
 client.focused_inactive $bg-color  $bg-color $inactive-text-color $border     $border
 client.urgent $urgent-bg-color $urgent-bg-color $text-color $border $border
+
+# Notifications daemon
+mako --background-color=#282828CC --max-visible=3 --border-color=#282828CC font=monospace\ 8
 
 #
 # Status Bar:
