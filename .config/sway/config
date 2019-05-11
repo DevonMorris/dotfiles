@@ -8,6 +8,7 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
+set $mod1 Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -46,12 +47,15 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+# lock with swaylock
+bindsym $mod+$mod1+l exec swaylock -i $HOME/Pictures/lock.jpg
+
 # Fix MBP HIDPI
 output eDP-1 scale 2
 
 # Layout for MBP in Cambridge
 output eDP-1 pos 0 0 res 2560x1600
-output HDMI-A-2 pos 1280 -500 res 1920x1080
+output HDMI-A-2 pos 1280 0 res 1920x1080
 
 ### Input configuration
 
