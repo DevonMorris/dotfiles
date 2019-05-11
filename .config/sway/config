@@ -241,7 +241,7 @@ client.focused_inactive $bg-color  $bg-color $inactive-text-color $border     $b
 client.urgent $urgent-bg-color $urgent-bg-color $text-color $border $border
 
 # Notifications daemon
-mako --background-color=#282828CC --max-visible=3 --border-color=#282828CC font=monospace\ 8
+mako --background-color=#282828CC --max-visible=3 --border-color=#282828CC --default-timeout 2500 --ignore-timeout 1
 
 #
 # Status Bar:
