@@ -54,3 +54,6 @@ sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
 Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
+
+## Sway
+Recently on my Macbook Pro 12,1 I've been using Wayland+Sway to get deal with the HiDPI retina monitor. I have done my best to mimic my i3 config in every way. So the keybindings (and colors) should be essentially the same.
