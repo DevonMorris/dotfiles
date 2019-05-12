@@ -183,8 +183,10 @@ input 1452:627:bcm5974 {
     exec $ns urxvt -name music -e ncmpcpp
     bindsym $mod+semicolon [instance="music"] scratchpad show
     bindsym $mod+Shift+semicolon exec $ns urxvt -name music -e ncmpcpp
+    bindsym $mod+Shift+slash exec $ns urxvt -name slack -e weechat
+    bindsym $mod+slash [instance="slack"] scratchpad show
     # bindsym $mod+semicolon [class="Spotify"] scratchpad show
-    bindsym $mod+slash [class="Slack"] scratchpad show
+    # bindsym $mod+slash [class="Slack"] scratchpad show
     bindsym $mod+backslash scratchpad show
 
 #
@@ -225,7 +227,7 @@ bindsym $mod+r mode "resize"
 #
 # Window Colors:
 #
-set $border              #282828CC
+set $border              #282828Cc
 set $bg-color 	         #458588CC
 set $inactive-bg-color   #282828CC
 set $text-color          #EEDBB2FF
@@ -241,7 +243,7 @@ client.focused_inactive $bg-color  $bg-color $inactive-text-color $border     $b
 client.urgent $urgent-bg-color $urgent-bg-color $text-color $border $border
 
 # Notifications daemon
-mako --background-color=#282828CC --max-visible=3 --border-color=#282828CC --default-timeout 2500 --ignore-timeout 1
+exec mako --background-color=#282828CC --max-visible=3 --border-color=#282828CC --default-timeout=2500 --ignore-timeout=1
 
 #
 # Status Bar:
