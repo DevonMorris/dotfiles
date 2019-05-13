@@ -5,7 +5,7 @@ NC='\033[0m'
 
 # Install Prerequisite apt packages
 echo -e "${CYAN}Installing prerequsite packages${NC}"
-sudo apt install feh zsh i3 i3lock git fonts-powerline wget pavucontrol zathura arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag fonts-font-awesome libncurses5-dev dbus-x11 xdotool xclip compton scrot
+sudo apt install feh zsh i3 i3lock git fonts-powerline wget pavucontrol zathura arandr ranger python3 libglib2.0-0 libgl1 libfontconfig1 libx11-xcb1 libxi6 libxrender1 libdbus-1-3 tox asciidoc silversearcher-ag fonts-font-awesome libncurses5-dev dbus-x11 xdotool xclip compton scrot rxvt-unicode-256color
 
 # Copying .Xresources
 echo -e "${CYAN}Symlinking .Xresources to home directory${NC}"
@@ -59,4 +59,4 @@ cp -r Pictures $HOME
 echo -e "${CYAN}Symlinking i3 Config${NC}"
 ln -svf `pwd`/.config/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
-ln-svf `pwd`/.config/i3status/config $HOME/.config/i3status/config
+ln -svf `pwd`/.config/i3status/config $HOME/.config/i3status/config
