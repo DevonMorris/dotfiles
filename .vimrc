@@ -196,6 +196,11 @@ highlight clear VertSplit
 " But let pop upmenu override background so you can tell it's a popup
 highlight Pmenu ctermbg=darkgray guibg=darkgray
 
+" Git Gutter mappings
+nnoremap gn :GitGutterNextHunk<CR>
+nnoremap gp :GitGutterPrevHunk<CR>
+nnoremap gs :GitGutterStageHunk<CR>
+
 " FZF
 " leader + f to search files
 " Ctrl+t, Ctrl+x, Ctrl+v to open in tab, split, vsplit
