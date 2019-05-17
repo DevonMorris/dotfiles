@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'lervag/vimtex'
+Plug 'airblade/vim-gitgutter'
 
 " Typing
 Plug 'SirVer/ultisnips'
@@ -160,11 +161,15 @@ let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 let g:ale_c_parse_compile_commands=1
 let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_echo_cursor = 0
 
 " Use Ale to jump to definition, etc.
-nnoremap <leader>gh :ALEHover<CR>
-nnoremap <leader>gd  :ALEGoToDefinition<CR>
-nnoremap <leader>gr :ALEFindReferences<CR>
+nnoremap gh :ALEHover<CR>
+nnoremap gd  :ALEGoToDefinition<CR>
+nnoremap gr :ALEFindReferences<CR>
+nnoremap ge :ALEDetail<CR>
 
 " Show ale errors in airline status bar
 let g:airline#extensions#ale#enabled = 1
