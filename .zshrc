@@ -59,6 +59,8 @@ ZSH_THEME="gruvbox"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  colored-man-pages
+  command-not-found
   git
   z
 )
@@ -106,8 +108,8 @@ alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 alias polybarconfig="vim ~/.config/polybar/config"
 alias grep="ag"
 
-export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
+#export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+#export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
 
 #source /opt/ros/melodic/setup.zsh
 
