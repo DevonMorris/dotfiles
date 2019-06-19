@@ -103,7 +103,7 @@ alias i3config="vim ~/.config/i3/config"
 alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
-alias matlab="matlab -nosplash -nodesktop"
+#alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 alias polybarconfig="vim ~/.config/polybar/config"
 alias grep="ag"
@@ -131,6 +131,11 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="/opt/rti_connext_dds-5.3.1/bin:$PATH"
+
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 precmd() { eval "$PROMPT_COMMAND" }
+
+unsetopt share_history

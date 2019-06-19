@@ -32,6 +32,7 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'triglav/vim-visual-increment'
 
 " Multi-entry selection UI. FZF, and silver searcher
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -150,7 +151,7 @@ autocmd FileType py setlocal ts=4 sw=4 expandtab
 " To use clang, make sure to install clang and update alternatives 
 " https://askubuntu.com/questions/970640/trying-to-install-atom-unable-to-start-clangd-language-server
 " Is a good resource, but this needs to be done for each linter
-let g:ale_linters = {'cpp': ['ccls'], 'python':['pyls'], 'cmake': ['cmakelint']}
+let g:ale_linters = {'cpp': ['ccls','cpplint'], 'python':['pyls'], 'cmake': ['cmakelint']}
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 0
 let g:ale_sign_error = '✖'
@@ -161,6 +162,7 @@ let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 let g:ale_c_parse_compile_commands=1
 let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_echo_cursor = 0
@@ -202,6 +204,7 @@ nnoremap gp :GitGutterPrevHunk<CR>
 nnoremap gs :GitGutterStageHunk<CR>
 
 " FZF
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 " leader + f to search files
 " Ctrl+t, Ctrl+x, Ctrl+v to open in tab, split, vsplit
 nnoremap <leader>f :Files<CR>
