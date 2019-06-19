@@ -12,6 +12,7 @@ order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "volume master"
+order += "battery all"
 order += "time"
 
 cpu_usage {
