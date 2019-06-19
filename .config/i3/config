@@ -230,8 +230,14 @@ for_window [id="^.*"] border pixel 2
 # Scratchpad
 bindsym $mod+apostrophe move scratchpad
 bindsym $mod+semicolon [class="Spotify"] scratchpad show
+bindsym $mod+period [class="Teams for Linux"] scratchpad show
 bindsym $mod+slash [class="Slack"] scratchpad show
 bindsym $mod+backslash scratchpad show
+
+# Make certain windows always floating
+for_window [title="Simulink Library Browser"] floating enable
+for_window [class="Teams for Linux"] floating enable
+for_window [class="Slack"] floating enable
 
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:nocaps
