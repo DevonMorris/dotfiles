@@ -22,7 +22,6 @@ call plug#begin('~/.vim/plugged')
 
 " Syntax/Linting
 Plug 'w0rp/ale'
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 
@@ -62,10 +61,7 @@ set number relativenumber
 set numberwidth=2
 set incsearch
 
-" Hide buffers that have edits
-set hidden
-
-" Add mouse support for noobs who use my computer
+" Add mouse support for n00bs who use my computer
 set mouse=a
 
 " Highlight current line
@@ -114,9 +110,6 @@ nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
-" Mapping for jumping
-nnoremap <S-Tab> <C-O>
-
 " Open splits the way I want
 set splitright
 set splitbelow
@@ -128,13 +121,15 @@ nnoremap k gk
 vnoremap j gj
 nnoremap k gk
 
-" Mappings for tree list netrw
-nnoremap <leader>ex :NERDTreeToggle <CR>
-
 " Treat _ as word separator
 set iskeyword-=_
 
-" Stop playing around with clipboards
+" Make jumping between buffers easier
+set hidden
+
+" Stop playing around with registers and clipboards
+" on some systems this is unnamed, on some unnamedplus
+" just copy something and check :reg
 set clipboard=unnamedplus
 
 autocmd FileType make set noexpandtab softtabstop=0
@@ -143,14 +138,9 @@ autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType py setlocal ts=4 sw=4 expandtab
 
 
-
-
 """"""""""""""""" Plugin Configuration """""""""""""
 "" ALE
 " Use LSP linters
-" To use clang, make sure to install clang and update alternatives 
-" https://askubuntu.com/questions/970640/trying-to-install-atom-unable-to-start-clangd-language-server
-" Is a good resource, but this needs to be done for each linter
 let g:ale_linters = {'cpp': ['ccls','cpplint'], 'python':['pyls'], 'cmake': ['cmakelint']}
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 0
@@ -176,11 +166,6 @@ nnoremap ge :ALEDetail<CR>
 " Show ale errors in airline status bar
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" This is for airline and powerline
-" Note: If symbols don't appear install them with
-" `sudo apt install fonts-powerline` Ubuntu
-" This font is also required for the ale_msgs
 let g:airline_theme='gruvbox'
 
 " Trigger configuration for ultisnips. 
@@ -210,12 +195,13 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 nnoremap <leader>f :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
-" leader + gr for ag searching based on cwd (think grep)
+" leader + ag for ag searching based on cwd
 nnoremap <leader>ag :Ag<CR>
 
-" Make vimtex use xelatex
+" View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
 
 " Nerdtree mappings
+nnoremap <leader>ex :NERDTreeToggle <CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
