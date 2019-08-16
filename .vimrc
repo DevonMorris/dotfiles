@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'triglav/vim-visual-increment'
+Plug 'tpope/vim-fugitive'
 
 " Multi-entry selection UI. FZF, and silver searcher
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -184,9 +185,12 @@ highlight clear VertSplit
 highlight Pmenu ctermbg=darkgray guibg=darkgray
 
 " Git Gutter mappings
-nnoremap gn :GitGutterNextHunk<CR>
-nnoremap gp :GitGutterPrevHunk<CR>
-nnoremap gs :GitGutterStageHunk<CR>
+nnoremap <leader>gn :GitGutterNextHunk<CR>
+nnoremap <leader>gN :GitGutterPrevHunk<CR>
+nnoremap <leader>gs :GitGutterStageHunk<CR>
+nnoremap <leader>gp :GitGutterPreviewHunk<CR>
+nnoremap <leader>gu :GitGutterUndoHunk<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 " FZF
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
