@@ -50,6 +50,9 @@ URxvt*keysym.Shift-Control-V: eval:paste_clipboard
 URxvt*keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt*iso14755: false
 URxvt*iso14755_52: false
+URxvt*scrollTtyOutput: false                                                                                                                                                             
+URxvt*scrollWithBuffer: true                                                                                                                                                              
+URxvt*scrollTtyKeypress: true
 
 
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true for Powerline:size=12

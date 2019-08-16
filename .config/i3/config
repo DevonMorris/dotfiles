@@ -178,8 +178,8 @@ set $indicator           #b16286
 # window colors
 #                       border              background         text                 indicator
 client.focused          $border             $bg-color          $text-color          $indicator
-client.unfocused        $inactive-bg-color $inactive-bg-color  $inactive-text-color $border
-client.focused_inactive $inactive-bg-color $inactive-bg-color  $inactive-text-color $border
+client.unfocused        $inactive-bg-color $inactive-bg-color  $text-color          $border
+client.focused_inactive $inactive-bg-color $inactive-bg-color  $text-color          $border
 client.urgent $urgent-bg-color $urgent-bg-color $text-color #F92672
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -230,7 +230,7 @@ for_window [id="^.*"] border pixel 2
 # Scratchpad
 bindsym $mod+apostrophe move scratchpad
 bindsym $mod+semicolon [class="Spotify"] scratchpad show
-bindsym $mod+period [class="Teams for Linux"] scratchpad show
+bindsym $mod+period [class="teams-for-linux"] scratchpad show
 bindsym $mod+slash [class="Slack"] scratchpad show
 bindsym $mod+backslash scratchpad show
 
@@ -251,5 +251,5 @@ workspace_auto_back_and_forth yes
 exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
 
 # Gaps if i3-gaps is installed
-#gaps inner 7 
-#smart_gaps on
+gaps inner 7 
+smart_gaps on
