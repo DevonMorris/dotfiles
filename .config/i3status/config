@@ -1,9 +1,9 @@
 general {
         output_format = "i3bar"
         colors = true
-        color_good = "#83a598"
-        color_degraded = "#fabd2f"
-        color_bad = "#d3869b"
+        color_good = "#4c6886"
+        color_degraded = "#957373"
+        color_bad = "#b74536"
         interval = 5
 }
 
@@ -12,7 +12,6 @@ order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "volume master"
-order += "battery all"
 order += "time"
 
 cpu_usage {

@@ -7,7 +7,7 @@ export ZSH="/home/devon/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gruvbox"
+ZSH_THEME="enigma"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -100,25 +100,17 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
-alias bspwmrc="vim ~/.config/bspwm/bspwmrc"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
 #alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
-alias polybarconfig="vim ~/.config/polybar/config"
-alias grep="ag"
-
-#export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-#export FZF_CTRL_T_COMMAND='ag --hidden -g ""'
+#alias grep="ag"
 
 #source /opt/ros/melodic/setup.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 #export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
-
-# Make zsh be vim
-#bindkey 'jk' vi-cmd-mode
 
 mem()
 {
@@ -132,8 +124,6 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export PATH="/opt/rti_connext_dds-5.3.1/bin:$PATH"
 
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 precmd() { eval "$PROMPT_COMMAND" }

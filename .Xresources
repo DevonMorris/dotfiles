@@ -1,33 +1,33 @@
 
 ! Gruvbox theme
 ! hard contrast: *background: #1d2021
-*background: #282828
+*background: #1d2021
 ! soft contrast: *background: #32302f
-*foreground: #ebdbb2
+*foreground: #8a8a8a
 ! Black + DarkGrey
 *color0:  #282828
 *color8:  #928374
 ! DarkRed + Red
 *color1:  #cc241d
-*color9:  #fb4934
+*color9:  #b74536
 ! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
+*color2:  #2a787f
+*color10: #73aa4f
 ! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
+*color3:  #b88c25
+*color11: #d47f21
 ! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
+*color4:  #4c6886
+*color12: #396886
 ! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
+*color5:  #ab4d4d
+*color13: #957373
 ! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
+*color6:  #5763ae
+*color14: #8d71ae
 ! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+*color7:  #8a8a8a
+*color15: #8a8a8a
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -41,7 +41,7 @@ URxvt.scrollBar: false
 
 URxvt*depth: 32
 URxvt*fading: 15
-URxvt*background: rgba:2800/2800/2800/cc00
+URxvt*background: rgba:1d00/2000/2100/dd00
 URxvt*loginShell: true
 URxvt*saveLines: 20000
 URxvt*internalBorder: 3
@@ -50,8 +50,8 @@ URxvt*keysym.Shift-Control-V: eval:paste_clipboard
 URxvt*keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt*iso14755: false
 URxvt*iso14755_52: false
-URxvt*scrollTtyOutput: false                                                                                                                                                             
-URxvt*scrollWithBuffer: true                                                                                                                                                              
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 

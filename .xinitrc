@@ -4,6 +4,6 @@
 #
 
 # invoke global X session script
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 sh ~/.screenlayout/layout.sh
-compton -b
-. /etc/X11/Xsession
+exec i3

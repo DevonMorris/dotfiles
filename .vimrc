@@ -1,5 +1,5 @@
 " Vim .vimrc
-" author: Devon Morris 
+" author: Devon Morris
 " contact: devonmorris1992@gmail.com
 " date: Mar 28 2019
 
@@ -15,7 +15,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -43,9 +42,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
-
-" Note taking/Journaling 
-Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -85,13 +81,13 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set t_Co=256
-colorscheme gruvbox
+colorscheme enigma
 set background=dark
 
 " This is for editing tags in xml files
 set matchpairs+=<:>
 
-let mapleader = "\\"
+let mapleader = '\\'
 nmap <space> <leader>
 vmap <space> <leader>
 set backspace=indent,eol,start
@@ -138,25 +134,27 @@ autocmd FileType c setlocal ts=2 sw=2 expandtab
 autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType py setlocal ts=4 sw=4 expandtab
 
-
 """"""""""""""""" Plugin Configuration """""""""""""
 "" ALE
 " Use LSP linters
 let g:ale_linters = {'cpp': ['ccls','cpplint'], 'python':['pyls'], 'cmake': ['cmakelint']}
 let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 0
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = '✖'
 let g:ale_echo_msg_warning_str = '⚠'
 let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 let g:ale_c_parse_compile_commands=1
-let g:ale_cpp_clangtidy_checks = ['modernize', 'google', 'clang-analyzer', 'performance', 'readability', 'bugprone']
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_echo_cursor = 0
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
 
 " Use Ale to jump to definition, etc.
 nnoremap gh :ALEHover<CR>
@@ -169,11 +167,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='gruvbox'
 
-" Trigger configuration for ultisnips. 
-let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips","/home/devon/.vim/UltiSnips"]
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" Trigger configuration for ultisnips.
+let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips','/home/devon/.vim/UltiSnips']
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Don't override background
 highlight Normal guibg=NONE ctermbg=NONE
