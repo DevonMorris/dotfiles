@@ -41,7 +41,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#ebdbb2' -fn  'DejaVu Sans Mono-8'
+bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#8a8a8a' -sb '#1d2021' -sf '#396886' -fn  'DejaVu Sans Mono-8'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -167,13 +167,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-set $border              #282828
-set $bg-color 	         #458588
-set $inactive-bg-color   #282828
-set $text-color          #eedbb2
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #F92672
-set $indicator           #b16286
+set $border              #1d2021
+set $bg-color 	         #4c6886
+set $inactive-bg-color   #1d2021
+set $text-color          #8a8a8a
+set $inactive-text-color #8a8a8a
+set $urgent-bg-color     #73aa4f
+set $indicator           #396886
 
 # window colors
 #                       border              background         text                 indicator
@@ -212,7 +212,7 @@ exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 # Background stored as wallpaper.png
 exec feh --bg-scale $HOME/Pictures/wallpaper.jpg
 
-# Keybindings for audio up/down and mute Mac 
+# Keybindings for audio up/down and mute Mac
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #DECREASE SOUND VOLUMe
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
@@ -229,10 +229,14 @@ for_window [id="^.*"] border pixel 2
 
 # Scratchpad
 bindsym $mod+apostrophe move scratchpad
-bindsym $mod+semicolon [class="Spotify"] scratchpad show
+#bindsym $mod+semicolon [class="Spotify"] scratchpad show
+bindsym $mod+semicolon [instance="music"] scratchpad show
 bindsym $mod+period [class="teams-for-linux"] scratchpad show
 bindsym $mod+slash [class="Slack"] scratchpad show
 bindsym $mod+backslash scratchpad show
+
+bindsym $mod+Shift+semicolon exec $ns urxvt -name music -e ncmpcpp
+exec $ns urxvt -name music -e ncmpcpp
 
 # Make certain windows always floating
 for_window [title="Simulink Library Browser"] floating enable
@@ -250,6 +254,8 @@ workspace_auto_back_and_forth yes
 
 exec --no-startup-id xset r rate 300 20 # Set initial delay 300ms, repeat 20ms
 
+exec --no-startup-id nm-applet
+
 # Gaps if i3-gaps is installed
-gaps inner 7 
+gaps inner 7
 smart_gaps on
