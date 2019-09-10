@@ -9,3 +9,7 @@
 !.gitconfig
 !.gitignore
 !.Xresources
+!.i3_wksp/*
+!.oh-my-zsh/themes/*
+!.ncmpcpp/*
+!.xinitrc/*
