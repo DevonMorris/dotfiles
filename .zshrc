@@ -105,6 +105,7 @@ alias nb="jupyter notebook"
 #alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 #alias grep="ag"
+alias pacman="sudo pacman"
 
 #source /opt/ros/melodic/setup.zsh
 
@@ -129,3 +130,7 @@ export PROMPT_COMMAND="pwd > /tmp/whereami"
 precmd() { eval "$PROMPT_COMMAND" }
 
 unsetopt share_history
+
+function config {
+   /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
+}
