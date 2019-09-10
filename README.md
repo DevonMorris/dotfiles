@@ -1,7 +1,14 @@
 # Configuration Files for Linux systems
 
-## Configure.sh Script
-Ideally, you should just run this script and your computer will be customized exactly like mine. Basically, this file forcibly symlinks the config files in this repo to your home folder. If you don't want to lose your old config, you should back up your files before running `./configure.sh`. For i3wm additional tweaking will probably be necessary due to monitor resolutions, keyboard layouts and media controls.
+## Set Up Script
+Basically, this  `setup.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `config` for `git` to manage your dotfiles. So you'd do something like `config status` instead of `git status`.
+
+The following commands will **completely clobber** any configurations you have in your home folder, so either back up your dotfiles, or face the consequences.
+```bash
+wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/setup.sh                                                                                                                                              devon@WhiteTiger
+chmod +x setup.sh
+./setup.sh
+```
 
 ## Vim
 I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim.
@@ -22,22 +29,20 @@ To work with ALE in C++ you have to export your `compile_commands.json. This is 
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 
-in your `CMakeLists.txt`. If you're feeling really really adventurous for ROS you can put this line in your top-level cmake file `/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake`. That way all future ROS projects will export their compile commands for ALE to use.
-
-In ALE, you also  have to select which linters you want to use. For C++, I'm currently using the Clang stack. The linters work pretty well with exception of header files. There is this [issue](https://github.com/w0rp/ale/issues/782) explaining the nuances of why it doesn't work and some rather hacky fixes.
+In ALE, you also have to select which linters you want to use. For C++, I recommend [cquery](https://github.com/cquery-project/cquery), because they use cool words like highly-scalable and low-latency :thumbsup:.
 
 ## i3 Window Manager
-I use [i3wm](https://i3wm.org/) for my desktop environment. This is trickier to put in my dotfiles, since each computer needs to be changed slightly (especially for multi-monitor setups). I've opted for putting all my different configs into the `.config/i3/config`. Although the configuration will be installed in the correct place, it will need to be modified for the specific computer in use.
+I use [i3wm](https://i3wm.org/) for my desktop environment.
 
 Some of the major changes I've made to the default i3wm configuration are
 
-* Switching movement and resize from `j,k,l,;` to the classic vim movement keys `h,j,k,l`
+* Switching movement and resize from `j,k,l,;` to the _classic_ vim movement keys `h,j,k,l`
 * Using `Mod+q` to kill a window instead of `Mod+Shift+q`
 * Changing splitting directions with `Mod+i` and `Mod+o`
 * Changing window colors
 * Adding i3lock with `Mod1+Mod2+l`
 * "Natural Scrolling" on touchpads
-* Changing caps lock to additional ctrl
+* Changing caps lock to additional ctrl (using `setxbmap`)
 * Adding a wallpaper with `feh`
 * Adding brightness and audio controls through `xbacklight` and `pavucontrol`
 
@@ -53,7 +58,5 @@ Then in `/etc/default/grub`, set `GRUB_CMDLINE_LINUX_DEFAULT="text"`and then run
 sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
-Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
-
-## Sway
-Recently on my Macbook Pro 12,1 I've been using Wayland+Sway to get deal with the HiDPI retina monitor. I have done my best to mimic my i3 config in every way. So the keybindings (and colors) should be essentially the same.
+This obviously only works for distros with SystemD support.
+Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`). 
