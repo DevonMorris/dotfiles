@@ -5,3 +5,7 @@
 !.vimrc
 !.zshrc
 !.config
+!.arch_linux/*
+!.gitconfig
+!.gitignore
+!.Xresources
