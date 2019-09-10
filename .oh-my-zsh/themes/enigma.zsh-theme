@@ -15,8 +15,10 @@ RPS1='${return_code}'
 
 
 # color vars
-eval my_blue='$FG[24]'
+eval my_blue='$FG[024]'
 eval my_pink='$FG[174]'
+eval my_green='$FG[072]'
+eval my_gray='$FG[245]'
 
 # right prompt
 if type "virtualenv_prompt_info" > /dev/null
@@ -27,7 +29,7 @@ else
 fi
 
 # git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="$FG[66]($FG[226]"
+ZSH_THEME_GIT_PROMPT_PREFIX="$my_gray($my_green"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="$my_pink*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[66])%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$my_gray)%{$reset_color%}"
