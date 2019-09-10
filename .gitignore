@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Whitelist files I want to track
+!.vimrc
+!.zshrc
+!.config
