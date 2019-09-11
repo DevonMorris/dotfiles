@@ -5,6 +5,8 @@ google-chrome
 mopidy-spotify
 nerd-fonts-dejavu-complete
 networkmanager-dmenu-git
+pa-applet-git
 pick-colour-picker
 plex-media-server
+private-internet-access-vpn
 yay
