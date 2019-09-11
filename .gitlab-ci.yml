@@ -1,0 +1,10 @@
+stages:
+  - arch-linux
+
+ArchLinux:
+  stage: arch-linux
+  image: archlinux/base
+  script:
+    - pacman -Syu --noconfirm
+    - pacman -S --noconfirm git
+    - ./setup.sh
