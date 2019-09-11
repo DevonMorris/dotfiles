@@ -29,7 +29,7 @@ To work with ALE in C++ you have to export your `compile_commands.json`. This is
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 
-In ALE, you also have to select which linters you want to use. For C++, I recommend [cquery](https://github.com/cquery-project/cquery), because they use cool words like highly-scalable and low-latency :thumbsup:.
+In ALE, you also have to select which linters you want to use. For C++, I recommend [ccls](https://github.com/MaskRay/ccls) :thumbsup:.
 
 ## i3 Window Manager
 I use [i3wm](https://i3wm.org/) for my desktop environment.
