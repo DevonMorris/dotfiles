@@ -25,6 +25,7 @@ aptdaemon
 aptdaemon-data
 apturl
 apturl-common
+arandr
 aspell
 aspell-en
 asymptote
@@ -1648,6 +1649,7 @@ python-all
 python-all-dev
 python-apt-common
 python-asn1crypto
+python-cairo:amd64
 python-cffi-backend
 python-chardet
 python-crypto
@@ -1656,6 +1658,8 @@ python-dbus
 python-dev
 python-enum34
 python-gi
+python-gobject-2
+python-gtk2
 python-idna
 python-ipaddress
 python-keyring
@@ -1970,6 +1974,7 @@ x11-xserver-utils
 xauth
 xbitmaps
 xbrlapi
+xclip
 xcursor-themes
 xdg-desktop-portal
 xdg-desktop-portal-gtk
