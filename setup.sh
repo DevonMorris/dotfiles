@@ -4,7 +4,7 @@
 # or if you are not me you will need to change the link to https
 git clone --bare https://gitlab.com/DevonMorris/dotfiles.git $HOME/.dots
 function config {
-   /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
+   /usr/bin/env git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
 config reset --hard HEAD
 config config status.showUntrackedFiles no
