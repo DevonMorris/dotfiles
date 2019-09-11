@@ -8,3 +8,5 @@ ArchLinux:
     - pacman -Syu --noconfirm
     - pacman -S --noconfirm git
     - ./setup.sh
+    - cd .arch_linux
+    - ./install_packages.sh
