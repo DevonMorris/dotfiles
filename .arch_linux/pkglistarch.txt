@@ -25,6 +25,7 @@ diffutils
 dmenu
 dmidecode
 dnsmasq
+docker
 e2fsprogs
 ebtables
 efibootmgr

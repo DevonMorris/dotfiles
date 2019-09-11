@@ -2,7 +2,7 @@
 
 # Install arch packages
 sudo pacman -Syu
-sudo pacman -S --needed --noconfirm < pkglistarch.txt
+sudo pacman -S --needed --noconfirm - < pkglistarch.txt
 
 # check if yay exists
 if ! [ -x "$(command -v yay)" ]; then
@@ -11,10 +11,10 @@ if ! [ -x "$(command -v yay)" ]; then
   git clone https://aur.archlinux.org/yay.git $HOME/.sources/yay
   pushd .
   cd $HOME/.sources/yay
-  makepkg -si
+  makepkg -si --noconfirm
   popd
 fi
 
 # install AUR packages
 yay -Syu
-yay -S --noconfirm < pkglistyay.txt
+yay -S --noconfirm - < pkglistyay.txt
