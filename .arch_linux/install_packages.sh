@@ -2,7 +2,7 @@
 
 # Install arch packages
 sudo pacman -Syu
-sudo pacman -S --needed - < pkglistarch.txt
+sudo pacman -S --needed --noconfirm < pkglistarch.txt
 
 # check if yay exists
 if ! [ -x "$(command -v yay)" ]; then
@@ -17,4 +17,4 @@ fi
 
 # install AUR packages
 yay -Syu
-yay -S < pkglistyay.txt
+yay -S --noconfirm < pkglistyay.txt
