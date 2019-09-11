@@ -237,7 +237,6 @@ bindsym $mod+slash [class="Slack"] scratchpad show
 bindsym $mod+backslash scratchpad show
 
 bindsym $mod+Shift+semicolon exec $ns urxvt -name music -e ncmpcpp
-exec $ns urxvt -name music -e ncmpcpp
 
 # Make certain windows always floating
 for_window [title="Simulink Library Browser"] floating enable
