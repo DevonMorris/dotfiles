@@ -24,7 +24,7 @@ Some of my favorite packages are
 * [Vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
 ### ALE Configuration
-To work with ALE in C++ you have to export your `compile_commands.json. This is done by putting
+To work with ALE in C++ you have to export your `compile_commands.json`. This is done by putting
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
@@ -59,4 +59,4 @@ sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
 This obviously only works for distros with SystemD support.
-Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`). 
+Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).

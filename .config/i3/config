@@ -211,7 +211,7 @@ bindsym $mod+$mod1+l exec i3lock -i $HOME/Pictures/lock.png
 exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Background stored as wallpaper.png
-exec feh --bg-scale $HOME/Pictures/wallpaper.jpg
+exec feh --bg-scale /home/devon/Pictures/penrose_trees.jpg
 
 # Keybindings for audio up/down and mute Mac
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume

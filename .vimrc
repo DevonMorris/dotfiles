@@ -43,6 +43,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 
+" MD preview
+Plug 'shime/vim-livedown'
+
 call plug#end()
 
 """""""""""" General Configuration """"""""""""""
