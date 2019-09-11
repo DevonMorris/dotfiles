@@ -332,6 +332,7 @@ ghostscript
 ghostscript-x
 giblib1:amd64
 gir1.2-accountsservice-1.0
+gir1.2-appindicator3-0.1
 gir1.2-atk-1.0:amd64
 gir1.2-atspi-2.0:amd64
 gir1.2-dbusmenu-glib-0.4:amd64
@@ -495,6 +496,9 @@ im-config
 imagemagick
 imagemagick-6-common
 imagemagick-6.q16
+indicator-common
+indicator-cpufreq
+indicator-sound
 info
 init
 init-system-helpers
@@ -691,6 +695,7 @@ libcom-err2:amd64
 libcommon-sense-perl
 libconfuse-common
 libconfuse2:amd64
+libcpufreq0
 libcrack2:amd64
 libcroco3:amd64
 libcryptsetup12:amd64
@@ -1373,6 +1378,7 @@ libunity9:amd64
 libunwind8:amd64
 libupower-glib3:amd64
 liburi-perl
+liburl-dispatcher1:amd64
 libusb-1.0-0:amd64
 libusbmuxd4:amd64
 libutempter0:amd64
