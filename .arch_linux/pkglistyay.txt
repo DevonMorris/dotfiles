@@ -7,5 +7,4 @@ nerd-fonts-dejavu-complete
 networkmanager-dmenu-git
 pick-colour-picker
 plex-media-server
-private-internet-access-vpn
 yay

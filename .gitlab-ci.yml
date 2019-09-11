@@ -6,7 +6,9 @@ ArchLinux:
   image: archlinux/base
   script:
     - pacman -Syu --noconfirm
-    - pacman -S --noconfirm git
+    - pacman -S --noconfirm git sudo wget base-devel neofetch
+    - chmod +x setup.sh
     - ./setup.sh
-    - cd .arch_linux
-    - ./install_packages.sh
+    - cd /root/.arch_linux
+    - pacman -Ss < pkglistarch.txt
+    - neofetch
