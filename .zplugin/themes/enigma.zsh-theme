@@ -15,7 +15,7 @@ RPS1='${return_code}'
 
 
 # color vars
-eval my_blue='$FG[024]'
+eval my_blue='$FG[111]'
 eval my_pink='$FG[174]'
 eval my_green='$FG[072]'
 eval my_gray='$FG[245]'

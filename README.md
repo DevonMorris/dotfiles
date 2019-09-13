@@ -10,12 +10,16 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+When you run `zsh` for the first time, the zplugin installation might kill all the files in `$HOME/.zplugin`. This is easily fixed with a `config reset --hard`
+
+## Zsh
+We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zplugin](https://github.com/zdharma/zplugin), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
+
 ## Vim
 I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim.
 
 Some of my favorite packages are
-
-* [Vim-Fugitive](https://github.com/tpope/vim-fugitive)
+* [fzf.vim](https://github.com/junegunn/fzf.vim)
 * [Vimtex](https://github.com/lervag/vimtex)
 * [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
 * [ALE](https://github.com/w0rp/ale)
@@ -60,3 +64,5 @@ sudo systemctl set-default multi-user.target
 ```
 This obviously only works for distros with SystemD support.
 Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
+
+Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.com/Airblader/i3).
