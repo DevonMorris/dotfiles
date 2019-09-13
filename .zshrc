@@ -61,7 +61,7 @@ zp ael-code/zsh-colored-man-pages
 zpt 0b compile'{hsmw-*,test/*}'
 zp zdharma/history-search-multi-word
 
-zpt 0b compile'{src/*.zsh,src/strategies/*}' atload'_zsh_autosuggest_start'
+zpt 0b '{src/*.zsh,src/strategies/*}' atload'_zsh_autosuggest_start'
 zp zsh-users/zsh-autosuggestions
 
 zpt 0a atload'zpcompinit'
@@ -69,11 +69,6 @@ zp zdharma/fast-syntax-highlighting
 
 ### Zplugin Configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=237"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-### Enable completion
-autoload -Uz compinit; compinit
-zp cdreplay -q
 
 ### Theme
 source $HOME/.zplugin/themes/enigma.zsh-theme
@@ -96,6 +91,7 @@ alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 alias pacman="sudo pacman"
+alias wee="weechat"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
