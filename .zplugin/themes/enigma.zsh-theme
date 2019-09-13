@@ -25,7 +25,7 @@ if type "virtualenv_prompt_info" > /dev/null
 then
 	RPROMPT='$(virtualenv_prompt_info)$my_blue%n@%m%{$reset_color%}%'
 else
-	RPROMPT='$my_blue%n@%m%{$reset_color%}%'
+	RPROMPT='$my_blue%n@%m %T%{$reset_color%}%'
 fi
 
 # git settings

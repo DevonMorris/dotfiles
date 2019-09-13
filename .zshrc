@@ -1,136 +1,117 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Timothy Devon Morris .zshrc
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/devon/.oh-my-zsh"
+# Skips the global compinit
+skip_global_compinit=1
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="enigma"
+# Install zplugin if not installed
+if [ ! -d "${HOME}/.zplugin" ]; then
+  mkdir ${HOME}/.zplugin
+	git clone https://github.com/psprint/zplugin ${HOME}/.zplugin/bin
+	zcompile ${HOME}/.zplugin/bin/zplugin.zsh
+fi
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+### Added by Zplugin's installer
+source "${HOME}/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+### Functions to make zplugin configuration less verbose
+zpt() { zplugin ice wait"${1}" lucid               "${@:2}"; } # Turbo
+zpi() { zplugin ice lucid                            "${@}"; } # Regular Ice
+zp()  { [ -z $2 ] && zplugin light "${@}" || zplugin "${@}"; } # zplugin
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+### Oh-my-zsh libs
+zpi atinit'ZSH_CACHE_DIR="$HOME/.zcompcache"'
+zp snippet OMZ::lib/history.zsh
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+zpt 0a
+zp snippet OMZ::lib/completion.zsh
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+zpt 0a
+zp arzzen/calc.plugin.zsh
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+zp snippet OMZ::lib/git.zsh
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+zp snippet OMZ::plugins/git/git.plugin.zsh
+setopt promptsubst
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+zp snippet OMZ::lib/theme-and-appearance.zsh
+zp snippet OMZ::lib/spectrum.zsh
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+### Zplugins
+# Remember to make the last plugin loaded in turbo mode have atload'zpcompinit' for
+# completion support, this will make plugin loading super snappy!
+zp eendroroy/zed-zsh
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+zp wfxr/forgit
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+zpi as"completion"
+zp snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  colored-man-pages
-  command-not-found
-  git
-  z
-)
+zpt 0a
+zp laggardkernel/zsh-thefuck
 
-source $ZSH/oh-my-zsh.sh
+zpt 0a blockf atpull'zplugin creinstall -q .'
+zp zsh-users/zsh-completions
 
-# User configuration
+zpt 0a
+zp ael-code/zsh-colored-man-pages
 
-# export MANPATH="/usr/local/man:$MANPATH"
+zpt 0b compile'{hsmw-*,test/*}'
+zp zdharma/history-search-multi-word
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+zpt 0b compile'{src/*.zsh,src/strategies/*}' atload'_zsh_autosuggest_start'
+zp zsh-users/zsh-autosuggestions
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+zpt 0a atload'zpcompinit'
+zp zdharma/fast-syntax-highlighting
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+### Zplugin Configuration
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=237"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+### Enable completion
+autoload -Uz compinit; compinit
+zp cdreplay -q
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+### Theme
+source $HOME/.zplugin/themes/enigma.zsh-theme
+
+
+### all hail the one true editor
+export EDITOR='vim'
+
+### Keybindings
+source $HOME/.zplugin/keybindings.zsh
+
 #
-
-#alias vim="vim --servername VIM"
-# source /opt/ros/melodic/setup.zsh
-
+# Aliases
+#
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
 alias nb="jupyter notebook"
-#alias matlab="matlab -nosplash -nodesktop"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
-#alias grep="ag"
 alias pacman="sudo pacman"
-
-#source /opt/ros/melodic/setup.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 #export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
 
-mem()
-{
-   ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'
-}
-
 export PATH=$HOME/.local/bin:$PATH
 
+# Launch X from tty1 upon login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+#  Load fzf zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export PROMPT_COMMAND="pwd > /tmp/whereami"
-precmd() { eval "$PROMPT_COMMAND" }
 
 unsetopt share_history
 
+# Function for managing dotfiles
 function config {
    /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
