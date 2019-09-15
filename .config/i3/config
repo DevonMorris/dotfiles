@@ -47,12 +47,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -201,8 +195,8 @@ bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -wi
 #bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#8a8a8a' -sb '#1d2021' -sf '#396886' -  'DejaVu Sans Mono-8'
 
 # Keybindings for brightness Mac
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+Up exec sudo light -A 10 # increase screen brightness
+bindsym $mod+Down exec sudo light -U 10 # decrease screen brightness
 
 # lockscreen (make sure to scrot that desktop boi)
 bindsym $mod+$mod1+l exec i3lock -i $HOME/Pictures/lock.png
