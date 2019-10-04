@@ -95,9 +95,56 @@ alias wee="weechat"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
-#export FZF_ALT_C_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/rti_connext_dds-5.3.1/bin:$PATH
+
+export TERM="xterm-256color"
+
+#
+# FZF - pro level functions
+#
+
+unalias gco
+# gco - checkout git branch/tag
+gco() {
+  local tags branches target
+  branches=$(
+    git --no-pager branch --all \
+      --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+    | sed '/^$/d') || return
+  tags=$(
+    git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$branches"; echo "$tags") |
+    fzf --no-hscroll --no-multi -n 2 \
+    --ansi)  || return
+  git checkout $(awk '{print $2}' <<<"$target" )
+}
+
+# gcoc - checkout git commit
+gcoc() {
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
+}
 
 # Launch X from tty1 upon login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
@@ -111,3 +158,20 @@ unsetopt share_history
 function config {
    /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
+export FG_AIRCRAFT="$HOME/flightgear/Aircraft"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/Morris.Tim/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/Morris.Tim/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/Morris.Tim/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/Morris.Tim/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

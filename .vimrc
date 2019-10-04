@@ -38,8 +38,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Style
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 
@@ -110,6 +109,7 @@ nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
+
 " Open splits the way I want
 set splitright
 set splitbelow
@@ -156,6 +156,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_echo_cursor = 0
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['yapf', 'isort'],
 \}
 let g:ale_fix_on_save = 1
 
@@ -164,11 +165,6 @@ nnoremap gh :ALEHover<CR>
 nnoremap gd  :ALEGoToDefinition<CR>
 nnoremap gr :ALEFindReferences<CR>
 nnoremap ge :ALEDetail<CR>
-
-" Show ale errors in airline status bar
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
 
 " Trigger configuration for ultisnips.
 let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips','/home/devon/.vim/UltiSnips']
@@ -195,16 +191,30 @@ nnoremap <leader>gb :Gblame<CR>
 
 " FZF
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
-" leader + f to search files
+
+" leader + b to search buffers
+nnoremap <leader>b :Buffers<CR>
+" leader + f to search lines
+nnoremap <leader>f :BLines<CR>
+" leader + e to edit files
 " Ctrl+t, Ctrl+x, Ctrl+v to open in tab, split, vsplit
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>o :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
 " leader + ag for ag searching based on cwd
 nnoremap <leader>ag :Ag<CR>
+" leader + t to search tags in current workspace
+nnoremap <leader>t :Tags<CR>
 
 " View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
+
+" Lightline config
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ }
+set laststatus=2
+set noshowmode
 
 " Nerdtree mappings
 nnoremap <leader>ex :NERDTreeToggle <CR>
