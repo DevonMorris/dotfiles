@@ -4,6 +4,6 @@
 #
 
 # invoke global X session script
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+xrdb -m $HOME/.Xresources
 sh ~/.screenlayout/layout.sh
 exec i3
