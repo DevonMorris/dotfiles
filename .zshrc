@@ -1,4 +1,9 @@
 # Timothy Devon Morris .zshrc
+skip_global_compinit=1
+
+# If you aren't running a desktop manager like gdm, this file won't get loaded
+# So we will load it manually
+source $HOME/.profile
 
 # Skips the global compinit
 skip_global_compinit=1
@@ -58,13 +63,10 @@ zp zsh-users/zsh-completions
 zpt 0a
 zp ael-code/zsh-colored-man-pages
 
-zpt 0b compile'{hsmw-*,test/*}'
-zp zdharma/history-search-multi-word
-
 zpt 0b '{src/*.zsh,src/strategies/*}' atload'_zsh_autosuggest_start'
 zp zsh-users/zsh-autosuggestions
 
-zpt 0a atload'zpcompinit'
+zpt 0b atload'zpcompinit;zpcdreplay'
 zp zdharma/fast-syntax-highlighting
 
 ### Zplugin Configuration
@@ -72,7 +74,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=237"
 
 ### Theme
 source $HOME/.zplugin/themes/enigma.zsh-theme
-
 
 ### all hail the one true editor
 export EDITOR='vim'
@@ -92,13 +93,17 @@ alias nb="jupyter notebook"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 alias pacman="sudo pacman"
 alias wee="weechat"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND='rg --files --hidden'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/opt/rti_connext_dds-5.3.1/bin:$PATH
+export PATH=/snap/bin:$PATH
 
 export TERM="xterm-256color"
 
@@ -159,7 +164,6 @@ function config {
    /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
 export FG_AIRCRAFT="$HOME/flightgear/Aircraft"
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
