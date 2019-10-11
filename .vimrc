@@ -20,9 +20,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Syntax/Linting
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
 
 " Typing
 Plug 'SirVer/ultisnips'
@@ -55,6 +56,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set nocompatible              " be improved, required
 set encoding=utf-8
 set lazyredraw
+
+set updatetime=300
 
 set number relativenumber
 set numberwidth=2
@@ -114,6 +117,9 @@ nnoremap <leader>k <C-W><C-K>
 set splitright
 set splitbelow
 
+" Polyglot disabled
+let g:polyglot_disabled = ['csv']
+
 " Mappings to move up and down lines visually
 " It only makes a difference on long lines that wrap
 nnoremap j gj
@@ -138,33 +144,6 @@ autocmd FileType cpp setlocal ts=2 sw=2 expandtab
 autocmd FileType py setlocal ts=4 sw=4 expandtab
 
 """"""""""""""""" Plugin Configuration """""""""""""
-"" ALE
-" Use LSP linters
-let g:ale_linters = {'cpp': ['ccls','cpplint'], 'python':['pyls'], 'cmake': ['cmakelint']}
-let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
-let g:ale_echo_msg_error_str = '✖'
-let g:ale_echo_msg_warning_str = '⚠'
-let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
-let g:ale_c_parse_compile_commands=1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
-let g:ale_echo_cursor = 0
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['yapf', 'isort'],
-\}
-let g:ale_fix_on_save = 1
-
-" Use Ale to jump to definition, etc.
-nnoremap gh :ALEHover<CR>
-nnoremap gd  :ALEGoToDefinition<CR>
-nnoremap gr :ALEFindReferences<CR>
-nnoremap ge :ALEDetail<CR>
 
 " Trigger configuration for ultisnips.
 let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips','/home/devon/.vim/UltiSnips']
@@ -175,11 +154,10 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 " Don't override background
 highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
+highlight Pmenu ctermbg=black
 highlight clear LineNr
 highlight clear Signcolumn
 highlight clear VertSplit
-" But let pop upmenu override background so you can tell it's a popup
-highlight Pmenu ctermbg=darkgray guibg=darkgray
 
 " Git Gutter mappings
 nnoremap <leader>gn :GitGutterNextHunk<CR>
@@ -201,8 +179,8 @@ nnoremap <leader>f :BLines<CR>
 nnoremap <leader>o :Files<CR>
 " leader + s (for UltiSnips) to insert a snippet
 nnoremap <leader>s :Snippets<CR>
-" leader + ag for ag searching based on cwd
-nnoremap <leader>ag :Ag<CR>
+" leader + rg for ripgrep searching based on cwd
+nnoremap <leader>rg :Rg<CR>
 " leader + t to search tags in current workspace
 nnoremap <leader>t :Tags<CR>
 
@@ -210,11 +188,31 @@ nnoremap <leader>t :Tags<CR>
 let g:vimtex_view_method = 'zathura'
 
 " Lightline config
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \ }
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
 set laststatus=2
 set noshowmode
+
+" CoC Mappings & Functions
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')c-diagnostic-next)
 
 " Nerdtree mappings
 nnoremap <leader>ex :NERDTreeToggle <CR>

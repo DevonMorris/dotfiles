@@ -1,33 +1,33 @@
 
 ! Gruvbox theme
 ! hard contrast: *background: #1d2021
-*background: #1d2021
+URxvt*background: #1d2021
 ! soft contrast: *background: #32302f
-*foreground: #8a8a8a
+URxvt*foreground: #8a8a8a
 ! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
+URxvt*color0:  #282828
+URxvt*color8:  #928374
 ! DarkRed + Red
-*color1:  #cc241d
-*color9:  #b74536
+URxvt*color1:  #cc241d
+URxvt*color9:  #b74536
 ! DarkGreen + Green
-*color2:  #2a787f
-*color10: #73aa4f
+URxvt*color2:  #2a787f
+URxvt*color10: #73aa4f
 ! DarkYellow + Yellow
-*color3:  #b88c25
-*color11: #d47f21
+URxvt*color3:  #b88c25
+URxvt*color11: #d47f21
 ! DarkBlue + Blue
-*color4:  #4c6886
-*color12: #396886
+URxvt*color4:  #4c6886
+URxvt*color12: #396886
 ! DarkMagenta + Magenta
-*color5:  #ab4d4d
+URxvt*color5:  #ab4d4d
 *color13: #957373
 ! DarkCyan + Cyan
-*color6:  #5763ae
-*color14: #8d71ae
+URxvt*color6:  #5763ae
+URxvt*color14: #8d71ae
 ! LightGrey + White
-*color7:  #8a8a8a
-*color15: #8a8a8a
+URxvt*color7:  #8a8a8a
+URxvt*color15: #8a8a8a
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -41,7 +41,6 @@ URxvt.scrollBar: false
 
 URxvt*depth: 32
 URxvt*fading: 15
-URxvt*background: rgba:1d00/2000/2100/dd00
 URxvt*loginShell: true
 URxvt*saveLines: 20000
 URxvt*internalBorder: 3
