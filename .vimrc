@@ -127,9 +127,6 @@ nnoremap k gk
 vnoremap j gj
 nnoremap k gk
 
-" Treat _ as word separator
-set iskeyword-=_
-
 " Make jumping between buffers easier
 set hidden
 
@@ -158,6 +155,10 @@ highlight Pmenu ctermbg=black
 highlight clear LineNr
 highlight clear Signcolumn
 highlight clear VertSplit
+
+" 80 column limit
+highlight ColorColumn ctermbg=black
+set colorcolumn=80
 
 " Git Gutter mappings
 nnoremap <leader>gn :GitGutterNextHunk<CR>
@@ -210,9 +211,10 @@ set noshowmode
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gn <Plug>(coc-diagnostic-prev)
+nmap <silent> gp <Plug>(coc-diagnostic-next)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')c-diagnostic-next)
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Nerdtree mappings
 nnoremap <leader>ex :NERDTreeToggle <CR>
