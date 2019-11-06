@@ -24,6 +24,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Typing
 Plug 'SirVer/ultisnips'
@@ -31,7 +32,6 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'triglav/vim-visual-increment'
 Plug 'tpope/vim-fugitive'
 
 " Multi-entry selection UI. FZF, and silver searcher
@@ -41,10 +41,8 @@ Plug 'junegunn/fzf.vim'
 " Style
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'ajmwagar/vim-deus'
 Plug 'scrooloose/nerdtree'
-
-" MD preview
-Plug 'shime/vim-livedown'
 
 call plug#end()
 
@@ -86,8 +84,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set t_Co=256
-colorscheme enigma
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme deus
 set background=dark
+let g:deus_termcolors=256
 
 " This is for editing tags in xml files
 set matchpairs+=<:>
@@ -149,9 +151,8 @@ let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Don't override background
-highlight Normal guibg=NONE ctermbg=NONE
 highlight NonText ctermbg=NONE
-highlight Pmenu ctermbg=black
+highlight Pmenu guibg='#666666'
 highlight clear LineNr
 highlight clear Signcolumn
 highlight clear VertSplit
@@ -194,7 +195,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
