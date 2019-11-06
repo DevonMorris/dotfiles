@@ -1,33 +1,32 @@
 
-! Gruvbox theme
-! hard contrast: *background: #1d2021
-URxvt*background: #1d2021
+! Deus theme
+URxvt*background: #2c323b
 ! soft contrast: *background: #32302f
-URxvt*foreground: #8a8a8a
+URxvt*foreground: #ebdbb2
 ! Black + DarkGrey
-URxvt*color0:  #282828
-URxvt*color8:  #928374
+URxvt*color0:  #000000
+URxvt*color8:  #666666
 ! DarkRed + Red
-URxvt*color1:  #cc241d
-URxvt*color9:  #b74536
+URxvt*color1:  #d54e53
+URxvt*color9:  #ec3e45
 ! DarkGreen + Green
-URxvt*color2:  #2a787f
-URxvt*color10: #73aa4f
+URxvt*color2:  #98c379
+URxvt*color10: #90c966
 ! DarkYellow + Yellow
-URxvt*color3:  #b88c25
+URxvt*color3:  #e5c07b
 URxvt*color11: #d47f21
 ! DarkBlue + Blue
 URxvt*color4:  #4c6886
 URxvt*color12: #396886
 ! DarkMagenta + Magenta
-URxvt*color5:  #ab4d4d
-*color13: #957373
+URxvt*color5:  #c678dd
+URxvt*color13: #c858e9
 ! DarkCyan + Cyan
-URxvt*color6:  #5763ae
-URxvt*color14: #8d71ae
+URxvt*color6:  #83a598
+URxvt*color14: #70c0ba
 ! LightGrey + White
-URxvt*color7:  #8a8a8a
-URxvt*color15: #8a8a8a
+URxvt*color7:  #eaeaea
+URxvt*color15: #eaeaea
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -59,6 +58,6 @@ URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=tr
 
 
 !-*- Perl extensions -*-
-URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select,font-size
-URxvt.keysym.C-equal:     font-size:increase
-URxvt.keysym.C-S-equal:   font-size:incglobal
+URxvt*perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select,font-size
+URxvt*keysym.C-equal:     font-size:increase
+URxvt*keysym.C-S-equal:   font-size:incglobal

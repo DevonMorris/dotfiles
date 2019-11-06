@@ -42,6 +42,7 @@ setopt promptsubst
 
 zp snippet OMZ::lib/theme-and-appearance.zsh
 zp snippet OMZ::lib/spectrum.zsh
+zp snippet OMZ::themes/pygmalion.zsh-theme
 
 
 ### Zplugins
@@ -71,9 +72,6 @@ zp zdharma/fast-syntax-highlighting
 
 ### Zplugin Configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=237"
-
-### Theme
-source $HOME/.zplugin/themes/enigma.zsh-theme
 
 ### all hail the one true editor
 export EDITOR='vim'

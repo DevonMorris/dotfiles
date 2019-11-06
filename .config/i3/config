@@ -155,13 +155,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-set $border              #1d2021
-set $bg-color 	         #4c6886
-set $inactive-bg-color   #1d2021
-set $text-color          #8a8a8a
-set $inactive-text-color #8a8a8a
-set $urgent-bg-color     #73aa4f
-set $indicator           #396886
+set $border              #2c323b
+set $bg-color 	         #2c323b
+set $inactive-bg-color   #252a32
+set $text-color          #ebdbb2
+set $inactive-text-color #ebdbb2
+set $urgent-bg-color     #83a598
+set $indicator           #83a589
 
 # window colors
 #                       border              background         text                 indicator
@@ -180,7 +180,7 @@ bar {
     separator_symbol "|"
     colors {
       background $inactive-bg-color
-      separator #757575
+      separator  $urgent-bg-color
       statusline $text-color
       #                  border             background         text
       focused_workspace  $bg-color          $bg-color          $text-color
@@ -190,8 +190,8 @@ bar {
 }
 
 # start rofi (as a program launcher)
-bindsym $mod+d exec "rofi -show run -modi run,drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 8' -columns 9 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $bg-color, $inactive-bg-color' -kb-row-select 'Tab' -kb-row-tab ''"
-bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -width 30 -lines 10 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 10' -columns 1 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $bg-color, $inactive-bg-color' -color-window '$inactive-bg-color' -color-active '$inactive-bg-color, $text-color, $inactive-bg-color, $bg-color, $inactive-bg-color' -kb-row-tab 'Tab'"
+bindsym $mod+d exec "rofi -show run -modi run,drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 8' -columns 9 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -kb-row-select 'Tab' -kb-row-tab ''"
+bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -width 30 -lines 10 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 10' -columns 1 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -color-window '$inactive-bg-color' -color-active '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -kb-row-tab 'Tab'"
 #bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#8a8a8a' -sb '#1d2021' -sf '#396886' -  'DejaVu Sans Mono-8'
 
 # Keybindings for brightness Mac
@@ -205,7 +205,7 @@ bindsym $mod+$mod1+l exec i3lock -i $HOME/Pictures/lock.png
 exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Background stored as wallpaper.png
-exec feh --bg-scale $HOME/Pictures/penrose_trees.jpg
+exec feh --bg-scale $HOME/Pictures/mountains.jpg
 
 # Keybindings for audio up/down and mute Mac
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
