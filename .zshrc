@@ -71,7 +71,7 @@ zpt 0b atload'zpcompinit;zpcdreplay'
 zp zdharma/fast-syntax-highlighting
 
 ### Zplugin Configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=237"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
 ### all hail the one true editor
 export EDITOR='vim'
@@ -87,6 +87,7 @@ alias zshrc="vim ~/.zshrc"
 alias xresources="vim ~/.Xresources"
 alias i3config="vim ~/.config/i3/config"
 alias gitconfig="vim ~/.gitconfig"
+alias alacrittyconfig="vim ~/.config/alacritty/alacritty.yml"
 alias nb="jupyter notebook"
 alias neofetchconfig="vim ~/.config/neofetch/config.conf"
 alias pacman="sudo pacman"
@@ -125,6 +126,24 @@ gco() {
     --ansi)  || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
+
+# gsha - show sha of branch
+gsha() {
+  local tags branches target
+  branches=$(
+    git --no-pager branch --all \
+      --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+    | sed '/^$/d') || return
+  tags=$(
+    git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$branches"; echo "$tags") |
+    fzf --no-hscroll --no-multi -n 2 \
+    --ansi)  || return
+  git show-branch --sha1-name $(awk '{print $2}' <<<"$target" ) |
+    awk '{print $1}' | tr -d '\[\]'
+}
+
 
 # gcoc - checkout git commit
 gcoc() {
@@ -165,14 +184,14 @@ export FG_AIRCRAFT="$HOME/flightgear/Aircraft"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/Morris.Tim/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/devon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/Morris.Tim/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/Morris.Tim/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/devon/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/devon/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/Morris.Tim/anaconda3/bin:$PATH"
+        export PATH="/home/devon/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
