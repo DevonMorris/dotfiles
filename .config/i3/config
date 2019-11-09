@@ -155,19 +155,20 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-set $border              #2c323b
-set $bg-color 	         #2c323b
-set $inactive-bg-color   #252a32
+set $border              #333b44
+set $bg-color 	         #333b44
+set $inactive-bg-color   #2c323b
 set $text-color          #ebdbb2
 set $inactive-text-color #ebdbb2
 set $urgent-bg-color     #83a598
 set $indicator           #83a589
+set $dim-bg              #252a32
 
 # window colors
 #                       border              background         text                 indicator
 client.focused          $border             $bg-color          $text-color          $indicator
-client.unfocused        $inactive-bg-color $inactive-bg-color  $text-color          $border
-client.focused_inactive $inactive-bg-color $inactive-bg-color  $text-color          $border
+client.unfocused        $inactive-bg-color  $inactive-bg-color $text-color          $border
+client.focused_inactive $border             $bg-color          $text-color          $border
 client.urgent $urgent-bg-color $urgent-bg-color $text-color #F92672
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -179,7 +180,7 @@ bar {
     tray_padding 0
     separator_symbol "|"
     colors {
-      background $inactive-bg-color
+      background $dim-bg
       separator  $urgent-bg-color
       statusline $text-color
       #                  border             background         text
@@ -218,8 +219,8 @@ bindsym XF86AudioPrev exec playerctl previous # Next Song
 bindsym XF86Tools [class="Spotify"] scratchpad show
 
 # No title bars
-for_window [class="^.*"] border pixel 2
-for_window [title="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 0
 for_window [id="^.*"] border pixel 2
 
 # Scratchpad
