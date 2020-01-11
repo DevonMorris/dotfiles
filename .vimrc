@@ -34,11 +34,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
-" Multi-entry selection UI. FZF, and silver searcher
+"" FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Style
+"" Style
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ajmwagar/vim-deus'
@@ -51,7 +51,7 @@ call plug#end()
 " Don't assume I want a line comment after another line comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-set nocompatible              " be improved, required
+set nocompatible
 set encoding=utf-8
 set lazyredraw
 
@@ -66,6 +66,9 @@ set mouse=a
 
 " Highlight current line
 set cursorline
+
+" Remove whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 
 " Only use 'hybrid' numbers in focused terminal
 augroup numbertoggle
@@ -120,7 +123,12 @@ set splitright
 set splitbelow
 
 " Polyglot disabled
-let g:polyglot_disabled = ['csv']
+let g:polyglot_disabled = ['csv', 'latex']
+
+" Cpp syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 
 " Mappings to move up and down lines visually
 " It only makes a difference on long lines that wrap
@@ -144,6 +152,9 @@ autocmd FileType py setlocal ts=4 sw=4 expandtab
 
 """"""""""""""""" Plugin Configuration """""""""""""
 
+" Don't mess with my colors
+let g:gitgutter_override_sign_column_highlight = 0
+
 " Trigger configuration for ultisnips.
 let g:UltiSnipsSnippetDirectories=['~/.vim/plugged/vim-snippets/UltiSnips','/home/devon/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -154,7 +165,7 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 highlight NonText ctermbg=NONE
 highlight Pmenu guibg='#666666'
 highlight clear LineNr
-highlight clear Signcolumn
+highlight clear SignColumn
 highlight clear VertSplit
 
 " 80 column limit
@@ -212,8 +223,8 @@ set noshowmode
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
-nmap <silent> gn <Plug>(coc-diagnostic-prev)
-nmap <silent> gp <Plug>(coc-diagnostic-next)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gN <Plug>(coc-diagnostic-prev)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')c-diagnostic-next)
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 

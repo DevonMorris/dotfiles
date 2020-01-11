@@ -1,4 +1,3 @@
-
 ! Deus theme
 URxvt*background: #2c323b
 ! soft contrast: *background: #32302f
@@ -27,6 +26,35 @@ URxvt*color14: #70c0ba
 ! LightGrey + White
 URxvt*color7:  #eaeaea
 URxvt*color15: #eaeaea
+
+! Deus theme
+st.background: #2c323b
+! soft contrast: *background: #32302f
+st.foreground: #ebdbb2
+! Black + DarkGrey
+st.color0:  #000000
+st.color8:  #666666
+! DarkRed + Red
+st.color1:  #d54e53
+st.color9:  #ec3e45
+! DarkGreen + Green
+st.color2:  #98c379
+st.color10: #90c966
+! DarkYellow + Yellow
+st.color3:  #e5c07b
+st.color11: #d47f21
+! DarkBlue + Blue
+st.color4:  #4c6886
+st.color12: #396886
+! DarkMagenta + Magenta
+st.color5:  #c678dd
+st.color13: #c858e9
+! DarkCyan + Cyan
+st.color6:  #83a598
+st.color14: #70c0ba
+! LightGrey + White
+st.color7:  #eaeaea
+st.color15: #eaeaea
 
 Xft.dpi: 96
 Xft.antialias: true
