@@ -21,10 +21,13 @@ call plug#begin('~/.vim/plugged')
 
 " Syntax/Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'lervag/vimtex'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Language specific
+Plug 'lervag/vimtex'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Typing
 Plug 'SirVer/ultisnips'
@@ -199,6 +202,9 @@ nnoremap <leader>t :Tags<CR>
 
 " View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
+
+" View md documents in browser
+nmap <leader>md <Plug>MarkdownPreview
 
 " Lightline config
 function! CocCurrentFunction()
