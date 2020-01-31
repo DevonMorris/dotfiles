@@ -22,13 +22,10 @@ Some of my favorite packages are
 * [fzf.vim](https://github.com/junegunn/fzf.vim)
 * [Vimtex](https://github.com/lervag/vimtex)
 * [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
-* [ALE](https://github.com/w0rp/ale)
 * [Vim-Airline](https://github.com/vim-airline/vim-airline)
 * [Ultisnips](https://github.com/SirVer/ultisnips)
 * [Vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
-### ALE Configuration
-To work with ALE in C++ you have to export your `compile_commands.json`. This is done by putting
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
@@ -66,3 +63,6 @@ This obviously only works for distros with SystemD support.
 Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
 
 Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.com/Airblader/i3).
+
+## St
+Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)
