@@ -8,22 +8,22 @@ source $HOME/.profile
 # Skips the global compinit
 skip_global_compinit=1
 
-# Install zplugin if not installed
-if [ ! -d "${HOME}/.zplugin" ]; then
-  mkdir ${HOME}/.zplugin
-	git clone https://github.com/psprint/zplugin ${HOME}/.zplugin/bin
-	zcompile ${HOME}/.zplugin/bin/zplugin.zsh
+# Install zinit if not installed
+if [ ! -d "${HOME}/.zinit" ]; then
+  mkdir ${HOME}/.zinit
+	git clone https://github.com/zdharma/zinit ${HOME}/.zinit/bin
+	zcompile ${HOME}/.zinit/bin/zinit.zsh
 fi
 
 ### Added by Zplugin's installer
-source "${HOME}/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source "${HOME}/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-### Functions to make zplugin configuration less verbose
-zpt() { zplugin ice wait"${1}" lucid               "${@:2}"; } # Turbo
-zpi() { zplugin ice lucid                            "${@}"; } # Regular Ice
-zp()  { [ -z $2 ] && zplugin light "${@}" || zplugin "${@}"; } # zplugin
+### Functions to make zinit configuration less verbose
+zpt() { zinit ice wait"${1}" lucid               "${@:2}"; } # Turbo
+zpi() { zinit ice lucid                            "${@}"; } # Regular Ice
+zp()  { [ -z $2 ] && zinit light "${@}" || zinit "${@}"; } # zinit
 
 ### Oh-my-zsh libs
 zpi atinit'ZSH_CACHE_DIR="$HOME/.zcompcache"'
@@ -55,10 +55,7 @@ zp wfxr/forgit
 zpi as"completion"
 zp snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
-zpt 0a
-zp laggardkernel/zsh-thefuck
-
-zpt 0a blockf atpull'zplugin creinstall -q .'
+zpt 0a blockf atpull'zinit creinstall -q .'
 zp zsh-users/zsh-completions
 
 zpt 0a
@@ -77,7 +74,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 export EDITOR='vim'
 
 ### Keybindings
-source $HOME/.zplugin/keybindings.zsh
+source $HOME/.zinit/keybindings.zsh
 
 #
 # Aliases
