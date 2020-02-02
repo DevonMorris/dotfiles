@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# Keyboard settings
+setxkbmap -option ctrl:nocaps
+xset r rate 300 20 &
+
+# Applets
+/usr/bin/nm-applet &
+
+# Compositing and style
+compton --config $HOME/.compton.conf &
+feh --bg-scale $HOME/Pictures/mountains.jpg &
+
+# dwm bar
+$HOME/.scripts/dwm-bar &
+
+# layout
+sh $HOME/.screenlayout/layout.sh &
+
+exec /usr/local/bin/dwm > /dev/null
