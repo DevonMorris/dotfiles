@@ -5,53 +5,48 @@ Basically, this  `setup.sh` is super cool, because it just does everything you n
 
 The following commands will **completely clobber** any configurations you have in your home folder, so either back up your dotfiles, or face the consequences.
 ```bash
-wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/setup.sh                                                                                                                                              devon@WhiteTiger
+wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/setup.sh
 chmod +x setup.sh
 ./setup.sh
 ```
 
-When you run `zsh` for the first time, the zplugin installation might kill all the files in `$HOME/.zplugin`. This is easily fixed with a `config reset --hard`
+When you run `zsh` for the first time, the zplugin installation might kill all the files in `$HOME/.zinit`. This is easily fixed with a `config reset --hard`
 
 ## Zsh
-We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zplugin](https://github.com/zdharma/zplugin), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
+We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zplugin](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
 
 ## Vim
 I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim.
 
 Some of my favorite packages are
 * [fzf.vim](https://github.com/junegunn/fzf.vim)
+* [CoC](https://github.com/neoclide/coc.nvim)
 * [Vimtex](https://github.com/lervag/vimtex)
 * [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
 * [Vim-Airline](https://github.com/vim-airline/vim-airline)
 * [Ultisnips](https://github.com/SirVer/ultisnips)
 * [Vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
+If you are using cmake, you can easily export your compile commands to get
+sweet sweet autocompletetion via CoC. To do this just put
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
+in your top-level `CMakeLists.txt`
 
-In ALE, you also have to select which linters you want to use. For C++, I recommend [ccls](https://github.com/MaskRay/ccls) :thumbsup:.
+In CoC, you also have to select which linters you want to use. For C++, I recommend [ccls](https://github.com/MaskRay/ccls) :thumbsup:.
 
-## i3 Window Manager
-I use [i3wm](https://i3wm.org/) for my desktop environment.
+## dwm
+I use [dwm-deus](https://github.com/DevonMorris/dwm-deus) for my window manager.
 
-Some of the major changes I've made to the default i3wm configuration are
-
-* Switching movement and resize from `j,k,l,;` to the _classic_ vim movement keys `h,j,k,l`
-* Using `Mod+q` to kill a window instead of `Mod+Shift+q`
-* Changing splitting directions with `Mod+i` and `Mod+o`
-* Changing window colors
-* Adding i3lock with `Mod1+Mod2+l`
-* "Natural Scrolling" on touchpads
-* Changing caps lock to additional ctrl (using `setxbmap`)
-* Adding a wallpaper with `feh`
-* Adding brightness and audio controls through `xbacklight` and `pavucontrol`
+It's basically a rice of suckless's dynamic window manager with some changes in
+keybindings and some patches added.
 
 To remove the default desktop environment I make an `~/.xinitrc` with the lines
 
 ```
 #!/usr/bin/env bash
-exec dbus-launch --exit-with-session i3
+exec dbus-launch --exit-with-session dwm
 ```
 
 Then in `/etc/default/grub`, set `GRUB_CMDLINE_LINUX_DEFAULT="text"`and then run
@@ -60,7 +55,7 @@ sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
 This obviously only works for distros with SystemD support.
-Now, when the computer boots, log into tty and i3 will automatically start (This is due to a line in my `.zshrc`).
+Now, when the computer boots, log into tty and dwm will automatically start (This is due to a line in my `.zshrc`).
 
 Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.com/Airblader/i3).
 
