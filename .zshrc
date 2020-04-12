@@ -1,3 +1,4 @@
+[ -z "$TMUX" ] && {exec tmux new-session && exit;}
 # Timothy Devon Morris .zshrc
 skip_global_compinit=1
 
