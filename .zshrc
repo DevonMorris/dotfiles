@@ -71,7 +71,7 @@ zp zdharma/fast-syntax-highlighting
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 
 ### all hail the one true editor
-export EDITOR='vim'
+export EDITOR='nvim'
 
 ### Keybindings
 source $HOME/.zinit/keybindings.zsh
@@ -79,14 +79,15 @@ source $HOME/.zinit/keybindings.zsh
 #
 # Aliases
 #
-alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
-alias xresources="vim ~/.Xresources"
-alias i3config="vim ~/.config/i3/config"
-alias gitconfig="vim ~/.gitconfig"
-alias alacrittyconfig="vim ~/.config/alacritty/alacritty.yml"
+alias vim="nvim"
+alias vimrc="$EDITOR ~/.vimrc"
+alias zshrc="$EDITOR ~/.zshrc"
+alias xresources="$EDITOR ~/.Xresources"
+alias i3config="$EDITOR ~/.config/i3/config"
+alias gitconfig="$EDITOR ~/.gitconfig"
+alias alacrittyconfig="$EDITOR ~/.config/alacritty/alacritty.yml"
 alias nb="jupyter notebook"
-alias neofetchconfig="vim ~/.config/neofetch/config.conf"
+alias neofetchconfig="$EDITOR ~/.config/neofetch/config.conf"
 alias pacman="sudo pacman"
 alias wee="weechat"
 alias ..="cd .."
@@ -100,8 +101,6 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/opt/rti_connext_dds-5.3.1/bin:$PATH
 export PATH=/snap/bin:$PATH
-
-export TERM="xterm-256color"
 
 #
 # FZF - pro level functions
