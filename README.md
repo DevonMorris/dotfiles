@@ -34,7 +34,7 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 in your top-level `CMakeLists.txt`
 
-In CoC, you also have to select which linters you want to use. For C++, I recommend [ccls](https://github.com/MaskRay/ccls) :thumbsup:.
+In CoC, you also have to select which linters you want to use. For C++, I recommend [coc-clangd](https://github.com/clangd/coc-clangd) :thumbsup:.
 
 ## dwm
 I use [dwm-deus](https://github.com/DevonMorris/dwm-deus) for my window manager.
