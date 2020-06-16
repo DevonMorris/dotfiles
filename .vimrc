@@ -61,6 +61,7 @@ set numberwidth=2
 set incsearch
 set ignorecase
 set smartcase
+set nohlsearch
 
 " Undodir
 set undodir=~/.vim/undodir
@@ -174,9 +175,6 @@ nnoremap <leader>t :Tags<CR>
 
 " View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
-
-" View md documents in browser
-nmap <leader>md <Plug>MarkdownPreview
 
 " Lightline config
 function! CocCurrentFunction()
