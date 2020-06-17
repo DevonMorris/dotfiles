@@ -7,7 +7,6 @@ general {
         interval = 5
 }
 
-order += "cpu_temperature 0"
 order += "cpu_usage"
 order += "disk /"
 order += "wireless _first_"
