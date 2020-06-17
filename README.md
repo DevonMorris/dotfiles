@@ -15,8 +15,8 @@ When you run `zsh` for the first time, the zplugin installation might kill all t
 ## Zsh
 We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zplugin](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
 
-## Vim
-I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim.
+## Neovim
+I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim/neovim.
 
 Some of my favorite packages are
 * [fzf.vim](https://github.com/junegunn/fzf.vim)
@@ -36,8 +36,8 @@ in your top-level `CMakeLists.txt`
 
 In CoC, you also have to select which linters you want to use. For C++, I recommend [coc-clangd](https://github.com/clangd/coc-clangd) :thumbsup:.
 
-## dwm
-I use [dwm-deus](https://github.com/DevonMorris/dwm-deus) for my window manager.
+## i3 Window Manager
+I use [i3wm](https://i3wm.org/) for my window manager.
 
 It's basically a rice of suckless's dynamic window manager with some changes in
 keybindings and some patches added.
@@ -46,7 +46,7 @@ To remove the default desktop environment I make an `~/.xinitrc` with the lines
 
 ```
 #!/usr/bin/env bash
-exec dbus-launch --exit-with-session dwm
+exec dbus-launch --exit-with-session i3wm
 ```
 
 Then in `/etc/default/grub`, set `GRUB_CMDLINE_LINUX_DEFAULT="text"`and then run

@@ -69,7 +69,6 @@ bindsym $mod+i split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -195,18 +194,15 @@ bindsym $mod+d exec "rofi -show run -modi run,drun -location 1 -width 100 -lines
 bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -width 30 -lines 10 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 10' -columns 1 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -color-window '$inactive-bg-color' -color-active '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -kb-row-tab 'Tab'"
 #bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#8a8a8a' -sb '#1d2021' -sf '#396886' -  'DejaVu Sans Mono-8'
 
-# Keybindings for brightness Mac
-bindsym $mod+Up exec sudo light -A 10 # increase screen brightness
-bindsym $mod+Down exec sudo light -U 10 # decrease screen brightness
-
 # lockscreen (make sure to scrot that desktop boi)
 bindsym $mod+$mod1+l exec i3lock -i $HOME/Pictures/lock.png
+bindsym --release $mod+s exec scrot -s
 
 # Fix for "Natural Scrolling"
 exec synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Background stored as wallpaper.png
-exec feh --bg-scale $HOME/Pictures/mountains.jpg
+exec feh --bg-center $HOME/Pictures/gargantua.jpg
 
 # Keybindings for audio up/down and mute Mac
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
@@ -227,17 +223,18 @@ for_window [id="^.*"] border pixel 2
 bindsym $mod+apostrophe move scratchpad
 #bindsym $mod+semicolon [class="Spotify"] scratchpad show
 bindsym $mod+semicolon [instance="music"] scratchpad show
-bindsym $mod+period [class="teams-for-linux"] scratchpad show
+bindsym $mod+period [class="Microsoft Teams - Preview"] scratchpad show
 bindsym $mod+slash [class="Slack"] scratchpad show
 bindsym $mod+backslash scratchpad show
 
 bindsym $mod+Shift+semicolon exec $ns urxvt -name music -e ncmpcpp
 
 # Make certain windows always floating
-for_window [title="Simulink Library Browser"] floating enable
-for_window [class="Teams for Linux"] floating enable
+for_window [class="Microsoft Teams - Preview"] floating enable
 for_window [class="Slack"] floating enable
 for_window [class="XTerm"] floating enable
+for_window [class="matplotlib"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
 
 # Swap caps and ctrl
 exec setxkbmap -option ctrl:nocaps
