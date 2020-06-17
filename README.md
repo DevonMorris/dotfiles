@@ -61,3 +61,5 @@ Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.co
 
 ## St
 Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)
+
+## Mirrors

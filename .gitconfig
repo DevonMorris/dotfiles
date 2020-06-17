@@ -4,6 +4,6 @@
 [push]
 	default = simple
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	subup = submodule update --init --recursive
