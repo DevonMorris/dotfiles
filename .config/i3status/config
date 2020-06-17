@@ -4,10 +4,9 @@ general {
         color_good = "#98c379"
         color_degraded = "#e5c07b"
         color_bad = "#d54e53"
-        interval = 5
+        interval = 1
 }
 
-order += "cpu_temperature 0"
 order += "cpu_usage"
 order += "disk /"
 order += "wireless _first_"
