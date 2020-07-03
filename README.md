@@ -63,4 +63,4 @@ Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.co
 Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)
 
 ## Mirrors
-You can find my dotfiles on [my website](https://git.devonmorris.dev), [github](https://github.com/DevonMorris/dotfiles) and [gitlab](https://gitlab.com/DevonMorris/dotfiles)
+You can find my dotfiles on [my website](https://git.devonmorris.dev/dotfiles), [github](https://github.com/DevonMorris/dotfiles) and [gitlab](https://gitlab.com/DevonMorris/dotfiles)
