@@ -19,13 +19,11 @@ We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](http
 I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim/neovim.
 
 Some of my favorite packages are
-* [fzf.vim](https://github.com/junegunn/fzf.vim)
-* [CoC](https://github.com/neoclide/coc.nvim)
-* [Vimtex](https://github.com/lervag/vimtex)
-* [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
-* [Vim-Airline](https://github.com/vim-airline/vim-airline)
-* [Ultisnips](https://github.com/SirVer/ultisnips)
-* [Vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* [fzf.vim](https://github.com/junegunn/fzf.vim) Fuzzy Searching (the GOAT)
+* [CoC](https://github.com/neoclide/coc.nvim) Autocompletion and linting
+* [Vimtex](https://github.com/lervag/vimtex) Latex compilation
+* [NerdCommenter](https://github.com/scrooloose/nerdcommenter) Easy commenting
+* [Vim-Airline](https://github.com/vim-airline/vim-airline) Better Status line
 
 If you are using cmake, you can easily export your compile commands to get
 sweet sweet autocompletetion via CoC. To do this just put
