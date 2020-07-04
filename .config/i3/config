@@ -190,8 +190,8 @@ bar {
 }
 
 # start rofi (as a program launcher)
-bindsym $mod+d exec "rofi -show run -modi run,drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 8' -columns 9 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -kb-row-select 'Tab' -kb-row-tab ''"
-bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -width 30 -lines 10 -line-margin 0 -line-padding 1 -separator-style none -font 'DejaVu Sans Mono 10' -columns 1 -bw 0 -hide-scrollbar -matching fuzzy -color-window '$inactive-bg-color' -color-normal '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -color-window '$inactive-bg-color' -color-active '$inactive-bg-color, $text-color, $inactive-bg-color, $text-color, $inactive-bg-color' -kb-row-tab 'Tab'"
+bindsym $mod+d exec "rofi -show run -modi run,drun -location 1 -width 100 -lines 2 -font 'DejaVu Sans Mono 8' -columns 9"
+bindsym $mod+Tab exec "rofi -show window -modi window -location 0 monitor -2 -width 30 -lines 10 -columns 1"
 #bindsym $mod+d exec dmenu_run -nb '#1d2021' -nf '#8a8a8a' -sb '#1d2021' -sf '#396886' -  'DejaVu Sans Mono-8'
 
 # lockscreen (make sure to scrot that desktop boi)

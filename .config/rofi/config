@@ -1,0 +1,11 @@
+rofi.separator-style: none
+rofi.line-margin: 0
+rofi.line-padding: 1
+rofi.bw: 0
+rofi.hide-scrollbar: True
+rofi.matching: fuzzy
+rofi.color-window: #2c323b
+rofi.color-normal: #2c323b, #ebdbb2, #2c323b, #ebdbb2, #2c323b
+rofi.color-active: #2c323b, #ebdbb2, #2c323b, #ebdbb2, #2c323b
+rofi.font: DejaVu Sans Mono 10
+;q
