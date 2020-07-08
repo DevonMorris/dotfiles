@@ -190,7 +190,7 @@ unsetopt share_history
 
 # Function for managing dotfiles
 function config {
-   /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
+   /usr/bin/env git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
 export FG_AIRCRAFT="$HOME/flightgear/Aircraft"
 
