@@ -20,19 +20,16 @@ I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package 
 
 Some of my favorite packages are
 * [fzf.vim](https://github.com/junegunn/fzf.vim) Fuzzy Searching (the GOAT)
-* [CoC](https://github.com/neoclide/coc.nvim) Autocompletion and linting
 * [Vimtex](https://github.com/lervag/vimtex) Latex compilation
 * [NerdCommenter](https://github.com/scrooloose/nerdcommenter) Easy commenting
 * [Vim-Airline](https://github.com/vim-airline/vim-airline) Better Status line
 
 If you are using cmake, you can easily export your compile commands to get
-sweet sweet autocompletetion via CoC. To do this just put
+sweet sweet autocompletetion via clangd and Neovim's LSP client. To do this just put
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 in your top-level `CMakeLists.txt`
-
-In CoC, you also have to select which linters you want to use. For C++, I recommend [coc-clangd](https://github.com/clangd/coc-clangd) :thumbsup:.
 
 ## i3 Window Manager
 I use [i3wm](https://i3wm.org/) for my window manager.
