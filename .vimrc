@@ -1,54 +1,11 @@
 " Vim .vimrc
 " author: Devon Morris
 " contact: devonmorris1992@gmail.com
-" date: Mon 15 Jun 2020 11:18:03 PM EDT
-
-""""""""""""""" Start Server """""""""""""""""""
-if empty(v:servername) && exists('*remote_startserver')
-  call remote_startserver('VIM')
-endif
-
-"""""""""""""" Plugins """""""""""""""""""
-" Install vim-plug automatically if not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" vim-plug plugin manager
-call plug#begin('~/.vim/plugged')
-
-" Syntax/Linting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Language specific
-Plug 'lervag/vimtex'
-
-" Typing
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-
-"" FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-"" Style
-Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'ajmwagar/vim-deus'
-
-"" Misc
-Plug 'vim-utils/vim-man'
-
-call plug#end()
+" date: Mon 21 Sep 2020 10:39:28 AM EDT
+" Note: everything in this file should be non-plugin vim specific
+" for everything regarding plugins or neovim check out ~/.config/nvim/init.vim
 
 """""""""""" General Configuration """"""""""""""
-
 " Don't assume I want a line comment after another line comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -77,9 +34,6 @@ set updatetime=50
 " Add mouse support for n00bs who use my computer
 set mouse=a
 
-" Highlight current line
-set cursorline
-
 " Remove whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -91,8 +45,7 @@ augroup numbertoggle
 augroup END
 
 " Use popup menu for completion and don't insert by default
-set completeopt=menu
-set completeopt+=noinsert
+set completeopt=menuone,noinsert,noselect
 
 filetype plugin indent on    " required
 syntax on
@@ -100,12 +53,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" All of this has to be set bc of tmux and deus theme
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme deus
-set background=dark
 
 " This is for editing tags in xml files
 set matchpairs+=<:>
@@ -114,10 +61,6 @@ let mapleader = '\\'
 nmap <space> <leader>
 vmap <space> <leader>
 set backspace=indent,eol,start
-
-" Mappings to edit .vimrc and source/save .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Mappings to move between panes
 nnoremap <silent> <leader>l :wincmd l<cr>
@@ -129,14 +72,6 @@ nnoremap <silent> <leader>k :wincmd k<cr>
 set splitright
 set splitbelow
 
-" Polyglot disabled
-let g:polyglot_disabled = ['csv', 'latex']
-
-" Cpp syntax highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-
 " Make jumping between buffers easier
 set hidden
 
@@ -147,7 +82,6 @@ set clipboard=unnamedplus
 
 " Don't override background
 highlight NonText ctermbg=NONE
-highlight Pmenu guibg='#666666'
 highlight clear LineNr
 highlight clear SignColumn
 highlight clear VertSplit
@@ -156,52 +90,14 @@ highlight clear VertSplit
 highlight ColorColumn ctermbg=black
 set colorcolumn=80
 
-""""""""""""""""" Plugin Configuration """""""""""""
-" Fugitive mappings
-nnoremap <leader>gb :Gblame<CR>
-
-" FZF mapings
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :BLines<CR>
-nnoremap <leader>o :Files<CR>
-nnoremap <leader>s :Snippets<CR>
-nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
-let $FZF_DEFAULT_OPTS='--reverse'
-
-" View latex documents with zathura
-let g:vimtex_view_method = 'zathura'
-
-" Lightline config
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
-
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ }
 set laststatus=2
 set noshowmode
-
-" CoC Mappings & Functions
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <leader>rn <Plug>(coc-rename)
-nmap <silent> gn <Plug>(coc-diagnostic-next)
-nmap <silent> gN <Plug>(coc-diagnostic-prev)
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')c-diagnostic-next)
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Netrw mappings
 nnoremap <leader>ex :Vex <CR>
 let g:netrw_banner=0
 let g:netrw_winsize=25
+
+" Colorscheme for plain old vim
+colorscheme slate
+set termguicolors
