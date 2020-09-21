@@ -192,7 +192,6 @@ unsetopt share_history
 function config {
    /usr/bin/env git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
-export FG_AIRCRAFT="$HOME/flightgear/Aircraft"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -207,4 +206,3 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
