@@ -115,11 +115,6 @@ nmap <space> <leader>
 vmap <space> <leader>
 set backspace=indent,eol,start
 
-" Escape Mappings for insert, visual and command modes
-inoremap jk <esc>
-vnoremap jk <esc>
-cnoremap jk <C-c>
-
 " Mappings to edit .vimrc and source/save .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -172,6 +167,8 @@ nnoremap <leader>o :Files<CR>
 nnoremap <leader>s :Snippets<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>t :Tags<CR>
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
+let $FZF_DEFAULT_OPTS='--reverse'
 
 " View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
