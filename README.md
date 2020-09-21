@@ -29,7 +29,7 @@ sweet sweet autocompletetion via clangd and Neovim's LSP client. To do this just
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
-in your top-level `CMakeLists.txt`
+in your top-level `CMakeLists.txt`. Check out the `.config/nvim/lua/lsp_config.lua` for configuring lsp in neovim (it's super easy).
 
 ## i3 Window Manager
 I use [i3wm](https://i3wm.org/) for my window manager.
