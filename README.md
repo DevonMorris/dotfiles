@@ -31,14 +31,14 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
 in your top-level `CMakeLists.txt`. Check out the `.config/nvim/lua/lsp_config.lua` for configuring lsp in neovim (it's super easy).
 
-## i3 Window Manager
+## Awesome Window Manager
 I use [awesome](https://awesomewm.org/) for my window manager. Check out the my `~/.config/awesome/rc.lua`.
 
 To remove the default desktop environment I make an `~/.xinitrc` with the lines
 
 ```
 #!/usr/bin/env bash
-exec dbus-launch --exit-with-session i3wm
+exec dbus-launch --exit-with-session awesome
 ```
 
 Then in `/etc/default/grub`, set `GRUB_CMDLINE_LINUX_DEFAULT="text"`and then run
