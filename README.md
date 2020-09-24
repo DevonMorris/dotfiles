@@ -47,7 +47,7 @@ sudo systemctl enable multi-user.target --force
 sudo systemctl set-default multi-user.target
 ```
 This obviously only works for distros with SystemD support.
-Now, when the computer boots, log into tty and dwm will automatically start (This is due to a line in my `.zshrc`).
+Now, when the computer boots, log into tty and awesome will automatically start (This is due to a line in my `.zshrc`).
 
 ## St
 Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)
