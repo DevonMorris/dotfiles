@@ -32,10 +32,7 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 in your top-level `CMakeLists.txt`. Check out the `.config/nvim/lua/lsp_config.lua` for configuring lsp in neovim (it's super easy).
 
 ## i3 Window Manager
-I use [i3wm](https://i3wm.org/) for my window manager.
-
-It's basically a rice of suckless's dynamic window manager with some changes in
-keybindings and some patches added.
+I use [awesome](https://awesomewm.org/) for my window manager. Check out the my `~/.config/awesome/rc.lua`.
 
 To remove the default desktop environment I make an `~/.xinitrc` with the lines
 
@@ -51,8 +48,6 @@ sudo systemctl set-default multi-user.target
 ```
 This obviously only works for distros with SystemD support.
 Now, when the computer boots, log into tty and dwm will automatically start (This is due to a line in my `.zshrc`).
-
-Sometimes when I'm feeling really fancy, I'll go for [i3-gaps](https://github.com/Airblader/i3).
 
 ## St
 Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)

@@ -4,4 +4,4 @@
 xrdb -m $HOME/.Xresources
 sh ~/.screenlayout/layout.sh
 compton -b
-exec dbus-launch --exit-with-session i3
+exec dbus-launch --exit-with-session awesome
