@@ -1,7 +1,7 @@
 " Neovim init.vim
 " author: Devon Morris
 " contact: devonmorris1992@gmail.com
-" date: Mon 21 Sep 2020 10:39:15 AM EDT
+" date: Fri 25 Sep 2020 02:55:32 PM EDT
 " Note: everything in this file should be neovim or plugin specific
 " for everything regarding plain vim config check out ~/.vimrc
 "
@@ -113,7 +113,7 @@ let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'deus',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
