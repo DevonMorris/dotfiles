@@ -13,16 +13,10 @@ chmod +x setup.sh
 When you run `zsh` for the first time, the zplugin installation might kill all the files in `$HOME/.zinit`. This is easily fixed with a `config reset --hard`
 
 ## Zsh
-We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zplugin](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
+We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zinit](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
 
 ## Neovim
 I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim/neovim.
-
-Some of my favorite packages are
-* [fzf.vim](https://github.com/junegunn/fzf.vim) Fuzzy Searching (the GOAT)
-* [Vimtex](https://github.com/lervag/vimtex) Latex compilation
-* [NerdCommenter](https://github.com/scrooloose/nerdcommenter) Easy commenting
-* [Vim-Airline](https://github.com/vim-airline/vim-airline) Better Status line
 
 If you are using cmake, you can easily export your compile commands to get
 sweet sweet autocompletetion via clangd and Neovim's LSP client. To do this just put
