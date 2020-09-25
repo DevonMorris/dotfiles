@@ -99,10 +99,10 @@ nnoremap <leader>gb :Gblame<CR>
 
 " FZF mapings
 nnoremap <leader>b <Cmd>Buffers<CR>
-nnoremap <leader>f <Cmd>:BLines<CR>
-nnoremap <leader>o <Cmd>:Files<CR>
-nnoremap <leader>rg <Cmd>:Rg<CR>
-nnoremap <leader>t <Cmd>:Tags<CR>
+nnoremap <leader>f <Cmd>BLines<CR>
+nnoremap <leader>o <Cmd>Files<CR>
+nnoremap <leader>rg <Cmd>Rg<CR>
+nnoremap <leader>t <Cmd>Tags<CR>
 let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
 let $FZF_DEFAULT_OPTS='--reverse'
 
@@ -129,3 +129,6 @@ nmap <leader>wu <Plug>VimwikiDiaryGenerateLinks
 
 " Quick Source
 noremap <leader>sv <Cmd>source $MYVIMRC<CR>
+
+" Quick highlight for text on yank
+au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
