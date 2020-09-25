@@ -58,6 +58,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ajmwagar/vim-deus'
 
+"" Vim Wiki
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " Colorscheme
@@ -79,13 +82,6 @@ set winblend=20
 " Lsp
 lua require'lsp_config'
 
-nnoremap <silent>gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent><c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent><c-k> <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap <silent><c-n> <cmd>NextDiagnosticCycle<CR>
-nnoremap <silent><c-p> <cmd>PrevDiagnosticCycle<CR>
-
 " use omni completion provided by lsp
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -102,12 +98,11 @@ let g:cpp_class_decl_highlight = 1
 nnoremap <leader>gb :Gblame<CR>
 
 " FZF mapings
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :BLines<CR>
-nnoremap <leader>o :Files<CR>
-nnoremap <leader>s :Snippets<CR>
-nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>t :Tags<CR>
+nnoremap <leader>b <Cmd>Buffers<CR>
+nnoremap <leader>f <Cmd>:BLines<CR>
+nnoremap <leader>o <Cmd>:Files<CR>
+nnoremap <leader>rg <Cmd>:Rg<CR>
+nnoremap <leader>t <Cmd>:Tags<CR>
 let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
 let $FZF_DEFAULT_OPTS='--reverse'
 
@@ -121,6 +116,16 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
       \ },
       \ }
+
+" Vimwiki config
+let g:vimwiki_list = [{'path': '~/.notes/', 'syntax' : 'markdown', 'ext': '.md'}]
+nmap <leader>wt <Plug>VimwikiMakeDiaryNote
+nmap <leader>wy <Plug>VimwikiMakeYesterdayDiaryNote
+nmap <leader>wm <Plug>VimwikiMakeTomorrowDiaryNote
+nmap <leader>wu <Plug>VimwikiDiaryGenerateLinks
+
+" Quick Source
+noremap <leader>sv <Cmd>source $MYVIMRC<CR>
