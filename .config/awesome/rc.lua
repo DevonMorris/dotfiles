@@ -1,3 +1,8 @@
+-- Awesome rc.lua
+-- author: Devon Morris
+-- contact: devonmorris1992@gmail.com
+-- date: Fri 25 Sep 2020 06:17:09 PM EDT
+--
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -172,6 +177,13 @@ local function set_wallpaper(s)
         gears.wallpaper.centered(wallpaper, s)
     end
 end
+
+-- Split ultrawide in multiple virtual screens
+--local geo = screen.primary.geometry
+--local new_width = math.ceil(geo.width/2)
+--local new_width2 = geo.width - new_width
+--screen.primary:fake_resize(geo.x, geo.y, new_width, geo.height)
+--screen.fake_add(geo.x + new_width, geo.y, new_width2, geo.height)
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
