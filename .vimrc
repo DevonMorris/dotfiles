@@ -44,6 +44,12 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" Open vimhelp in vertical split
+augroup vimrc_help
+  autocmd!
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+augroup END
+
 " Use popup menu for completion and don't insert by default
 set completeopt=menuone,noinsert,noselect
 
@@ -90,6 +96,8 @@ highlight clear VertSplit
 highlight ColorColumn ctermbg=black
 set colorcolumn=80
 
+" Set full file path
+set statusline+=%F
 set laststatus=2
 set noshowmode
 
