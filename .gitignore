@@ -4,7 +4,7 @@
 # Whitelist files I want to track
 !.vimrc
 !.zshrc
-!.config
+!.config/**
 !.arch_linux/*
 !.gitconfig
 !.gitignore
