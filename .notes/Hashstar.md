@@ -1,11 +1,11 @@
 # Hashstar
 
-Hash (#) and Star (*) are powerful operators in vim to find the occurences of
+Hash `#` and Star `*` are powerful operators in vim to find the occurences of
 words under the cursor.
 
 ## Kata
 
-Use the "*" and the "#" operators to navigate the text.
+Use the `*` and the `#` operators to navigate the text.
 
 I heartily accept the motto,—“That government is best which governs least;” and
 I should like to see it acted up to more rapidly and systematically. Carried

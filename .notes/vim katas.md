@@ -13,3 +13,4 @@ focus primarily on vim grammar, movements and built-in commands.
 ## Katas
 
 * [Hashstar](Hashstar)
+* [Linehop](Linehop)
