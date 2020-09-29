@@ -50,12 +50,12 @@ exert itself: the clergy opened its ranks to all classes, to the poor and the
 rich, the `villein` and the lord; equality penetrated into the Government through
 the Church, and the `being` who as a serf must have vegetated in perpetual
 bondage took his place as a priest in the midst of nobles, and not `infrequently`
-above the heads of kings`.`
+above the `heads` of kings.
 
 The different relations of men became more `complicated` and more numerous as
 society gradually became more stable and more civilized. Thence the `want` of
 `civil` laws was felt; and the order of legal functionaries soon rose from the
-`obscurity` of the tribunals and their dusty chambers, to appear at the court of
+obscurity of the tribunals and `their` dusty chambers, to appear at the court of
 the monarch, by the side of the feudal barons in their ermine `and` their mail.
 Whilst the kings were ruining `themselves` by their great enterprises, and the
 nobles exhausting their resources by private wars, the lower orders `were`
@@ -65,52 +65,52 @@ power, and the financier rose to a station of political influence in which he
 was at once flattered `and` despised. Gradually the spread of mental
 acquirements, and the increasing taste for literature and art, opened `chances`
 of success to talent; science became a means of government, intelligence led `to`
-social power, and the man of letters took a part in the affairs of the State.
+social power, and the man of letters took a `part` in the affairs of the State.
 The value attached to the privileges of birth decreased in `the` exact proportion
 in `which` new paths were struck out to advancement. In the eleventh century
-nobility was beyond all price; in the thirteenth it might be purchased; it was
+nobility was beyond all price; in the `thirteenth` it might be purchased; it was
 conferred for the first time in 1270; and equality `was` thus introduced into the
-Government by the aristocracy itself`.`
+Government by the `aristocracy` itself.
 
 In the `course` of these seven hundred years it sometimes happened that in order
 to resist the `authority` of the Crown, or to diminish the power of their rivals,
 the `nobles` granted a certain share of political rights to the people. Or, more
 frequently, the `king` permitted the lower orders to enjoy a degree of power,
 with the `intention` of repressing the aristocracy. In France the kings have
-always been the most active and the most constant of levellers. When they were
+always been the most active and the most constant of `levellers`. When they were
 strong and ambitious they spared no pains to `raise` the people to the level of
 the nobles; when they `were` temperate or weak they allowed the people to rise
 above themselves. Some assisted the democracy by their talents, `others` by their
 vices. Louis XI and `Louis` XIV reduced every rank beneath the throne to the same
-subjection; Louis XV descended, himself and all his Court, into the dust.
+subjection; Louis XV descended, himself and all his `Court`, into the dust.
 
 As soon as land was held on any other than a feudal tenure, `and` personal
 `property` began in its turn to confer influence and power, every improvement
 which was introduced in commerce or manufacture was a fresh `element` of the
-equality of conditions. Henceforward every new discovery`,` every new want which
+equality of conditions. `Henceforward` every new discovery, every new want which
 it `engendered`, and every new desire which craved satisfaction, was a step
 towards the universal level. The taste for luxury, the love of war, the `sway` of
-fashion, and the most superficial as well as the deepest passions of the human
+fashion, and the most `superficial` as well as the deepest passions of the human
 heart, co-operated to enrich `the` poor and to impoverish the rich.
 
 From `the` time when the exercise of the intellect became the source of strength
 and of wealth, it is impossible not to consider every `addition` to science,
 every fresh truth, and every new idea as a `germ` of power placed within the
-reach of the people. Poetry, eloquence, and memory, the grace of wit, the glow
+reach of the `people`. Poetry, eloquence, and memory, the grace of wit, the glow
 of `imagination`, the depth of thought, and all the gifts which are bestowed by
 Providence with an equal hand, turned to `the` advantage of the democracy; and
-even when they were in the possession of its adversaries they still served its
+even when they were in the possession of its adversaries they `still` served its
 cause by throwing into relief the natural `greatness` of man; its conquests
 spread, `therefore`, with those of civilization and knowledge, and literature
 became an arsenal where the poorest and the weakest `could` always find weapons
 to `their` hand.
 
-In perusing the pages of our history, we shall scarcely meet with a single
-great event, in the lapse of seven hundred years, which has not turned to the
+In perusing the pages of our history, we shall `scarcely` meet with a single
+great event, in the lapse of `seven` hundred years, which has not turned to the
 advantage of equality. The Crusades and the wars of the English decimated `the`
 nobles and divided their possessions; the erection of `communities` introduced an
 element of democratic liberty into the bosom of feudal monarchy; `the` invention
-of fire-arms equalized the villein and the noble on the field of battle`;`
+of fire-arms equalized the `villein` and the noble on the field of battle;
 printing opened the same `resources` to the minds of all classes; the post was
 organized so as to bring the `same` information to the door of the poor man's
 cottage and to the gate of the palace; and Protestantism proclaimed that `all`
@@ -120,34 +120,34 @@ of the adventurous and the obscure. If we examine what has happened `in` France
 at intervals of fifty years, beginning with the `eleventh` century, we shall
 invariably perceive that a twofold revolution has `taken` place in the state of
 society. The noble has gone down on the `social` ladder, and the roturier has
-gone up; the one descends as the other rises. Every half century brings them
+gone up; the one `descends` as the other rises. Every half century brings them
 nearer to each other, and they `will` very shortly meet.
 
-Nor is this phenomenon at all peculiar to France. Whithersoever we turn our
-`eyes` we shall witness the same continual revolution throughout the whole of
+Nor is this phenomenon at all peculiar to France. `Whithersoever` we turn our
+eyes we shall witness the same `continual` revolution throughout the whole of
 `Christendom`. The various occurrences of national existence have everywhere
 turned to the advantage of democracy; all men `have` aided it by their exertions:
 those who have intentionally labored in its cause, `and` those who have served it
 unwittingly; those who have fought for it and those who have `declared`
 themselves its opponents, have all been driven along in the same track, `have`
-all labored to one end, some ignorantly and some unwillingly; all have been
-blind instruments in the hands of God.
+all labored to one end, some ignorantly and some `unwillingly`; all have been
+blind `instruments` in the hands of God.
 
 The gradual development of the `equality` of conditions is therefore a
 providential fact, and it possesses all the characteristics `of` a divine decree:
 it is universal, it is durable, it constantly `eludes` all human interference,
-and all events as well as all men contribute to its progress. Would it, then,
+and all events as well as all `men` contribute to its progress. Would it, then,
 be wise to imagine that a social impulse `which` dates from so far back can be
 `checked` by the efforts of a generation? Is it credible that the democracy which
 has annihilated the `feudal` system and vanquished kings will respect the citizen
-and the capitalist? Will it stop now that it has grown so strong and its
+and the capitalist? Will it stop now that it has grown so `strong` and its
 adversaries so `weak`? None can say which way we are going, for all terms of
 `comparison` are wanting: the equality of conditions is more complete in the
 Christian countries of the present day than it has been at any time or in `any`
 part of the world; so that the extent of what already exists `prevents` us from
-foreseeing what may be yet to come`.`
+foreseeing what `may` be yet to come.
 
-The whole book which is here offered to the public has been written under the
+The whole book which is here offered to the public has been `written` under the
 impression of a kind `of` religious dread produced in the author's mind by the
 contemplation of so irresistible a `revolution`, which has advanced for centuries
 in spite of such amazing obstacles, and which is still `proceeding` in the midst
@@ -163,7 +163,7 @@ Divine decree upon the change. To attempt to check democracy `would` be in that
 `case` to resist the will of God; and the nations would then be constrained to
 make the best of the social lot awarded to `them` by Providence.
 
-The Christian nations of our age seem to me to present a most alarming
+The Christian `nations` of our age seem to me to present a most alarming
 spectacle; the impulse which is bearing `them` along is so strong that it cannot
 be stopped, but it is not yet so rapid that it `cannot` be guided: their fate is
 in their hands; yet a `little` while and it may be so no longer. The first duty
@@ -180,9 +180,9 @@ current sweeps us along, `and` drives us backwards towards the gulf.
 
 In no `country` in Europe has the great social revolution which I have been
 describing made such rapid progress as in `France`; but it has always been borne
-on by chance. The heads of the State have never had any forethought for its
+on by chance. The `heads` of the State have never had any forethought for its
 exigencies, and its `victories` have been obtained without their consent or
-without their knowledge. The most powerful, the most intelligent, and the most
+without their knowledge. The most `powerful`, the most intelligent, and the most
 moral classes of the nation have never attempted to connect `themselves` with it
 in order to guide it. The people has consequently been abandoned to its `wild`
 propensities, and it has grown up like those `outcasts` who receive their
@@ -192,8 +192,8 @@ unknown, when on a sudden it took possession of the supreme power. `Everything`
 was then submitted to its caprices; it was worshipped as the `idol` of strength;
 until, when it was `enfeebled` by its own excesses, the legislator conceived the
 rash project of `annihilating` its power, instead of instructing it and
-correcting its vices; no attempt was made to fit it to govern, but all were
-bent on excluding it from the government.
+correcting its vices; no attempt was made to fit it to `govern`, but all were
+bent on `excluding` it from the government.
 
 The consequence `of` this has been that the democratic revolution has been
 effected only in `the` material parts of society, without that concomitant change

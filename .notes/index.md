@@ -4,8 +4,7 @@
   * [vim katas](vim katas)
 
 ## Development
+  * [Programming Languages](Programming Languages)
 
 ## Maths
-
-## [Bookmarks](Bookmarks)
-
+  * [Differential Geometry](Differential Geometry)
