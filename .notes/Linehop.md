@@ -15,7 +15,7 @@ highlighted for convenience. Jump to the first or last letter of these words.
 Amongst the novel objects that attracted my attention `during` my stay in the
 United States, nothing struck me more forcibly `than` the general equality of
 conditions. I readily discovered the prodigious influence which `this` primary
-fact exercises on the whole course of society, by giving a certain direction
+fact exercises on the whole `course` of society, by giving a certain direction
 to public `opinion`, and a certain tenor to the laws; by imparting new maxims to
 the governing powers, and peculiar habits to the `governed`. I speedily
 perceived that `the` influence of this fact extends far beyond the political
@@ -24,7 +24,7 @@ civil `society` than over the Government; it creates opinions, engenders
 sentiments, suggests the ordinary practices of life, and modifies `whatever` it
 does not produce. The more I advanced in the `study` of American society, the
 `more` I perceived that the equality of conditions is the fundamental fact from
-which all others seem to be derived, and the central point at which all my
+which all others seem to be derived, and the central `point` at which all my
 `observations` constantly terminated.
 
 I then turned my thoughts to our own hemisphere, `where` I imagined that I
@@ -38,15 +38,15 @@ now `before` the reader.
 It is evident to all alike that a great democratic revolution is going `on`
 `amongst` us; but there are two opinions as to its nature and: consequences. To
 some it appears to be a novel accident, which as such `may` still be checked; to
-others it seems irresistible, because it is the most uniform`,` the most ancient,
+others it seems `irresistible`, because it is the most uniform, the most ancient,
 and the most permanent tendency which is to `be` found in history. Let us
 recollect `the` situation of France seven hundred years ago, when the territory
-was divided amongst a small number of families, who were the owners of the soil
-and the rulers of the inhabitants; the right of governing descended with the
+was divided amongst a small number of `families`, who were the owners of the soil
+and the rulers of the inhabitants; the right of governing `descended` with the
 family inheritance from generation to `generation`; force was the only means by
 which man could act on man, and landed property was the `sole` source of power.
-Soon, however, the political power of the clergy was founded, and began to
-exert itself: the clergy opened its ranks to all classes, to the poor and the
+Soon, however, the `political` power of the clergy was founded, and began to
+exert itself: the clergy opened its `ranks` to all classes, to the poor and the
 rich, the `villein` and the lord; equality penetrated into the Government through
 the Church, and the `being` who as a serf must have vegetated in perpetual
 bondage took his place as a priest in the midst of nobles, and not `infrequently`
@@ -61,7 +61,7 @@ Whilst the kings were ruining `themselves` by their great enterprises, and the
 nobles exhausting their resources by private wars, the lower orders `were`
 enriching themselves by commerce. The influence of money began to `be`
 perceptible in State affairs. `The` transactions of business opened a new road to
-power, and the financier rose to a station of political influence in which he
+power, and the `financier` rose to a station of political influence in which he
 was at once flattered `and` despised. Gradually the spread of mental
 acquirements, and the increasing taste for literature and art, opened `chances`
 of success to talent; science became a means of government, intelligence led `to`
