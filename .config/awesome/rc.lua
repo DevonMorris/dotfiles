@@ -350,7 +350,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- Scrot
-    awful.key({ modkey }, "s", function () awful.util.spawn_with_shell("sleep 0.1 && scrot -s -e 'mv $f ~/screenshots/'") end,
+    awful.key({ modkey }, "s", function () awful.util.spawn_with_shell("sleep 0.15 && scrot -s -e 'mv $f ~/screenshots/'") end,
               {description = "take a screenshot", group = "launcher"})
 
 )
