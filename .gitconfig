@@ -7,3 +7,4 @@
 	editor = nvim
 [alias]
 	subup = submodule update --init --recursive
+	subreset = submodule foreach --recursive git reset --hard HEAD
