@@ -231,9 +231,9 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             require("widgets.battery-widget") { adapter = "BAT0" },
             mytextclock,
+            wibox.widget.systray(),
             s.mylayoutbox,
         },
     }
