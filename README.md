@@ -10,8 +10,6 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-When you run `zsh` for the first time, the zplugin installation might kill all the files in `$HOME/.zinit`. This is easily fixed with a `config reset --hard`
-
 ## Zsh
 We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zinit](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
 
