@@ -23,7 +23,7 @@ autoload -Uz _zinit
 ### Functions to make zinit configuration less verbose
 zpt() { zinit ice wait"${1}" lucid               "${@:2}"; } # Turbo
 zpi() { zinit ice lucid                            "${@}"; } # Regular Ice
-zp()  { [ -z $2 ] && zinit light "${@}" || zinit "${@}"; } # zinit
+zp()  { [ -z $2 ] && zinit light $@ || zinit $@; } # zinit
 
 ### Oh-my-zsh libs
 zpi atinit'ZSH_CACHE_DIR="$HOME/.zcompcache"'
