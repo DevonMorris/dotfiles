@@ -32,18 +32,15 @@ zp snippet OMZ::lib/history.zsh
 zpt 0a
 zp snippet OMZ::lib/completion.zsh
 
-zpt 0a
-zp arzzen/calc.plugin.zsh
-
 zp snippet OMZ::lib/git.zsh
 
 zp snippet OMZ::plugins/git/git.plugin.zsh
 setopt promptsubst
 
+zp snippet OMZ::plugins/virtualenv/virtualenv.plugin.zsh
+
 zp snippet OMZ::lib/theme-and-appearance.zsh
 zp snippet OMZ::lib/spectrum.zsh
-zp snippet OMZ::themes/pygmalion-virtualenv.zsh-theme
-
 
 ### Zplugins
 # Remember to make the last plugin loaded in turbo mode have atload'zpcompinit' for
@@ -74,7 +71,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
 export EDITOR='nvim'
 
 ### Keybindings
-source $HOME/.zinit/keybindings.zsh
+source $HOME/.config/zsh/keybindings.zsh
+
+### Theme
+source $HOME/.config/zsh/pygmalion-virtualenv.zsh-theme
 
 #
 # Aliases
