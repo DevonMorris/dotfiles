@@ -30,6 +30,9 @@ call plug#begin()
 " Lsp
 Plug 'neovim/nvim-lspconfig'
 
+" Tree Sitter
+Plug 'nvim-treesitter/nvim-treesitter'
+
 " Autocomplete
 Plug 'nvim-lua/completion-nvim'
 
@@ -82,9 +85,12 @@ set winblend=20
 " Lsp
 lua require'lsp_config'
 
+" Tree Sitter
+lua require'treesitter_config'
+
 " use omni completion provided by lsp
-autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_ignore_case = 1
 
 " Diagnostics
 let g:diagnostic_enable_virtual_text = 0
@@ -98,11 +104,14 @@ let g:cpp_class_decl_highlight = 1
 nnoremap <leader>gb :Gblame<CR>
 
 " FZF mapings
+command Dotfiles call fzf#run(fzf#wrap(({'source': 'find $HOME -path "$HOME/.*" 2> /dev/null'})))
+command Directories call fzf#run(fzf#wrap(({'source': 'find .* -type d 2> /dev/null'})))
 nnoremap <leader>b <Cmd>Buffers<CR>
 nnoremap <leader>f <Cmd>BLines<CR>
 nnoremap <leader>o <Cmd>Files<CR>
 nnoremap <leader>rg <Cmd>Rg<CR>
 nnoremap <leader>t <Cmd>Tags<CR>
+nnoremap <leader>d <Cmd>Dotfiles<CR>
 let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
 let $FZF_DEFAULT_OPTS='--reverse'
 
