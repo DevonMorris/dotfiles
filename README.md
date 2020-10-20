@@ -1,13 +1,13 @@
 # Configuration Files for Linux systems
 
 ## Set Up Script
-Basically, this  `setup.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `config` for `git` to manage your dotfiles. So you'd do something like `config status` instead of `git status`.
+Basically, this  `init_dotfiles.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `config` for `git` to manage your dotfiles. So you'd do something like `config status` instead of `git status`.
 
 The following commands will **completely clobber** any configurations you have in your home folder, so either back up your dotfiles, or face the consequences.
 ```bash
-wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/setup.sh
-chmod +x setup.sh
-./setup.sh
+wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/init_dotfiles.sh
+chmod +x init_dotfiles.sh
+./init_dotfiles.sh
 ```
 
 ## Zsh
