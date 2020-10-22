@@ -14,6 +14,7 @@ on_attach = function(_, buffnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-n>', '<Cmd>NextDiagnosticCycle<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-p>', '<Cmd>PrevDiagnosticCycle<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 --Python Config
@@ -34,7 +35,12 @@ nvim_lsp.pyls.setup{
 }
 
 --C++ config
-nvim_lsp.clangd.setup{on_attach=on_attach}
+nvim_lsp.clangd.setup{on_attach=on_attach;
+  cmd = {"clangd-10", "--background-index"}
+}
+
+--CMake config
+require'nvim_lsp'.cmake.setup{}
 
 --VimLang config
 nvim_lsp.vimls.setup{on_attach=on_attach}

@@ -61,10 +61,20 @@ Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ajmwagar/vim-deus'
 
+"" Suda
+Plug 'lambdalisue/suda.vim'
+
 "" Vim Wiki
 Plug 'vimwiki/vimwiki'
 
+"" Docker
+Plug 'kkvh/vim-docker-tools'
+
 call plug#end()
+
+
+" Don't assume I want a line comment after another line comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Colorscheme
 colorscheme deus
@@ -107,7 +117,6 @@ nnoremap <leader>gb :Gblame<CR>
 command Dotfiles call fzf#run(fzf#wrap(({'source': 'find $HOME -path "$HOME/.*" 2> /dev/null'})))
 command Directories call fzf#run(fzf#wrap(({'source': 'find .* -type d 2> /dev/null'})))
 nnoremap <leader>b <Cmd>Buffers<CR>
-nnoremap <leader>f <Cmd>BLines<CR>
 nnoremap <leader>o <Cmd>Files<CR>
 nnoremap <leader>rg <Cmd>Rg<CR>
 nnoremap <leader>t <Cmd>Tags<CR>
@@ -138,6 +147,9 @@ nmap <leader>wu <Plug>VimwikiDiaryGenerateLinks
 
 " Quick Source
 noremap <leader>sv <Cmd>source $MYVIMRC<CR>
+
+" Docker tools
+nnoremap <leader>w <Cmd>DockerToolsToggle<CR>
 
 " Quick highlight for text on yank
 au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
