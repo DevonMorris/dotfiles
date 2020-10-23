@@ -24,6 +24,7 @@ config = {}
 config.find_dots = function(opts)
   opts = opts or {}
 
+  opts.cwd = os.getenv("HOME")
   -- By creating the entry maker after the cwd options,
   -- we ensure the maker uses the cwd options when being created.
   opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
