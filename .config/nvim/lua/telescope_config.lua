@@ -43,4 +43,29 @@ config.find_dots = function(opts)
   }):find()
 end
 
+config.git_files = function(opts)
+  opts = opts or {}
+
+  if opts.cwd then
+    opts.cwd = vim.fn.expand(opts.cwd)
+  else
+    --- Find root of git directory and remove trailing newline characters
+    opts.cwd = string.gsub(vim.fn.system("git rev-parse --show-toplevel"), '[\n\r]+', '')
+  end
+
+  -- By creating the entry maker after the cwd options,
+  -- we ensure the maker uses the cwd options when being created.
+  opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
+
+  pickers.new(opts, {
+    prompt_title = 'Git File',
+    finder = finders.new_oneshot_job(
+      { "git", "ls-files", "--recurse-submodules" },
+      opts
+    ),
+    previewer = previewers.cat.new(opts),
+    sorter = conf.file_sorter(opts),
+  }):find()
+end
+
 return config
