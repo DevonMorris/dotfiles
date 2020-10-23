@@ -513,7 +513,8 @@ awful.rules.rules = {
           "SimpleScreenRecorder",
           "Microsoft Teams - Preview",
           "Ocu",
-          "Slack"},
+          "Slack",
+          "Spotify"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -605,4 +606,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Programs to run upon starting awesomewm
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
-awful.spawn("compton --config $HOME/.compton.conf -b")
+awful.spawn("compton --config "..os.getenv("HOME").."/.compton.conf -b")
