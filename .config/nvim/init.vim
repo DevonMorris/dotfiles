@@ -108,6 +108,9 @@ lua require'telescope_config'
 " Telescope
 nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.git_files{}<CR>
 nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
+nnoremap <leader>s <Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{}<CR>
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']

@@ -55,10 +55,6 @@ set completeopt=menuone,noinsert,noselect
 
 filetype plugin indent on    " required
 syntax on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
 
 " This is for editing tags in xml files
 set matchpairs+=<:>
@@ -109,3 +105,5 @@ let g:netrw_winsize=25
 " Colorscheme for plain old vim
 colorscheme slate
 set termguicolors
+
+set expandtab
