@@ -54,7 +54,6 @@ Plug 'tpope/vim-fugitive'
 
 "" FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 "" Style
 Plug 'itchyny/lightline.vim'
@@ -69,6 +68,11 @@ Plug 'vimwiki/vimwiki'
 
 "" Docker
 Plug 'kkvh/vim-docker-tools'
+
+"" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 
 call plug#end()
 
@@ -98,6 +102,13 @@ lua require'lsp_config'
 " Tree Sitter
 lua require'treesitter_config'
 
+" Telescope Config
+lua require'telescope_config'
+
+" Telescope
+nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.git_files{}<CR>
+nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
+
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_matching_ignore_case = 1
@@ -112,17 +123,6 @@ let g:cpp_class_decl_highlight = 1
 
 " Fugitive mappings
 nnoremap <leader>gb :Gblame<CR>
-
-" FZF mapings
-command Dotfiles call fzf#run(fzf#wrap(({'source': 'find $HOME -path "$HOME/.*" 2> /dev/null'})))
-command Directories call fzf#run(fzf#wrap(({'source': 'find .* -type d 2> /dev/null'})))
-nnoremap <leader>b <Cmd>Buffers<CR>
-nnoremap <leader>o <Cmd>Files<CR>
-nnoremap <leader>rg <Cmd>Rg<CR>
-nnoremap <leader>t <Cmd>Tags<CR>
-nnoremap <leader>d <Cmd>Dotfiles<CR>
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6} }
-let $FZF_DEFAULT_OPTS='--reverse'
 
 " View latex documents with zathura
 let g:vimtex_view_method = 'zathura'
