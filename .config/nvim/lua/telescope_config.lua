@@ -43,8 +43,16 @@ config.find_dots = function(opts)
   }):find()
 end
 
-config.git_files = function(opts)
+-- Looks for git files, but falls back to normal files
+config.files = function(opts)
   opts = opts or {}
+
+  vim.fn.system("git status")
+  local is_not_git = vim.v.shell_error > 0
+  if is_not_git then
+    require'telescope.builtin'.find_files(opts)
+    return
+  end
 
   if opts.cwd then
     opts.cwd = vim.fn.expand(opts.cwd)

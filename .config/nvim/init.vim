@@ -106,10 +106,11 @@ lua require'treesitter_config'
 lua require'telescope_config'
 
 " Telescope
-nnoremap <Leader>o <Cmd>lua require'telescope_config'.git_files{}<CR>
+nnoremap <Leader>o <Cmd>lua require'telescope_config'.files{}<CR>
 nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
 nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -155,3 +156,7 @@ nnoremap <leader>w <Cmd>DockerToolsToggle<CR>
 
 " Quick highlight for text on yank
 au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
+
+" Copy the clipboard for neovim on exit
+autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
+            \ ' | xclip -selection clipboard')
