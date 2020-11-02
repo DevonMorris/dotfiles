@@ -5,6 +5,7 @@ local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
 local make_entry = require('telescope.make_entry')
 local previewers = require('telescope.previewers')
+local utils = require('telescope.utils')
 local conf = require('telescope.config').values
 
 
@@ -19,9 +20,10 @@ require('telescope').setup{
   },
 }
 
-config = {}
+M = {}
 
-config.find_dots = function(opts)
+M.find_dots = function(opts)
+  opts.shorten_path = utils.get_default(opts.shorten_path, true)
   opts = opts or {}
 
   opts.cwd = os.getenv("HOME")
@@ -44,7 +46,8 @@ config.find_dots = function(opts)
 end
 
 -- Looks for git files, but falls back to normal files
-config.files = function(opts)
+M.files = function(opts)
+  opts.shorten_path = utils.get_default(opts.shorten_path, true)
   opts = opts or {}
 
   vim.fn.system("git status")
@@ -76,4 +79,34 @@ config.files = function(opts)
   }):find()
 end
 
-return config
+M.tagstack = function(opts)
+  opts = opts or {}
+  local tagstack = vim.fn.gettagstack()
+  if vim.tbl_isempty(tagstack.items) then
+    return
+  end
+
+  for i, value in pairs(tagstack.items) do
+    value.text = value.tagname
+    value.lnum = value.from[2]
+    value.filename = vim.fn.bufname(value.from[1])
+  end
+
+  -- reverse the list
+  tags = {}
+  for i=#tagstack.items, 1, -1 do
+    tags[#tags+1] = tagstack.items[i]
+  end
+
+  pickers.new(opts, {
+      prompt_title = 'TagStack',
+      finder = finders.new_table {
+        results = tags,
+        entry_maker = make_entry.gen_from_quickfix(opts),
+      },
+      previewer = previewers.qflist.new(opts),
+      sorter = conf.generic_sorter(opts),
+    }):find()
+end
+
+return M

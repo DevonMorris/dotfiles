@@ -109,8 +109,9 @@ lua require'telescope_config'
 nnoremap <Leader>o <Cmd>lua require'telescope_config'.files{}<CR>
 nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
 nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
-nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{shorten_path = true}<CR>
 nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.live_grep{}<CR>
+nnoremap <leader>t <Cmd>lua require'telescope_config'.tagstack{}<CR>
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -160,3 +161,8 @@ au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
 " Copy the clipboard for neovim on exit
 autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
+
+" TODO: figure out why this isn't working in ftplugin
+autocmd BufEnter *.tpp :setlocal filetype=cpp
+
+lua require'plenary.reload'.reload_module'telescope_config'

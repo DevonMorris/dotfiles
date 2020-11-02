@@ -36,7 +36,7 @@ nvim_lsp.pyls.setup{
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=on_attach;
-  cmd = {"clangd", "--background-index"}
+  cmd = {"clangd", "--background-index", "--clang-tidy"}
 }
 
 --CMake config
