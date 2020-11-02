@@ -68,9 +68,9 @@ modkey = "Mod1"
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.floating,
     --awful.layout.suit.tile.left,
-    --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -514,7 +514,8 @@ awful.rules.rules = {
           "Microsoft Teams - Preview",
           "Ocu",
           "Slack",
-          "Spotify"},
+          "Spotify",
+          "zoom"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
