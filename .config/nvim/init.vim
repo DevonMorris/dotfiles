@@ -39,6 +39,9 @@ Plug 'nvim-lua/completion-nvim'
 " Diagnostics
 Plug 'nvim-lua/diagnostic-nvim'
 
+" Async
+Plug 'tpope/vim-dispatch'
+
 " Syntax/Linting
 Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -161,8 +164,3 @@ au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
 " Copy the clipboard for neovim on exit
 autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
-
-" TODO: figure out why this isn't working in ftplugin
-autocmd BufEnter *.tpp :setlocal filetype=cpp
-
-lua require'plenary.reload'.reload_module'telescope_config'
