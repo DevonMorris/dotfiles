@@ -48,8 +48,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
-" FZF (this is here mostly bc I'm too lazy to install it manually)
+" FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Style
 Plug 'itchyny/lightline.vim'
@@ -64,11 +65,6 @@ Plug 'vimwiki/vimwiki'
 
 " Docker
 Plug 'kkvh/vim-docker-tools'
-
-" Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/telescope.nvim'
 
 call plug#end()
 
@@ -97,16 +93,16 @@ lua require'lsp_config'
 " Tree Sitter
 lua require'treesitter_config'
 
-" Telescope Config
-lua require'telescope_config'
-
-" Telescope
-nnoremap <Leader>o <Cmd>lua require'telescope_config'.files{}<CR>
-nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
-nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
-nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{shorten_path = true}<CR>
-nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.live_grep{}<CR>
-nnoremap <leader>t <Cmd>lua require'telescope_config'.tagstack{}<CR>
+" FZF configuration
+command Dotfiles call fzf#run(fzf#wrap(({'source': 'find $HOME -path "$HOME/.*" 2> /dev/null'})))
+command Directories call fzf#run(fzf#wrap(({'source': 'find .* -type d 2> /dev/null'})))
+nnoremap <leader>b <Cmd>Buffers<CR>
+nnoremap <leader>o <Cmd>Files<CR>
+nnoremap <leader>rg <Cmd>Rg<CR>
+nnoremap <leader>d <Cmd>Dotfiles<CR>
+nnoremap <leader>m <Cmd>Helptags<CR>
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7} }
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
