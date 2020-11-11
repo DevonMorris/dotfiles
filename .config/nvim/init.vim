@@ -1,7 +1,7 @@
 " Neovim init.vim
 " author: Devon Morris
 " contact: devonmorris1992@gmail.com
-" date: Fri 25 Sep 2020 02:55:32 PM EDT
+" date: Tue Nov 10 21:09:35 EST 2020
 " Note: everything in this file should be neovim or plugin specific
 " for everything regarding plain vim config check out ~/.vimrc
 "
@@ -12,9 +12,6 @@ if empty(v:servername) && exists('*remote_startserver')
 endif
 
 source ~/.vimrc
-
-" Polyglot disabled
-let g:polyglot_disabled = ['csv', 'latex']
 
 """""""""""""" Plugins """""""""""""""""""
 " Install vim-plug automatically if not installed
@@ -42,10 +39,6 @@ Plug 'nvim-lua/diagnostic-nvim'
 " Async
 Plug 'tpope/vim-dispatch'
 
-" Syntax/Linting
-Plug 'sheerun/vim-polyglot'
-Plug 'octol/vim-cpp-enhanced-highlight'
-
 " Language specific
 Plug 'lervag/vimtex'
 
@@ -55,24 +48,24 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
-"" FZF
+" FZF (this is here mostly bc I'm too lazy to install it manually)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-"" Style
+" Style
 Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'ajmwagar/vim-deus'
+Plug 'sainnhe/gruvbox-material'
 
-"" Suda
+" Suda
 Plug 'lambdalisue/suda.vim'
 
-"" Vim Wiki
+" Vim Wiki
 Plug 'vimwiki/vimwiki'
 
-"" Docker
+" Docker
 Plug 'kkvh/vim-docker-tools'
 
-"" Telescope
+" Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
@@ -84,14 +77,13 @@ call plug#end()
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Colorscheme
-colorscheme deus
+let g:gruvbox_material_palette = 'material'
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 set background=dark
 
 " Highlight current line
 set cursorline
-
-" Highlight popup menu
-highlight Pmenu guibg='#666666'
 
 " Neovim specific display
 set guicursor=
@@ -123,11 +115,6 @@ let g:completion_matching_ignore_case = 1
 " Diagnostics
 let g:diagnostic_enable_virtual_text = 0
 
-" Cpp syntax highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-
 " Fugitive mappings
 nnoremap <leader>gb :Gblame<CR>
 
@@ -138,7 +125,7 @@ let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
 let g:lightline = {
-      \ 'colorscheme': 'deus',
+      \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
@@ -152,7 +139,7 @@ nmap <leader>wy <Plug>VimwikiMakeYesterdayDiaryNote
 nmap <leader>wm <Plug>VimwikiMakeTomorrowDiaryNote
 nmap <leader>wu <Plug>VimwikiDiaryGenerateLinks
 
-" Quick Source
+" Quick Source init.vim
 noremap <leader>sv <Cmd>source $MYVIMRC<CR>
 
 " Docker tools
