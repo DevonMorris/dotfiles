@@ -84,8 +84,8 @@ set cursorline
 " Neovim specific display
 set guicursor=
 set inccommand=nosplit
-set pumblend=20
-set winblend=20
+set pumblend=0
+set winblend=0
 
 " Lsp
 lua require'lsp_config'
@@ -147,3 +147,8 @@ au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
 " Copy the clipboard for neovim on exit
 autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
+
+" Quickfix
+nnoremap <C-N> <Cmd>cn<CR>
+nnoremap <C-P> <Cmd>cp<CR>
+nnoremap <C-C> <Cmd>ccl<CR>
