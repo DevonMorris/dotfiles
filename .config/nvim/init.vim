@@ -89,6 +89,7 @@ set winblend=0
 
 " Lsp
 lua require'lsp_config'
+nnoremap H <Cmd>lua require'nvim_lsp'.clangd.switch_source_header(0)<CR>
 
 " Tree Sitter
 lua require'treesitter_config'
@@ -107,9 +108,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7} }
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_matching_ignore_case = 1
-
-" Diagnostics
-let g:diagnostic_enable_virtual_text = 0
 
 " Fugitive mappings
 nnoremap <leader>gb :Gblame<CR>
