@@ -36,9 +36,12 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 unsetopt share_history
 
 # Function for managing dotfiles
-function config {
+function dots {
    /usr/bin/env git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /opt/ros/melodic/setup.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -47,9 +50,10 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/devon/anaconda3/etc/profile.d/conda.sh"
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
         export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
+# <<< conda initialize <<<
