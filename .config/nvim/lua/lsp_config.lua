@@ -59,3 +59,6 @@ require'nvim_lsp'.tsserver.setup{on_attach=on_attach}
 
 --Html
 require'nvim_lsp'.html.setup{on_attach=on_attach}
+
+--Rust
+require'nvim_lsp'.rust_analyzer.setup{on_attach=on_attach}
