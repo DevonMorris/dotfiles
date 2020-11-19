@@ -1,4 +1,4 @@
-set makeprg=cargo\ check
+set makeprg=cargo
 set errorformat=
             \%-G,
             \%-Gerror:\ aborting\ %.%#,
