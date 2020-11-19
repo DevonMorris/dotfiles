@@ -106,4 +106,6 @@ let g:netrw_winsize=25
 colorscheme slate
 set termguicolors
 
+set ts=2
+set sw=2
 set expandtab
