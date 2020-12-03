@@ -5,5 +5,4 @@ rofi.bw: 0
 rofi.hide-scrollbar: True
 rofi.matching: fuzzy
 rofi.font: DejaVu Sans Mono 10
-;q
 rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi

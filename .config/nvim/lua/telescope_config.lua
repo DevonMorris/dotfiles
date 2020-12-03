@@ -47,7 +47,6 @@ end
 
 -- Looks for git files, but falls back to normal files
 M.files = function(opts)
-  opts.shorten_path = utils.get_default(opts.shorten_path, true)
   opts = opts or {}
 
   vim.fn.system("git status")

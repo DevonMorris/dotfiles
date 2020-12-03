@@ -231,7 +231,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            require("widgets.battery-widget") { adapter = "BAT0" },
+            --require("widgets.battery-widget") { adapter = "BAT0" },
             mytextclock,
             wibox.widget.systray(),
             s.mylayoutbox,
@@ -297,6 +297,8 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "Return", function () awful.spawn(terminal, {floating = true}) end,
+              {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "e", awesome.quit,
@@ -345,7 +347,7 @@ globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "d",
         function()
-            awful.util.spawn("rofi -show run -modi run,drun -location 1 -width 100 -lines 2 -font 'DejaVu Sans Mono 8' -columns 9")
+            awful.util.spawn("rofi -show run -modi run,drun,combi")
         end,
               {description = "show the menubar", group = "launcher"}),
 
@@ -607,4 +609,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Programs to run upon starting awesomewm
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
-awful.spawn("compton --config "..os.getenv("HOME").."/.compton.conf -b")
+awful.spawn("picom -b")

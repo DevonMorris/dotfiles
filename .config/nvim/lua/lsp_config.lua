@@ -1,4 +1,5 @@
-local nvim_lsp = require'nvim_lsp'
+local nvim_lsp = require'lspconfig'
+local nvim_lsp_util = require'lspconfig/util'
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -52,13 +53,20 @@ nvim_lsp.clangd.setup{on_attach=on_attach;
 nvim_lsp.vimls.setup{on_attach=on_attach}
 
 --Lua config
-require'nvim_lsp'.sumneko_lua.setup{on_attach=on_attach}
+nvim_lsp.sumneko_lua.setup{on_attach=on_attach}
 
 --Javascript/Typescript
-require'nvim_lsp'.tsserver.setup{on_attach=on_attach}
+nvim_lsp.tsserver.setup{on_attach=on_attach}
 
 --Html
-require'nvim_lsp'.html.setup{on_attach=on_attach}
+nvim_lsp.html.setup{on_attach=on_attach}
 
 --Rust
-require'nvim_lsp'.rust_analyzer.setup{on_attach=on_attach}
+nvim_lsp.rust_analyzer.setup{on_attach=on_attach}
+
+--Haskell
+nvim_lsp.hls.setup{
+  on_attach=on_attach,
+  filetypes = { "haskell", "lhaskell" },
+  root_dir = nvim_lsp_util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git")
+}
