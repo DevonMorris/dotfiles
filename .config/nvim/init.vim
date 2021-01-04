@@ -89,7 +89,7 @@ set winblend=0
 
 " Lsp
 lua require'lsp_config'
-nnoremap H <Cmd>lua require'nvim_lsp'.clangd.switch_source_header(0)<CR>
+nnoremap H <Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>
 
 " Tree Sitter
 lua require'treesitter_config'

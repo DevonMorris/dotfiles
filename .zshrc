@@ -12,6 +12,9 @@ source $HOME/.profile
 # Skips the global compinit
 skip_global_compinit=1
 
+### Environment Variables
+source $HOME/.config/zsh/var_config.zsh
+
 ### Zinit config (Note: should go near top of file)
 source $HOME/.config/zsh/zinit_config.zsh
 
@@ -26,9 +29,6 @@ source $HOME/.config/zsh/aliases.zsh
 
 ### Fzf Config
 source $HOME/.config/zsh/fzf_config.zsh
-
-### Environment Variables
-source $HOME/.config/zsh/var_config.zsh
 
 # Launch X from tty1 upon login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
