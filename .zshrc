@@ -26,6 +26,7 @@ source $HOME/.config/zsh/pygmalion-virtualenv.zsh-theme
 
 ### Aliases
 source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/torc_aliases.zsh
 
 ### Fzf Config
 source $HOME/.config/zsh/fzf_config.zsh
@@ -57,3 +58,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+[ -f "/home/devon/.ghcup/env" ] && source "/home/devon/.ghcup/env" # ghcup-env

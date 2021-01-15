@@ -31,8 +31,14 @@ set nobackup
 " Fast update
 set updatetime=50
 
+" Don't wrap and support bad habits
+set nowrap
+
 " Add mouse support for n00bs who use my computer
 set mouse=a
+
+" Keep things a little more centered
+set scrolloff=10
 
 " Remove whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
