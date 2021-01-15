@@ -48,9 +48,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
-" FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Fuzzy Finder
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Style
 Plug 'itchyny/lightline.vim'
@@ -87,23 +88,24 @@ set inccommand=nosplit
 set pumblend=0
 set winblend=0
 
+" Telescope
+lua require'telescope_config'
+nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <Leader>go <Cmd>lua require'telescope_config'.git_files{}<CR>
+nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
+nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.grep_string{}<CR>
+nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <leader>fs <Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{shorten_path = true}<CR>
+nnoremap <leader>ts <Cmd>lua require'telescope.builtin'.treesitter{}<CR>
+nnoremap <leader>h <Cmd>lua require'telescope.builtin'.help_tags{}<CR>
+
 " Lsp
 lua require'lsp_config'
 nnoremap H <Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>
 
 " Tree Sitter
 lua require'treesitter_config'
-
-" FZF configuration
-command Dotfiles call fzf#run(fzf#wrap(({'source': 'find $HOME -path "$HOME/.*" 2> /dev/null'})))
-command Directories call fzf#run(fzf#wrap(({'source': 'find .* -type d 2> /dev/null'})))
-nnoremap <leader>b <Cmd>Buffers<CR>
-nnoremap <leader>o <Cmd>Files<CR>
-nnoremap <leader>rg <Cmd>Rg<CR>
-nnoremap <leader>d <Cmd>Dotfiles<CR>
-nnoremap <leader>m <Cmd>Helptags<CR>
-let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7} }
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
