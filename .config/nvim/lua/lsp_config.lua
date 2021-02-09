@@ -43,7 +43,8 @@ nvim_lsp.pyls.setup{
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=on_attach;
-  cmd = {"clangd", "--background-index", "--clang-tidy"}
+  cmd = {"clangd", "--background-index", "--clang-tidy"};
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
 }
 
 --CMake config
@@ -53,7 +54,7 @@ nvim_lsp.clangd.setup{on_attach=on_attach;
 nvim_lsp.vimls.setup{on_attach=on_attach}
 
 --Lua config
-nvim_lsp.sumneko_lua.setup{on_attach=on_attach}
+--nvim_lsp.sumneko_lua.setup{on_attach=on_attach}
 
 --Javascript/Typescript
 nvim_lsp.tsserver.setup{on_attach=on_attach}

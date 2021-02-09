@@ -67,6 +67,9 @@ Plug 'vimwiki/vimwiki'
 " Docker
 Plug 'kkvh/vim-docker-tools'
 
+" Harpoon
+Plug 'ThePrimeagen/harpoon'
+
 call plug#end()
 
 
@@ -91,7 +94,6 @@ set winblend=0
 " Telescope
 lua require'telescope_config'
 nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.find_files{}<CR>
-nnoremap <Leader>go <Cmd>lua require'telescope_config'.git_files{}<CR>
 nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
 nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.grep_string{}<CR>
 nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
@@ -135,11 +137,26 @@ nmap <leader>wy <Plug>VimwikiMakeYesterdayDiaryNote
 nmap <leader>wm <Plug>VimwikiMakeTomorrowDiaryNote
 nmap <leader>wu <Plug>VimwikiDiaryGenerateLinks
 
+" Cpp Man
+function! s:CppMan()
+    let old_isk = &iskeyword
+    setl iskeyword+=:
+    let str = expand("<cword>")
+    let &l:iskeyword = old_isk
+    execute 'Man ' . str
+endfunction
+command! CppMan :call s:CppMan()
+au FileType cpp nnoremap <leader>k :CppMan<CR>
+
 " Quick Source init.vim
 noremap <leader>sv <Cmd>source $MYVIMRC<CR>
 
 " Docker tools
 nnoremap <leader>w <Cmd>DockerToolsToggle<CR>
+
+" Jumps
+nnoremap <C-G> <Cmd>ta<CR>
+nnoremap <C-B> <C-^>
 
 " Quick highlight for text on yank
 au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
@@ -147,6 +164,14 @@ au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
 " Copy the clipboard for neovim on exit
 autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
+
+" Terminal Commands
+nmap <leader>tj :call GotoBuffer(0)<CR>
+nmap <leader>tk :call GotoBuffer(1)<CR>
+nmap <leader>tl :call GotoBuffer(2)<CR>
+
+" I can't fix my brain on this one so putting in a remap
+tnoremap <Esc> <C-\><C-n>
 
 " Quickfix
 nnoremap <C-N> <Cmd>cn<CR>
