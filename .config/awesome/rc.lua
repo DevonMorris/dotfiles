@@ -21,6 +21,12 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
+-- Widgets
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- {{{ Error handling
@@ -183,6 +189,17 @@ end
 --screen.primary:fake_resize(geo.x, geo.y, new_width, geo.height)
 --screen.fake_add(geo.x + new_width, geo.y, new_width2, geo.height)
 
+local cw = calendar_widget({
+    theme = 'naughty',
+    placement = 'top_right',
+    radius = 8
+})
+
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -231,8 +248,10 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            --require("widgets.battery-widget") { adapter = "BAT0" },
             mytextclock,
+            docker_widget{number_of_containers = 10},
+            battery_widget(),
+            fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
@@ -353,7 +372,13 @@ globalkeys = gears.table.join(
 
     -- Scrot
     awful.key({ modkey }, "s", function () awful.util.spawn_with_shell("sleep 0.15 && scrot -s -e 'mv $f ~/screenshots/'") end,
-              {description = "take a screenshot", group = "launcher"})
+              {description = "take a screenshot", group = "launcher"}),
+
+    -- Brightness
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+              {description = "Increase brightness", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+              {description = "Decrease brightness", group = "hotkeys"})
 
 )
 
@@ -557,6 +582,7 @@ client.connect_signal("manage", function (c)
     end
 end)
 
+
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
@@ -607,6 +633,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 --
 -- Programs to run upon starting awesomewm
+awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
 awful.spawn("picom -b")

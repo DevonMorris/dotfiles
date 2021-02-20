@@ -4,3 +4,6 @@
 [submodule ".sources/dwm-deus"]
 	path = .sources/dwm-deus
 	url = https://github.com/DevonMorris/dwm-deus
+[submodule ".config/awesome/awesome-wm-widgets"]
+	path = .config/awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets.git
