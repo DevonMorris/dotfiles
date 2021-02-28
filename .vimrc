@@ -31,6 +31,9 @@ set nobackup
 " Fast update
 set updatetime=50
 
+" Completion Menu Height
+set pumheight=10
+
 " Don't wrap and support bad habits
 set nowrap
 
