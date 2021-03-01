@@ -16,11 +16,11 @@ theme.font      = "sans 8"
 
 -- {{{ Colors
 theme.fg_normal  = "#d4be98"
-theme.fg_focus   = "#ddc7a1"
-theme.fg_urgent  = "#7daea3"
+theme.fg_focus   = "#282828"
+theme.fg_urgent  = "#282828"
 theme.bg_normal  = "#1d2021"
-theme.bg_focus   = "#282828"
-theme.bg_urgent  = "#3c3836"
+theme.bg_focus   = "#a9b665"
+theme.bg_urgent  = "#ea6962"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
@@ -46,6 +46,8 @@ theme.titlebar_bg_normal = theme.bg_normal
 -- Example:
 --theme.taglist_bg_focus = "#CC9393"
 -- }}}
+theme.tasklist_bg_focus = "#282828"
+theme.tasklist_fg_focus = theme.fg_normal
 
 -- {{{ Widgets
 -- You can add as many variables as

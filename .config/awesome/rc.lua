@@ -1,7 +1,7 @@
 -- Awesome rc.lua
 -- author: Devon Morris
 -- contact: devonmorris1992@gmail.com
--- date: Fri 25 Sep 2020 06:17:09 PM EDT
+-- date: Sat Feb 20 10:45:10 EST 2021
 --
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -74,7 +74,7 @@ modkey = "Mod1"
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max.fullscreen,
     awful.layout.suit.floating,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
@@ -118,6 +118,10 @@ else
                 }
     })
 end
+
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+                                     menu = mymainmenu })
+
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -208,7 +212,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
+    awful.tag({ "Vim", "Term", "ROS", "Viz", "Read", "Misc", "Pres", "Web", "Msg"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -242,6 +246,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -249,8 +254,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            docker_widget{number_of_containers = 10},
-            battery_widget(),
+            --docker_widget{number_of_containers = 10},
+            --battery_widget(),
             fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
@@ -269,30 +274,18 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ modkey,           }, "i",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
-        {description = "focus next by index", group = "client"}
-    ),
+        {description = "focus next by index", group = "client"}),
     awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
-        {description = "focus previous by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
-
+        {description = "focus previous by index", group = "client"}),
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -312,7 +305,6 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
-
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -352,17 +344,6 @@ globalkeys = gears.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Prompt
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "d",
         function()
@@ -560,10 +541,14 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
     },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule_any = { class = {"Slack", "zoom"} },
+      properties = { screen = 1, tag = "Msg" } },
+    { rule_any = { class = {"Firefox"} },
+      properties = { screen = 1, tag = "Web" } },
+    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view"} },
+      properties = { screen = 1, tag = "Viz" } },
+    { rule_any = { class = {"Zathura"} },
+      properties = { screen = 1, tag = "Read" } },
 }
 -- }}}
 
