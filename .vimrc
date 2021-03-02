@@ -73,12 +73,6 @@ nmap <space> <leader>
 vmap <space> <leader>
 set backspace=indent,eol,start
 
-" Mappings to move between panes
-nnoremap <silent> <leader>l :wincmd l<cr>
-nnoremap <silent> <leader>h :wincmd h<cr>
-nnoremap <silent> <leader>j :wincmd j<cr>
-nnoremap <silent> <leader>k :wincmd k<cr>
-
 " Open splits the way I want
 set splitright
 set splitbelow
