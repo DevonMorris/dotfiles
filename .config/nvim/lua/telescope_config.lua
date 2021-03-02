@@ -11,14 +11,26 @@ local conf = require('telescope.config').values
 
 require('telescope').setup{
   defaults = {
+    file_sorter = require('telescope.sorters').get_fzy_sorter,
     shorten_path = true,
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
+        ["<C-q>"] = actions.send_to_qflist,
       },
+      n = {
+        ["<C-q>"] = actions.send_to_qflist,
+      },
+    },
   },
+  extensions = {
+      fzy_native = {
+          override_generic_sorter = false,
+          override_file_sorter = true,
+    },
   },
 }
+require('telescope').load_extension('fzy_native')
 
 M = {}
 

@@ -52,6 +52,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Style
 Plug 'itchyny/lightline.vim'
@@ -68,7 +69,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'kkvh/vim-docker-tools'
 
 " Harpoon
-Plug 'ThePrimeagen/harpoon'
+"Plug 'ThePrimeagen/harpoon'
 
 call plug#end()
 
@@ -95,7 +96,7 @@ set winblend=0
 lua require'telescope_config'
 nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
-nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.grep_string{}<CR>
+nnoremap <leader>rg <Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >") }<CR>
 nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>fs <Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
 nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{shorten_path = true}<CR>
@@ -105,6 +106,7 @@ nnoremap <leader>h <Cmd>lua require'telescope.builtin'.help_tags{}<CR>
 " Lsp
 lua require'lsp_config'
 nnoremap H <Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Tree Sitter
 lua require'treesitter_config'
@@ -112,6 +114,7 @@ lua require'treesitter_config'
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_matching_ignore_case = 1
+let g:completion_enable_auto_hover = 1
 
 " Fugitive mappings
 nnoremap <leader>gb :Gblame<CR>
@@ -126,7 +129,10 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
+      \             [ 'gitbranch', 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
 
