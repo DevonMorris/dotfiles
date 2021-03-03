@@ -68,9 +68,7 @@ syntax on
 " This is for editing tags in xml files
 set matchpairs+=<:>
 
-let mapleader = '\\'
-nmap <space> <leader>
-vmap <space> <leader>
+let mapleader = " "
 set backspace=indent,eol,start
 
 " Open splits the way I want

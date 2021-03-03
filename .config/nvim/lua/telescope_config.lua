@@ -3,6 +3,7 @@ local actions = require('telescope.actions')
 local config = require('telescope.config')
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
+local sorters = require('telescope.sorters')
 local make_entry = require('telescope.make_entry')
 local previewers = require('telescope.previewers')
 local utils = require('telescope.utils')
@@ -11,7 +12,8 @@ local conf = require('telescope.config').values
 
 require('telescope').setup{
   defaults = {
-    file_sorter = require('telescope.sorters').get_fzy_sorter,
+    file_sorter = sorters.get_fzy_sorter,
+    file_previewer   = previewers.vim_buffer_cat.new,
     shorten_path = true,
     mappings = {
       i = {
@@ -52,7 +54,7 @@ M.find_dots = function(opts)
       "ls-tree", "--full-tree", "-r", "--name-only", "HEAD" },
       opts
     ),
-    previewer = previewers.cat.new(opts),
+    previewer = previewers.vim_buffer_cat.new(opts),
     sorter = conf.file_sorter(opts),
   }):find()
 end
