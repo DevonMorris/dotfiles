@@ -33,6 +33,9 @@ Plug 'nvim-treesitter/nvim-treesitter'
 " Autocomplete
 Plug 'nvim-lua/completion-nvim'
 
+" LSP Status
+Plug 'nvim-lua/lsp-status.nvim'
+
 " Diagnostics
 Plug 'nvim-lua/diagnostic-nvim'
 
@@ -68,6 +71,9 @@ Plug 'vimwiki/vimwiki'
 " Docker
 Plug 'kkvh/vim-docker-tools'
 
+" Clojure
+Plug 'Olical/conjure', {'tag': 'v4.15.0'}
+
 " Harpoon
 "Plug 'ThePrimeagen/harpoon'
 
@@ -102,6 +108,7 @@ nnoremap <leader>fs <Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<C
 nnoremap <leader>b <Cmd>lua require'telescope.builtin'.buffers{shorten_path = true}<CR>
 nnoremap <leader>ts <Cmd>lua require'telescope.builtin'.treesitter{}<CR>
 nnoremap <leader>h <Cmd>lua require'telescope.builtin'.help_tags{}<CR>
+nnoremap <leader>a <Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>
 
 " Lsp
 lua require'lsp_config'
@@ -129,7 +136,7 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'currentfunction', 'readonly', 'absolutepath', 'modified' ] ]
+      \             [ 'gitbranch', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
@@ -172,9 +179,9 @@ autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
 
 " Terminal Commands
-nmap <leader>tj :call GotoBuffer(0)<CR>
-nmap <leader>tk :call GotoBuffer(1)<CR>
-nmap <leader>tl :call GotoBuffer(2)<CR>
+"nmap <leader>tj :call GotoBuffer(0)<CR>
+"nmap <leader>tk :call GotoBuffer(1)<CR>
+"nmap <leader>tl :call GotoBuffer(2)<CR>
 
 " I can't fix my brain on this one so putting in a remap
 tnoremap <Esc> <C-\><C-n>
