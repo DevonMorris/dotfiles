@@ -69,6 +69,7 @@ syntax on
 set matchpairs+=<:>
 
 let mapleader = " "
+let maplocalleader = " "
 set backspace=indent,eol,start
 
 " Open splits the way I want
