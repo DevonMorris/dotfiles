@@ -255,7 +255,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
             --docker_widget{number_of_containers = 10},
-            --battery_widget(),
+            battery_widget(),
             fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
@@ -312,8 +312,8 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "e", awesome.quit,
-              {description = "exit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "e", function () os.execute("dmlogout") end,
+              {description = "logout menu", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -345,20 +345,18 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Menubar
-    awful.key({ modkey }, "d",
-        function()
-            awful.util.spawn("rofi -show run -modi run,drun,combi")
-        end,
+    awful.key({ modkey }, "d", function() awful.util.spawn("dmenu_run") end,
               {description = "show the menubar", group = "launcher"}),
-
+    awful.key({ modkey }, "p", function() awful.util.spawn("dmsearch") end,
+              {description = "show the menubar", group = "launcher"}),
     -- Scrot
-    awful.key({ modkey }, "s", function () awful.util.spawn_with_shell("sleep 0.15 && scrot -s -e 'mv $f ~/screenshots/'") end,
+    awful.key({ modkey }, "s", function () os.execute("dmscrot") end,
               {description = "take a screenshot", group = "launcher"}),
 
     -- Brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 5") end,
               {description = "Increase brightness", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 5") end,
               {description = "Decrease brightness", group = "hotkeys"})
 
 )
@@ -621,4 +619,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
+awful.spawn("blueman-applet")
 awful.spawn("picom -b")
