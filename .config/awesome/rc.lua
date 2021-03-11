@@ -26,6 +26,7 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
 
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
@@ -255,8 +256,13 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
             --docker_widget{number_of_containers = 10},
-            battery_widget(),
+            --battery_widget(),
             fs_widget(),
+            spotify_widget({
+               font = 'Ubuntu Mono 9',
+               play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+               pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg'
+            }),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
@@ -357,7 +363,15 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 5") end,
               {description = "Increase brightness", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 5") end,
-              {description = "Decrease brightness", group = "hotkeys"})
+              {description = "Decrease brightness", group = "hotkeys"}),
+
+    -- Spotify
+    awful.key({ modkey }, ".", function () os.execute("sp play") end,
+              {description = "Play/Pause spotify", group = "hotkeys"}),
+    awful.key({ modkey }, "/", function () os.execute("sp next") end,
+              {description = "Play/Pause spotify", group = "hotkeys"}),
+    awful.key({ modkey }, ",", function () os.execute("sp prev") end,
+              {description = "Play/Pause spotify", group = "hotkeys"})
 
 )
 
@@ -619,5 +633,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
-awful.spawn("blueman-applet")
+--awful.spawn("blueman-applet")
 awful.spawn("picom -b")
