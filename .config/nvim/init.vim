@@ -72,7 +72,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'kkvh/vim-docker-tools'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.15.0'}
+Plug 'Olical/conjure', {'tag': 'v4.15.0', 'for': 'clojure'}
+Plug 'guns/vim-sexp', { 'for': ['clojure', 'scheme'] }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': ['clojure', 'scheme'] }
 
 " Harpoon
 "Plug 'ThePrimeagen/harpoon'
