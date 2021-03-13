@@ -192,3 +192,12 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <C-N> <Cmd>cn<CR>
 nnoremap <C-P> <Cmd>cp<CR>
 nnoremap <C-C> <Cmd>ccl<CR>
+
+" Loclist
+nnoremap <C-J> <Cmd>lnext<CR>
+nnoremap <C-K> <Cmd>lprev<CR>
+
+" LSP Loclist
+augroup lsp
+  autocmd BufEnter,BufWritePost * :lua vim.lsp.diagnostic.set_loclist{open_loclist=false}
+augroup END

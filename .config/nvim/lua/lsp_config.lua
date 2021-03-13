@@ -1,6 +1,18 @@
 local nvim_lsp = require'lspconfig'
 local nvim_lsp_util = require'lspconfig/util'
 
+local completion = require'completion'
+local lsp_status = require'lsp-status'
+
+--lsp_status.register_progress()
+--lsp_status.config({
+  --indicator_errors = 'E',
+  --indicator_warnings = 'W',
+  --indicator_info = 'i',
+  --indicator_hint = '?',
+  --indicator_ok = 'Ok',
+--})
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -9,7 +21,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 on_attach = function(_, buffnr)
-  require'completion'.on_attach{}
+  completion.on_attach{}
+  --lsp_status.on_attach{}
   -- Mappings.
   local opts = { noremap=true, silent=true }
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-]>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -17,10 +30,7 @@ on_attach = function(_, buffnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<c-k>', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gn', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gp', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ci', '<Cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>co', '<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
@@ -40,20 +50,23 @@ nvim_lsp.pyls.setup{
         };
       }
     }
-  }
+  };
+  --capabilities = lsp_status.capabilities
 }
 
 --C++ config
-nvim_lsp.clangd.setup{on_attach=on_attach;
-  cmd = {"clangd", "--background-index", "--clang-tidy"};
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
+nvim_lsp.clangd.setup{on_attach=on_attach,
+  --handlers = lsp_status.extensions.clangd.setup();
+  cmd = {"clangd", "--background-index", "--clang-tidy"},
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+  --capabilities = lsp_status.capabilities
 }
 
 --CMake config
 --require'nvim_lsp'.cmake.setup{}
 
 --VimLang config
-nvim_lsp.vimls.setup{on_attach=on_attach}
+--nvim_lsp.vimls.setup{on_attach=on_attach}
 
 --Lua config
 --nvim_lsp.sumneko_lua.setup{on_attach=on_attach}
@@ -72,4 +85,10 @@ nvim_lsp.hls.setup{
   on_attach=on_attach,
   filetypes = { "haskell", "lhaskell" },
   root_dir = nvim_lsp_util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git")
+}
+
+--Clojure
+nvim_lsp.clojure_lsp.setup{
+  on_attach=on_attach,
+  filtypes = { "clojure", "edn" },
 }
