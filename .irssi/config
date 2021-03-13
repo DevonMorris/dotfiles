@@ -74,7 +74,7 @@ servers = (
     address = "irc.chat.twitch.tv";
     chatnet = "Twitch";
     port = "6697";
-    password = "Put OATH TOKEN HERE";
+    password = "INSERT OAUTH HERE";
     use_tls = "yes";
     tls_verify = "no";
     autoconnect = "yes";
@@ -156,10 +156,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
-  Twitch = {
-    type = "IRC";
-    nick = "devonmorris1992";
-  };
+  Twitch = { type = "IRC"; nick = "devonmorris1992"; };
 };
 
 channels = (
@@ -172,8 +169,6 @@ channels = (
   { name = "#netfuze"; chatnet = "NetFuze"; autojoin = "No"; },
   { name = "#oftc"; chatnet = "OFTC"; autojoin = "No"; },
   { name = "silc"; chatnet = "SILC"; autojoin = "No"; },
-  { name = "#theprimeagen"; chatnet = "Twitch"; autojoin = "yes"; },
-  { name = "#rwxrob"; chatnet = "Twitch"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -330,6 +325,8 @@ aliases = {
   97 = "WINDOW GOTO 97";
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
+  vm_add = "/^statusbar prompt add -before prompt -alignment left vim_mode";
+  vm_del = "/^statusbar prompt remove vim_mode";
 };
 
 statusbar = {
@@ -379,6 +376,7 @@ statusbar = {
         act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
+        vim_mode = { };
       };
     };
 
@@ -398,19 +396,6 @@ statusbar = {
       };
     };
 
-    prompt = {
-
-      type = "root";
-      placement = "bottom";
-      position = "100";
-      visible = "always";
-
-      items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        input = { priority = "10"; };
-      };
-    };
 
     topic = {
 
@@ -426,6 +411,14 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    prompt = {
+      items = {
+        uberprompt = { priority = "-1"; };
+        input = { priority = "10"; };
+        vim_mode = { };
+      };
+      position = "100";
+    };
   };
 };
 settings = {
@@ -436,5 +429,9 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "devo"; };
+  "perl/core/scripts" = {
+    uberprompt_load_hook = "/^vm_add";
+    uberprompt_unload_hook = "/^vm_del";
+  };
 };
 ignores = ( { mask = "jtv"; level = "ALL"; } );
