@@ -355,6 +355,8 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     awful.key({ modkey }, "p", function() awful.util.spawn("dmsearch") end,
               {description = "show the menubar", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "q", function() awful.util.spawn("dmkill") end,
+              {description = "show the menubar", group = "launcher"}),
     -- Scrot
     awful.key({ modkey }, "s", function () os.execute("dmscrot") end,
               {description = "take a screenshot", group = "launcher"}),
