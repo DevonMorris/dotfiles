@@ -73,11 +73,7 @@ Plug 'Olical/conjure', {'tag': 'v4.15.0', 'for': 'clojure'}
 Plug 'guns/vim-sexp', { 'for': ['clojure', 'scheme'] }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': ['clojure', 'scheme'] }
 
-" Harpoon
-"Plug 'ThePrimeagen/harpoon'
-
 call plug#end()
-
 
 " Don't assume I want a line comment after another line comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -172,11 +168,6 @@ au TextYankPost * silent! lua vim.highlight.on_yank{on_visual = false}
 " Copy the clipboard for neovim on exit
 autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
             \ ' | xclip -selection clipboard')
-
-" Terminal Commands
-"nmap <leader>tj :call GotoBuffer(0)<CR>
-"nmap <leader>tk :call GotoBuffer(1)<CR>
-"nmap <leader>tl :call GotoBuffer(2)<CR>
 
 " I can't fix my brain on this one so putting in a remap
 tnoremap <Esc> <C-\><C-n>
