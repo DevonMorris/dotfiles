@@ -19,12 +19,13 @@ if empty(glob('~/.local/share/nvim/site/pack/packer'))
 endif
 
 " Plugins
-lua require('plugins')
+lua require'plugins'
 
 " Don't assume I want a line comment after another line comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Colorscheme
+" lua require'config.colors'
 let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
@@ -89,17 +90,6 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-
-" Cpp Man
-function! s:CppMan()
-    let old_isk = &iskeyword
-    setl iskeyword+=:
-    let str = expand("<cword>")
-    let &l:iskeyword = old_isk
-    execute 'Man ' . str
-endfunction
-command! CppMan :call s:CppMan()
-au FileType cpp nnoremap <leader>k :CppMan<CR>
 
 " Quick Source init.vim
 noremap <leader>sv <Cmd>source $MYVIMRC<CR>
