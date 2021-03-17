@@ -40,13 +40,13 @@ set pumblend=0
 set winblend=0
 
 " Kommentary
-lua require'kommentary_config'
+lua require'config.kommentary'
 
 " Telescope
-lua require'telescope_config'
+lua require'config.telescope'
 nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.find_files{find_command = {'fd', '--type', 'f'}, follow = true}<CR>
 nnoremap <Leader>p <Cmd>lua require'telescope.builtin'.find_files{find_command = {'fd', '--type', 'f', '--no-ignore'}, follow = true}<CR>
-nnoremap <Leader>d <Cmd>lua require'telescope_config'.find_dots{}<CR>
+nnoremap <Leader>d <Cmd>lua require'config.telescope'.find_dots{}<CR>
 nnoremap <leader>gr <Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >") }<CR>
 nnoremap <leader>f <Cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <leader>s <Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
@@ -58,12 +58,12 @@ nnoremap <leader>a <Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>
 nnoremap <leader>x <Cmd>lua require'telescope.builtin'.builtin{}<CR>
 
 " Lsp
-lua require'lsp_config'
+lua require'config.lsp'
 nnoremap H <Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>
 autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Tree Sitter
-lua require'treesitter_config'
+lua require'config.treesitter'
 
 " use omni completion provided by lsp
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
