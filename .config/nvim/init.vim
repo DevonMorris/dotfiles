@@ -39,6 +39,9 @@ set inccommand=nosplit
 set pumblend=0
 set winblend=0
 
+" Kommentary
+lua require'kommentary_config'
+
 " Telescope
 lua require'telescope_config'
 nnoremap <Leader>o <Cmd>lua require'telescope.builtin'.find_files{find_command = {'fd', '--type', 'f'}, follow = true}<CR>

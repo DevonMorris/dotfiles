@@ -1,3 +1,6 @@
+-- Any configuration that is pre-loading goes here
+vim.g.kommentary_create_default_mappings = false
+
 return require('packer').startup(function()
   -- Let packer manages packer
   use 'wbthomason/packer.nvim'
@@ -10,7 +13,7 @@ return require('packer').startup(function()
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    use = 'vim.cmd[[TSUpdate]]'
+    run = 'TSUpdate'
   }
 
   -- Autocomplete
@@ -28,7 +31,7 @@ return require('packer').startup(function()
   }
 
   -- Typing/Editing
-  use 'scrooloose/nerdcommenter'
+  use 'b3nj5m1n/kommentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
