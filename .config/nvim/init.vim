@@ -13,67 +13,13 @@ endif
 
 source ~/.vimrc
 
-"""""""""""""" Plugins """""""""""""""""""
-" Install vim-plug automatically if not installed
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+if empty(glob('~/.local/share/nvim/site/pack/packer'))
+  silent !git clone https://github.com/wbthomason/packer.nvim
+    \ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 endif
 
-" vim-plug plugin manager
-call plug#begin()
-
-" Lsp
-Plug 'neovim/nvim-lspconfig'
-
-" Tree Sitter
-Plug 'nvim-treesitter/nvim-treesitter'
-
-" Autocomplete
-Plug 'nvim-lua/completion-nvim'
-
-" LSP Status
-Plug 'nvim-lua/lsp-status.nvim'
-
-" Diagnostics
-Plug 'nvim-lua/diagnostic-nvim'
-
-" Async
-Plug 'tpope/vim-dispatch'
-
-" Language specific
-Plug 'lervag/vimtex'
-
-" Typing
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-
-" Fuzzy Finder
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-
-" Style
-Plug 'itchyny/lightline.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'sainnhe/gruvbox-material'
-
-" Suda
-Plug 'lambdalisue/suda.vim'
-
-" Docker
-Plug 'kkvh/vim-docker-tools'
-
-" Clojure
-Plug 'Olical/conjure', {'tag': 'v4.15.0', 'for': 'clojure'}
-Plug 'guns/vim-sexp', { 'for': ['clojure', 'scheme'] }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': ['clojure', 'scheme'] }
-
-call plug#end()
+" Plugins
+lua require('plugins')
 
 " Don't assume I want a line comment after another line comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
