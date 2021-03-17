@@ -25,11 +25,7 @@ lua require'plugins'
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Colorscheme
-" lua require'config.colors'
-let g:gruvbox_material_palette = 'material'
-let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
-set background=dark
+lua require'config.colorscheme'
 
 " Highlight current line
 set cursorline
