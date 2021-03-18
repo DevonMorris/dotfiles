@@ -4,15 +4,6 @@ local nvim_lsp_util = require'lspconfig/util'
 local completion = require'completion'
 local lsp_status = require'lsp-status'
 
---lsp_status.register_progress()
---lsp_status.config({
-  --indicator_errors = 'E',
-  --indicator_warnings = 'W',
-  --indicator_info = 'i',
-  --indicator_hint = '?',
-  --indicator_ok = 'Ok',
---})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -23,10 +14,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local buf_set_keymap = vim.api.nvim_buf_set_keymap
 local opts = { noremap=true, silent=true }
 
-on_attach = function(client, buffnr)
+local on_attach = function(client, bufnr)
   completion.on_attach{}
-  --lsp_status.on_attach{}
-  -- Mappings.
   buf_set_keymap(bufnr, 'n', '<c-]>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -37,9 +26,9 @@ on_attach = function(client, buffnr)
   buf_set_keymap(bufnr, 'n', '<leader>co', '<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap(bufrnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap(buffnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
   vim.api.nvim_exec([[
@@ -51,8 +40,8 @@ on_attach = function(client, buffnr)
   ]], false)
 end
 
-clangd_on_attach = function(client, buffnr)
-  on_attach(client, buffnr)
+local clangd_on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
   buf_set_keymap(bufnr, 'n', 'H', "<Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>", opts)
 end
 
@@ -71,15 +60,12 @@ nvim_lsp.pyls.setup{
       }
     }
   };
-  --capabilities = lsp_status.capabilities
 }
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
-  --handlers = lsp_status.extensions.clangd.setup();
   cmd = {"clangd", "--background-index", "--clang-tidy"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-  --capabilities = lsp_status.capabilities
 }
 
 --CMake config

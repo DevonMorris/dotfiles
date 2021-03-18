@@ -64,8 +64,6 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
 
   -- Statusline
-  use 'itchyny/lightline.vim'
-
   use {
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
