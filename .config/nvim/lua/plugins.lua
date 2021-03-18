@@ -74,4 +74,12 @@ return require('packer').startup(function(use)
 
   -- Docker
   use 'kkvh/vim-docker-tools'
+
+  -- Notes
+  use {'oberblastmeister/neuron.nvim',
+      requires = {{'nvim-lua/popup.nvim'},
+                  {'nvim-lua/plenary.nvim'},
+                  {'nvim-telescope/telescope.nvim'}
+      }
+  }
 end)
