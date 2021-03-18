@@ -14,14 +14,14 @@ chmod +x init_dotfiles.sh
 We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zinit](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
 
 ## Neovim
-I personally use [Vim-Plug](https://github.com/junegunn/vim-plug) as my package manager in vim/neovim.
+I personally use [Packer](https://github.com/wbthomason/packer.nvim) as my package manager in vim/neovim.
 
 If you are using cmake, you can easily export your compile commands to get
 sweet sweet autocompletetion via clangd and Neovim's LSP client. To do this just put
 ```
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 ```
-in your top-level `CMakeLists.txt`. Check out the `.config/nvim/lua/lsp_config.lua` for configuring lsp in neovim (it's super easy).
+in your top-level `CMakeLists.txt`. Check out the `.config/nvim/lua/config/lsp.lua` for configuring lsp in neovim (it's super easy).
 
 ## Awesome Window Manager
 I use [awesome](https://awesomewm.org/) for my window manager. Check out the my `~/.config/awesome/rc.lua`.
