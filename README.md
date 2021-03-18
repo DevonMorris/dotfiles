@@ -1,7 +1,9 @@
 # Configuration Files for Linux systems
 
+![setup](assets/setup.png)
+
 ## Set Up Script
-Basically, this  `init_dotfiles.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `config` for `git` to manage your dotfiles. So you'd do something like `config status` instead of `git status`.
+Basically, this  `init_dotfiles.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `dots` for `git` to manage your dotfiles. So you'd do something like `dots status` instead of `git status`.
 
 The following commands will **completely clobber** any configurations you have in your home folder, so either back up your dotfiles, or face the consequences.
 ```bash
