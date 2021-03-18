@@ -1,0 +1,7 @@
+require'config.colorscheme'
+require'config.completion'
+require'config.kommentary'
+require'config.lsp'
+require'config.telescope'
+require'config.treesitter'
+require'config.vimtex'

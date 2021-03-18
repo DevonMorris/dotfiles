@@ -1,25 +1,14 @@
 " Neovim init.vim
 " author: Devon Morris
 " contact: devonmorris1992@gmail.com
-" date: Tue Nov 10 21:09:35 EST 2020
+" date: Wed Mar 17 21:40:09 EDT 2021
 " Note: everything in this file should be neovim or plugin specific
 " for everything regarding plain vim config check out ~/.vimrc
 "
-""""""""""""""" Start Server """""""""""""""""""
-" This is important for the vimtex plugin
-if empty(v:servername) && exists('*remote_startserver')
-  call remote_startserver('VIM')
-endif
-
 lua vim.cmd'source ~/.vimrc'
 
 " Utility functions to use from cmd
 lua require'functions'
-
-if empty(glob('~/.local/share/nvim/site/pack/packer'))
-  silent !git clone https://github.com/wbthomason/packer.nvim
-    \ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-endif
 
 " Autocmds
 lua require'autocmd'
@@ -36,23 +25,8 @@ lua require'config.colorscheme'
 " Settings
 lua require'settings'
 
-" Kommentary
-lua require'config.kommentary'
-
-" Telescope
-lua require'config.telescope'
-
-" use omni completion provided by lsp
-lua require'config.completion'
-
-" Lsp
-lua require'config.lsp'
-
-" Tree Sitter
-lua require'config.treesitter'
-
-" Vimtex
-lua require'config.vimtex'
+" Package configuration and package specific mappings
+lua require'config'
 
 let g:lightline = {
       \ 'colorscheme': 'gruvbox_material',

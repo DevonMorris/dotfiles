@@ -10,3 +10,7 @@ vim.api.nvim_exec([[
 vim.api.nvim_exec([[
   autocmd VimLeave * call system("echo -n $'" . escape(getreg(), "'") . "' | xsel -ib")
 ]], false)
+-- Install New Packages Automatically
+vim.api.nvim_exec([[
+  autocmd BufWritePost plugins.lua PackerCompile
+]], false)
