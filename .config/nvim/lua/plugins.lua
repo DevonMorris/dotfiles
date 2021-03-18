@@ -1,12 +1,12 @@
 -- Install packer if not already installed
-if not file_exists('~/.local/share/nvim/site/pack/packer') then
-  os.execute(
-    "git clone https://github.com/wbthomason/packer.nvim"
-    .. " ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  )
-  vim.api.nvim_exec([[
-  autocmd VimEnter * PackerInstall
-  ]], false)
+local execute = vim.api.nvim_command
+local fn = vim.fn
+
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute 'packadd packer.nvim'
 end
 
 -- Any configuration that is pre-loading goes here
@@ -67,6 +67,11 @@ return require('packer').startup(function()
 
   -- Statusline
   use 'itchyny/lightline.vim'
+
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
 
   -- Suda
   use 'lambdalisue/suda.vim'

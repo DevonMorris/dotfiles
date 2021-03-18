@@ -16,25 +16,11 @@ lua require'autocmd'
 " Mappings
 lua require'mappings'
 
-" Plugins
-lua require'plugins'
-
-" Colorscheme
-lua require'config.colorscheme'
-
 " Settings
 lua require'settings'
 
+" Plugins
+lua require'plugins'
+
 " Package configuration and package specific mappings
 lua require'config'
-
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox_material',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
