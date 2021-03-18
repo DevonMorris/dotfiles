@@ -1,6 +1,8 @@
 -- Any configuration that is pre-loading goes here
 vim.g.kommentary_create_default_mappings = false
 
+local use = require'packer'.use
+
 return require('packer').startup(function()
   -- Let packer manages packer
   use 'wbthomason/packer.nvim'
