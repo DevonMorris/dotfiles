@@ -1,5 +1,10 @@
-#  Load fzf zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#  Load/Install fzf zsh
+if [ -f ~/.fzf.zsh ]
+then
+  source ~/.fzf.zsh
+else
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+fi
 
 export FZF_DEFAULT_COMMAND='fd . -t f -H 2> /dev/null'
 export FZF_CTRL_T_COMMAND='fd . -t f -H 2> /dev/null'
