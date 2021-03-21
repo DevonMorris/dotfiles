@@ -98,5 +98,7 @@ set_keymap('n', '<leader>a',
 set_keymap('n', '<leader>x',
   [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
   opts)
+set_keymap('c', '<C-R>',
+  [[<Plug>(TelescopeFuzzyCommandSearch)]], {})
 
 return M

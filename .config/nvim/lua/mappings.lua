@@ -20,8 +20,5 @@ set_keymap('n', '<C-C>', '<Cmd>ccl<CR>', opts)
 set_keymap('n', '<C-J>', '<Cmd>lnext<CR>', opts)
 set_keymap('n', '<C-K>', '<Cmd>lprev<CR>', opts)
 
--- Vim Fugitive
-set_keymap('n', '<leader>gb', '<Cmd>Gblame<CR>', opts)
-
 -- Execute some lua
 set_keymap('n', '<leader>l', ':lua ', { noremap = true, silent = false})
