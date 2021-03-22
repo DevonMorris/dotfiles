@@ -3,7 +3,7 @@
 " contact: devonmorris1992@gmail.com
 " date: Mon 21 Sep 2020 10:39:28 AM EDT
 " Note: everything in this file should be non-plugin vim specific
-" for everything regarding plugins or neovim check out ~/.config/nvim/init.vim
+" for everything regarding plugins or neovim check out ~/.config/nvim/init.lua
 
 """""""""""" General Configuration """"""""""""""
 " Don't assume I want a line comment after another line comment
@@ -107,6 +107,10 @@ let g:netrw_winsize=25
 " Colorscheme for plain old vim
 colorscheme slate
 set termguicolors
+
+" Per project exrc
+set exrc
+set secure
 
 set ts=2
 set sw=2
