@@ -1,9 +1,6 @@
 opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
 
--- Source vimrc
-set_keymap('n', '<leader>sv', '<Cmd>source $MYVIMRC<CR>', opts)
-
 -- Docker tools
 set_keymap('n', '<leader>w', '<Cmd>DockerToolsToggle<CR>', opts)
 

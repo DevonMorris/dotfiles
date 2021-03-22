@@ -86,9 +86,6 @@ set_keymap('n', '<leader>r',
 set_keymap('n', '<leader>b',
   [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
   opts)
-set_keymap('n', '<leader>ts',
-  [[<Cmd>lua require'telescope.builtin'.treesitter{}<CR>]],
-  opts)
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
   opts)
@@ -97,6 +94,18 @@ set_keymap('n', '<leader>a',
   opts)
 set_keymap('n', '<leader>x',
   [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
+  opts)
+set_keymap('n', '<C-G>s',
+  [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]],
+  opts)
+set_keymap('n', '<C-G>c',
+  [[<Cmd>lua require'telescope.builtin'.git_commits{}<CR>]],
+  opts)
+set_keymap('n', '<C-G>b',
+  [[<Cmd>lua require'telescope.builtin'.git_branches{}<CR>]],
+  opts)
+set_keymap('n', '<leader>t',
+  [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]],
   opts)
 set_keymap('c', '<C-R>',
   [[<Plug>(TelescopeFuzzyCommandSearch)]], {})
