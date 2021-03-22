@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     ft = {'clojure', 'scheme'},
     requires = 'tpope/vim-sexp-mappings-for-regular-people'
   }
+  use 'yamatsum/nvim-cursorline'
 
   -- Telescope
   use {
