@@ -80,9 +80,6 @@ set_keymap('n', '<leader>f',
 set_keymap('n', '<leader>s',
   [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>]],
   opts)
-set_keymap('n', '<leader>r',
-  [[<Cmd>lua require'telescope.builtin'.registers{}<CR>]],
-  opts)
 set_keymap('n', '<leader>b',
   [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
   opts)
