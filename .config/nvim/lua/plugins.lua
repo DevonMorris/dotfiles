@@ -45,13 +45,22 @@ return require('packer').startup(function(use)
   use 'b3nj5m1n/kommentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-fugitive'
   use {
     'guns/vim-sexp',
     ft = {'clojure', 'scheme'},
     requires = 'tpope/vim-sexp-mappings-for-regular-people'
   }
   use 'yamatsum/nvim-cursorline'
+
+	-- Git
+  use 'tpope/vim-fugitive'
+	use 'junegunn/gv.vim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   -- Telescope
   use {
