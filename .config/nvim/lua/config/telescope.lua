@@ -1,6 +1,4 @@
-local a = vim.api
 local actions = require('telescope.actions')
-local config = require('telescope.config')
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
 local sorters = require('telescope.sorters')
@@ -60,7 +58,7 @@ M.find_dots = function(opts)
 end
 
 -- Keymappings for Telescope
-opts = { noremap=true, silent=true }
+local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
 set_keymap('n', '<leader>o',
   [[<Cmd>lua require'telescope.builtin'.find_files{find_command = {'fd', '--type', 'f'}, follow = true}<CR>]],
@@ -74,7 +72,7 @@ set_keymap('n', '<leader>d',
 set_keymap('n', '<leader>gr',
   [[<Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >") }<CR>]],
   opts)
-set_keymap('n', '<leader>f',
+set_keymap('n', '<leader>r',
   [[<Cmd>lua require'telescope.builtin'.lsp_references{}<CR>]],
   opts)
 set_keymap('n', '<leader>s',
