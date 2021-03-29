@@ -100,9 +100,11 @@ set laststatus=2
 set noshowmode
 
 " Netrw mappings
-nnoremap <leader>ex :Vex <CR>
+nnoremap <leader>ex :Ex <CR>
+let g:netrw_browse_split=0
 let g:netrw_banner=0
 let g:netrw_winsize=25
+let g:netrw_keej=""
 
 " Colorscheme for plain old vim
 colorscheme slate
