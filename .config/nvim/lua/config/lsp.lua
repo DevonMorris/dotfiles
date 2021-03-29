@@ -79,7 +79,7 @@ nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
 local sumneko_root_path = vim.fn.stdpath('cache')..'/nvim_lsp/sumneko_lua/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
 
-nvim_lsp.sumneko_lua.setup {
+--[[ nvim_lsp.sumneko_lua.setup {
   on_attach=on_attach,
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
@@ -103,7 +103,7 @@ nvim_lsp.sumneko_lua.setup {
       },
     },
   },
-}
+} ]]
 
 --Javascript/Typescript
 nvim_lsp.tsserver.setup{on_attach=on_attach}
