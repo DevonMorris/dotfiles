@@ -4,10 +4,6 @@ local set_keymap = vim.api.nvim_set_keymap
 -- Docker tools
 set_keymap('n', '<leader>w', '<Cmd>DockerToolsToggle<CR>', opts)
 
--- Jumps
-set_keymap('n', '<C-G>', '<Cmd>ta<CR>', opts)
-set_keymap('n', '<C-G>', '<C-^>', opts)
-
 -- Quickfix
 set_keymap('n', '<C-N>', '<Cmd>cn<CR>', opts)
 set_keymap('n', '<C-P>', '<Cmd>cp<CR>', opts)
