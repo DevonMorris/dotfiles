@@ -102,6 +102,9 @@ set_keymap('n', '<C-G>b',
 set_keymap('n', '<leader>t',
   [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]],
   opts)
+set_keymap('n', '<leader>q',
+  [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]],
+  opts)
 set_keymap('c', '<C-R>',
   [[<Plug>(TelescopeFuzzyCommandSearch)]], {})
 
