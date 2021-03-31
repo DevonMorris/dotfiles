@@ -81,6 +81,9 @@ set_keymap('n', '<leader>s',
 set_keymap('n', '<leader>b',
   [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
   opts)
+set_keymap('n', '<leader>t',
+  [[<Cmd>lua require'telescope.builtin'.buffers{entry_prefix = "term", prompt_title = "Terminals"}<CR>]],
+  opts)
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
   opts)
@@ -98,9 +101,6 @@ set_keymap('n', '<C-G>c',
   opts)
 set_keymap('n', '<C-G>b',
   [[<Cmd>lua require'telescope.builtin'.git_branches{}<CR>]],
-  opts)
-set_keymap('n', '<leader>t',
-  [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]],
   opts)
 set_keymap('n', '<leader>q',
   [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]],

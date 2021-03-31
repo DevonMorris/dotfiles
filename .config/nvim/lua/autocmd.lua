@@ -18,3 +18,11 @@ vim.api.nvim_exec([[
 vim.api.nvim_exec([[
   autocmd VimEnter * lua require'lualine'.setup{}
 ]], false)
+
+-- Let me use o in terminal buffers
+vim.api.nvim_exec([[
+augroup TermMappings
+  autocmd!
+  autocmd TermOpen * nnoremap <buffer> o i
+augroup END
+]], false)
