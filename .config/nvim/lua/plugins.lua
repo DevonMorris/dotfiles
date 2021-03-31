@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   -- Lsp
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
-  use 'nvim-lua/diagnostic-nvim'
 
   -- Treesitter
   use {
@@ -51,7 +50,6 @@ return require('packer').startup(function(use)
     ft = {'clojure', 'scheme'},
     requires = 'tpope/vim-sexp-mappings-for-regular-people'
   }
-  use 'yamatsum/nvim-cursorline'
 
 	-- Git
   use 'tpope/vim-fugitive'
