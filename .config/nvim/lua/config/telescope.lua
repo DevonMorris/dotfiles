@@ -57,6 +57,68 @@ M.find_dots = function(opts)
   }):find()
 end
 
+local filter = vim.tbl_filter
+M.terminals = function(opts)
+  local bufnrs = filter(function(b)
+    if 1 ~= vim.fn.buflisted(b) then
+        return false
+    end
+    if not opts.show_all_buffers and not vim.api.nvim_buf_is_loaded(b) then
+      return false
+    end
+    if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
+      return false
+    end
+    return true
+  end, vim.api.nvim_list_bufs())
+  if not next(bufnrs) then return end
+
+  local t_bufnrs = filter(function(b)
+      local buf_name = vim.fn.getbufinfo(b)[1].variables.term_title
+      return false
+  end, bufnrs)
+  if not next(t_bufnrs) then return end
+
+  local buffers = {}
+  local default_selection_idx = 1
+  for _, bufnr in ipairs(t_bufnrs) do
+    local flag = bufnr == vim.fn.bufnr('') and '%' or (bufnr == vim.fn.bufnr('#') and '#' or ' ')
+
+    if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
+      default_selection_idx = 2
+    end
+
+    local element = {
+      bufnr = bufnr,
+      flag = flag,
+      info = vim.fn.getbufinfo(bufnr)[1],
+    }
+
+    if opts.sort_lastused and (flag == "#" or flag == "%") then
+      local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
+      table.insert(buffers, idx, element)
+    else
+      table.insert(buffers, element)
+    end
+  end
+
+  if not opts.bufnr_width then
+    local max_bufnr = math.max(unpack(bufnrs))
+    opts.bufnr_width = #tostring(max_bufnr)
+  end
+
+  pickers.new(opts, {
+    prompt_title = 'Terminals',
+    finder    = finders.new_table {
+      results = buffers,
+      entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts)
+    },
+    previewer = conf.grep_previewer(opts),
+    sorter = conf.generic_sorter(opts),
+    default_selection_index = default_selection_idx,
+  }):find()
+end
+
 -- Keymappings for Telescope
 local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
@@ -82,7 +144,7 @@ set_keymap('n', '<leader>b',
   [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
   opts)
 set_keymap('n', '<leader>t',
-  [[<Cmd>lua require'telescope.builtin'.buffers{entry_prefix = "term", prompt_title = "Terminals"}<CR>]],
+  [[<Cmd>lua require'config.telescope'.terminals{}<CR>]],
   opts)
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
