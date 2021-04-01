@@ -74,8 +74,7 @@ M.terminals = function(opts)
   if not next(bufnrs) then return end
 
   local t_bufnrs = filter(function(b)
-      local buf_name = vim.fn.getbufinfo(b)[1].variables.term_title
-      return false
+      return vim.fn.getbufinfo(b)[1].variables.term_title ~= nil
   end, bufnrs)
   if not next(t_bufnrs) then return end
 
