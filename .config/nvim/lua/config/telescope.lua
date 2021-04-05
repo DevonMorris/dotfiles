@@ -31,6 +31,7 @@ require('telescope').setup{
   },
 }
 require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('docker')
 
 M = {}
 
@@ -143,7 +144,7 @@ set_keymap('n', '<leader>b',
   [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
   opts)
 set_keymap('n', '<leader>t',
-  [[<Cmd>lua require'config.telescope'.terminals{}<CR>]],
+  [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]],
   opts)
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
@@ -168,5 +169,11 @@ set_keymap('n', '<leader>q',
   opts)
 set_keymap('c', '<C-R>',
   [[<Plug>(TelescopeFuzzyCommandSearch)]], {})
+set_keymap('n', '<leader>wc',
+  [[<Cmd>lua require'telescope'.extensions.docker.containers{}<CR>]],
+  opts)
+set_keymap('n', '<leader>f',
+  [[<Cmd>lua require'telescope.builtin'.file_browser{}<CR>]],
+  opts)
 
 return M
