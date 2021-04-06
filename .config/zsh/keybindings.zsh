@@ -40,8 +40,6 @@ bindkey ' ' magic-space                               # [Space] - do history exp
 bindkey '^[Oc' forward-word                        # [Ctrl-RightArrow] - move forward one word
 bindkey '^[Od' backward-word                       # [Ctrl-LeftArrow] - move backward one word
 
-bindkey '^H' backward-kill-word
-
 if [[ "${terminfo[kcbt]}" != "" ]]; then
   bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
 fi

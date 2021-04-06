@@ -42,7 +42,7 @@ function dots {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /opt/ros/melodic/setup.zsh
+[ -f /opt/ros/melodic ] && source /opt/ros/melodic/setup.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -60,3 +60,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 [ -f "/home/devon/.ghcup/env" ] && source "/home/devon/.ghcup/env" # ghcup-env
+if [ -e /home/devon/.nix-profile/etc/profile.d/nix.sh ]; then . /home/devon/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
