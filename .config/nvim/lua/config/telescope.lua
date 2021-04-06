@@ -172,8 +172,8 @@ set_keymap('c', '<C-R>',
 set_keymap('n', '<leader>wc',
   [[<Cmd>lua require'telescope'.extensions.docker.containers{}<CR>]],
   opts)
-set_keymap('n', '<leader>f',
-  [[<Cmd>lua require'telescope.builtin'.file_browser{}<CR>]],
+set_keymap('n', '<leader>i',
+  [[<Cmd>lua require'telescope.builtin'.file_browser{hidden = true}<CR>]],
   opts)
 
 return M
