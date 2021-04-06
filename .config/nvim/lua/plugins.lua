@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = 'TSUpdate'
+    run = ':TSUpdate'
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
