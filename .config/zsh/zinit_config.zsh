@@ -35,6 +35,8 @@ zp snippet OMZ::lib/spectrum.zsh
 ### Zplugins
 # Remember to make the last plugin loaded in turbo mode have atload'zpcompinit' for
 # completion support, this will make plugin loading super snappy!
+zp eendroroy/zed-zsh
+
 zp wfxr/forgit
 
 zpi as"completion"
