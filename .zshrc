@@ -26,7 +26,9 @@ source $HOME/.config/zsh/pygmalion-virtualenv.zsh-theme
 
 ### Aliases
 source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/torc_aliases.zsh
+
+### Work specific aliases
+[ -f $HOME/.config/zsh/torc_aliases.zsh ] && source $HOME/.config/zsh/torc_aliases.zsh
 
 ### Fzf Config
 source $HOME/.config/zsh/fzf_config.zsh
@@ -34,6 +36,7 @@ source $HOME/.config/zsh/fzf_config.zsh
 # Launch X from tty1 upon login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+# Don't share history between zsh sessions
 unsetopt share_history
 
 # Function for managing dotfiles
