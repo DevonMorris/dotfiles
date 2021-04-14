@@ -188,11 +188,11 @@ local function set_wallpaper(s)
 end
 
 -- Split ultrawide in multiple virtual screens
---local geo = screen.primary.geometry
---local new_width = math.ceil(geo.width/2)
---local new_width2 = geo.width - new_width
---screen.primary:fake_resize(geo.x, geo.y, new_width, geo.height)
---screen.fake_add(geo.x + new_width, geo.y, new_width2, geo.height)
+--[[ local geo = screen.primary.geometry
+local new_width = 1920
+local new_width2 = geo.width - new_width
+screen.primary:fake_resize(geo.x, geo.y, new_width, geo.height)
+screen.fake_add(geo.x + new_width, geo.y, new_width2, geo.height) ]]
 
 local cw = calendar_widget({
     theme = 'naughty',
@@ -378,7 +378,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey, "Shift" }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -559,6 +559,8 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "Msg" } },
     { rule_any = { class = {"Firefox"} },
       properties = { screen = 1, tag = "Web" } },
+    { rule_any = { class = {"Spotify"} },
+      properties = { screen = 1, tag = "Msg" } },
     { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view"} },
       properties = { screen = 1, tag = "Viz" } },
     { rule_any = { class = {"Zathura"} },
@@ -635,5 +637,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
---awful.spawn("blueman-applet")
+awful.spawn("blueman-applet")
 awful.spawn("picom -b")
+-- awful.spawn("/home/devon/scripts/random_feh home/devon/Pictures/Plants 5s")
