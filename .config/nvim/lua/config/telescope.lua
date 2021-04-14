@@ -167,10 +167,14 @@ set_keymap('n', '<C-G>b',
 set_keymap('n', '<leader>q',
   [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]],
   opts)
-set_keymap('c', '<C-R>',
-  [[<Plug>(TelescopeFuzzyCommandSearch)]], {})
 set_keymap('n', '<leader>wc',
   [[<Cmd>lua require'telescope'.extensions.docker.containers{}<CR>]],
+  opts)
+set_keymap('n', '<leader>ws',
+  [[<Cmd>lua require'telescope'.extensions.docker.search{}<CR>]],
+  opts)
+set_keymap('n', '<leader>wi',
+  [[<Cmd>lua require'telescope'.extensions.docker.images{}<CR>]],
   opts)
 set_keymap('n', '<leader>i',
   [[<Cmd>lua require'telescope.builtin'.file_browser{hidden = true}<CR>]],
