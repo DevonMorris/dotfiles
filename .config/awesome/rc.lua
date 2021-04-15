@@ -368,11 +368,11 @@ globalkeys = gears.table.join(
               {description = "Decrease brightness", group = "hotkeys"}),
 
     -- Spotify
-    awful.key({ modkey }, ".", function () os.execute("sp play") end,
+    awful.key({ }, "XF86AudioPlay", function () os.execute("sp play") end,
               {description = "Play/Pause spotify", group = "hotkeys"}),
-    awful.key({ modkey }, "/", function () os.execute("sp next") end,
+    awful.key({ }, "XF86AudioNext", function () os.execute("sp next") end,
               {description = "Play/Pause spotify", group = "hotkeys"}),
-    awful.key({ modkey }, ",", function () os.execute("sp prev") end,
+    awful.key({ }, "XF86AudioPrev", function () os.execute("sp prev") end,
               {description = "Play/Pause spotify", group = "hotkeys"})
 
 )
@@ -635,7 +635,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --
 -- Programs to run upon starting awesomewm
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
-awful.spawn("xset r rate 300 20")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
 awful.spawn("picom -b")
