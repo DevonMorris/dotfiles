@@ -373,8 +373,11 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioNext", function () os.execute("sp next") end,
               {description = "Play/Pause spotify", group = "hotkeys"}),
     awful.key({ }, "XF86AudioPrev", function () os.execute("sp prev") end,
+              {description = "Play/Pause spotify", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () os.execute('volume "spotify" "-5%"') end,
+              {description = "Play/Pause spotify", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute('volume "spotify" "+5%"') end,
               {description = "Play/Pause spotify", group = "hotkeys"})
-
 )
 
 clientkeys = gears.table.join(
