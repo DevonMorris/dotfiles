@@ -7,3 +7,5 @@ function dots {
 }
 dots reset --hard HEAD
 dots config status.showUntrackedFiles no
+
+ln -sf "$PWD/scripts" "$HOME/.local/bin/scripts"
