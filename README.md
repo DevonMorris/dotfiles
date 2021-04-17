@@ -3,17 +3,23 @@
 ![setup](assets/setup.png)
 
 ## Set Up Script
-Basically, this  `init_dotfiles.sh` is super cool, because it just does everything you need to set up the environment (ideally). It also makes a bare git repo with a worktree pointing to the home folder. To manage this, a function has been added to the `.zshrc` called `config`. Basically you just substitute `dots` for `git` to manage your dotfiles. So you'd do something like `dots status` instead of `git status`.
+Basically, `init_dotfiles.sh` is super cool, because it just does
+everything you need to set up the environment (ideally). It also makes a bare
+git repo with a worktree pointing to the home folder. To manage this, a
+script has been added to provide the command `dots`. Basically you just
+substitute `dots` for `git` to manage your dotfiles. So you'd do something like
+`dots status` instead of `git status`.
 
-The following commands will **completely clobber** any configurations you have in your home folder, so either back up your dotfiles, or face the consequences.
+The following command will install the dotfiles and create a backup of any
+conflicting files as needed.
 ```bash
-wget https://raw.githubusercontent.com/DevonMorris/dotfiles/master/init_dotfiles.sh
-chmod +x init_dotfiles.sh
-./init_dotfiles.sh
+curl -s https://raw.githubusercontent.com/DevonMorris/dotfiles/master/scripts/init_dotfiles.sh | bash
 ```
 
-## Zsh
-We all know zsh is super powerful! For a long time, I was using [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and rather blindly at that. I didn't realize that Oh My Zsh was really just a collection of preinstalled plugins packaged in one nice place. Recently, I moved to [zinit](https://github.com/zdharma/zinit), due to its turbo mode for loading plugins. Honestly, once you get it configured right it's screaming fast. There are tons of good plugins, you can find them in my `zshrc`.
+## Bash
+I have switched back to bash from zsh. I wanted to get more familiar with bash
+scripting and have basically been able to replicate most of the things I enjoy
+in zsh in bash. Check out my `.bashrc` and `.shell.d` folder for bash config.
 
 ## Neovim
 I personally use [Packer](https://github.com/wbthomason/packer.nvim) as my package manager in vim/neovim.
