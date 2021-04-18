@@ -87,9 +87,10 @@ return require('packer').startup(function(use)
   -- Notes
   use {'oberblastmeister/neuron.nvim',
       branch = 'unstable',
+      opt = true,
       requires = {{'nvim-lua/popup.nvim'},
                   {'nvim-lua/plenary.nvim'},
-                  {'nvim-telescope/telescope.nvim'}
+                  {'nvim-telescope/telescope.nvim'},
       }
   }
 end)
