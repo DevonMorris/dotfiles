@@ -14,10 +14,6 @@ vim.api.nvim_exec([[
 vim.api.nvim_exec([[
   autocmd BufWritePost plugins.lua PackerCompile
 ]], false)
--- Lualine is borked
-vim.api.nvim_exec([[
-  autocmd VimEnter * lua require'lualine'.setup{}
-]], false)
 
 -- Let me use o in terminal buffers
 vim.api.nvim_exec([[

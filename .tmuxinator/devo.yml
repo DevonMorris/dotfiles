@@ -1,0 +1,10 @@
+# ~/.tmuxinator/devo.yml
+name: devo
+root: ~/
+
+startup_window: term
+
+windows:
+  - editor:
+      - vim
+  - term:

@@ -213,7 +213,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "Vim", "Term", "ROS", "Viz", "Read", "Misc", "Pres", "Web", "Msg"}, s, awful.layout.layouts[1])
+    awful.tag({ "Term", "Viz", "Pres", "Web", "Msg", "Tunes", "Misc"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -637,7 +637,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 --
 -- Programs to run upon starting awesomewm
-awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
+-- awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
 awful.spawn("picom -b")
