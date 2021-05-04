@@ -158,7 +158,7 @@ set_keymap('n', '<leader>x',
 set_keymap('n', '<C-G>s',
   [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]],
   opts)
-set_keymap('n', '<C-G>c',
+set_keymap('n', '<C-G>v',
   [[<Cmd>lua require'telescope.builtin'.git_commits{}<CR>]],
   opts)
 set_keymap('n', '<C-G>b',
