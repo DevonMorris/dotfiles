@@ -5,6 +5,9 @@ root: ~/
 startup_window: term
 
 windows:
-  - editor:
+  - vim:
       - vim
   - term:
+  - top:
+      - htop
+  - vpn:

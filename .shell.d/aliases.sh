@@ -13,7 +13,7 @@ fi
 
 alias nb="jupyter notebook"
 alias open="xdg-open"
-alias mux="tmuxinator"
+alias muxn="tmuxinator"
 
 alias free='free -h'
 alias df='df -h'
