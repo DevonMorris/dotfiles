@@ -92,7 +92,12 @@ highlight clear VertSplit
 
 " 80 column limit
 highlight ColorColumn ctermbg=black
-set colorcolumn=80
+set textwidth=80
+set colorcolumn=81
+
+" In Git commit messages, make it 72 characters
+autocmd FileType gitcommit set textwidth=72
+autocmd FileType gitcommit set colorcolumn=73
 
 " Set full file path
 set statusline+=%F
