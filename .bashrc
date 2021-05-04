@@ -29,5 +29,5 @@ source "$HOME/.shell.d/forgit.sh"
 
 # Start devo tmuxinator on non-login shells
 if tty -s && [ ! -n "$TMUX" ] ; then
-  mux devo
+  muxn devo
 fi
