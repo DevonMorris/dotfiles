@@ -2,6 +2,5 @@
 
 # invoke global X session script
 xrdb -m $HOME/.Xresources
-sh ~/.screenlayout/layout.sh
-compton -b
+source ~/.screenlayout/layout.sh
 exec dbus-launch --exit-with-session awesome
