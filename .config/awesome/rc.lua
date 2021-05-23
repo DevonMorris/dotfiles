@@ -255,14 +255,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            --docker_widget{number_of_containers = 10},
             --battery_widget(),
-            fs_widget(),
-            spotify_widget({
-               font = 'Ubuntu Mono 9',
-               play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
-               pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg'
-            }),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
