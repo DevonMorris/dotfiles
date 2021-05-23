@@ -23,6 +23,7 @@ source "$HOME/.shell.d/completion.bash"
 source "$HOME/.shell.d/aliases.sh"
 source "$HOME/.shell.d/z.sh"
 source "$HOME/.shell.d/forgit.sh"
+source "$HOME/.shell.d/direnv.sh"
 
 # Work related config
 [ -f $HOME/.shell.d/work.sh ] && source "$HOME/.shell.d/work.sh"
