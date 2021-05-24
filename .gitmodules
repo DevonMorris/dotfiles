@@ -10,3 +10,6 @@
 [submodule ".sources/dmenu-devo"]
 	path = .sources/dmenu-devo
 	url = https://github.com/DevonMorris/dmenu-devo.git
+[submodule ".config/nix-config"]
+	path = .config/nix-config
+	url = git@github.com:DevonMorris/nix-config.git
