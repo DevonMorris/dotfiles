@@ -4,7 +4,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig(False)
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -147,7 +147,7 @@ config.bind('<Ctrl+o>', 'back')
 config.bind('<Ctrl+n>', 'prompt-item-focus next', mode="prompt")
 config.bind('<Ctrl+p>', 'prompt-item-focus prev', mode="prompt")
 
-# Realine bindings
+# Readline keybindings
 config.bind("<Ctrl-h>", "fake-key <Backspace>", "insert")
 config.bind("<Ctrl-a>", "fake-key <Home>", "insert")
 config.bind("<Ctrl-e>", "fake-key <End>", "insert")
