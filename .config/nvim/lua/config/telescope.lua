@@ -12,7 +12,7 @@ require('telescope').setup{
   defaults = {
     file_sorter = sorters.get_fzy_sorter,
     file_previewer   = previewers.vim_buffer_cat.new,
-    shorten_path = true,
+    path_display = {"shorten"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -30,12 +30,12 @@ require('telescope').setup{
     },
   },
 }
-require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('fzf')
 
 M = {}
 
 M.find_dots = function(opts)
-  opts.shorten_path = utils.get_default(opts.shorten_path, true)
+  opts.path_display = utils.get_default(opts.path_display, {"shorten"})
   opts = opts or {}
 
   opts.cwd = os.getenv("HOME")
@@ -131,7 +131,7 @@ set_keymap('n', '<leader>d',
   [[<Cmd>lua require'config.telescope'.find_dots{}<CR>]],
   opts)
 set_keymap('n', '<leader>gr',
-  [[<Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >") }<CR>]],
+  [[<Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >")}<CR>]],
   opts)
 set_keymap('n', '<leader>r',
   [[<Cmd>lua require'telescope.builtin'.lsp_references{}<CR>]],

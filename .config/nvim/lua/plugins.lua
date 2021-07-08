@@ -65,9 +65,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'},
-                {'nvim-lua/plenary.nvim'},
-                {'nvim-telescope/telescope-fzy-native.nvim'}}
+                {'nvim-lua/plenary.nvim'}}
   }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Theme
   use 'sainnhe/gruvbox-material'
