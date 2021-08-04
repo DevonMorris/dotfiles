@@ -92,7 +92,6 @@ highlight clear VertSplit
 
 " 80 column limit
 highlight ColorColumn ctermbg=black
-set textwidth=80
 set colorcolumn=81
 
 " In Git commit messages, make it 72 characters

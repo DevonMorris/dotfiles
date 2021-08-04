@@ -14,4 +14,17 @@ set_keymap('n', '<C-C>', '<Cmd>ccl<Bar>lcl<CR>', opts)
 set_keymap('n', '<C-K>', '<Cmd>lprev<CR>zz', opts) ]]
 
 -- Execute some lua
-set_keymap('n', '<leader>l', ':lua ', { noremap = true, silent = false})
+--set_keymap('n', '<leader>l', ':lua ', { noremap = true, silent = false})
+
+-- Y act like D and C
+set_keymap('n', 'Y', 'y$', opts)
+
+-- Keep things centered
+set_keymap('n', 'n', 'nzz', opts)
+set_keymap('n', 'N', 'Nzz', opts)
+set_keymap('n', 'J', "mzJ`z", opts)
+
+-- Undo break points
+set_keymap('i', ',', ",<c-g>u", opts)
+set_keymap('i', '.', ".<c-g>u", opts)
+set_keymap('i', ':', ":<c-g>u", opts)
