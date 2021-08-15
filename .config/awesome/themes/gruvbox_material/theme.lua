@@ -46,8 +46,8 @@ theme.titlebar_bg_normal = theme.bg_normal
 -- Example:
 --theme.taglist_bg_focus = "#CC9393"
 -- }}}
-theme.tasklist_bg_focus = "#282828"
-theme.tasklist_fg_focus = theme.fg_normal
+theme.tasklist_bg_focus = theme.bg_focus
+theme.tasklist_fg_focus = theme.fg_focus
 
 -- {{{ Widgets
 -- You can add as many variables as
