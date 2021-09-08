@@ -28,6 +28,7 @@ local on_attach = function(client, bufnr)
 
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap(bufnr, "v", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   elseif client.resolved_capabilities.document_range_formatting then
     buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
@@ -46,7 +47,7 @@ local clangd_on_attach = function(client, bufnr)
 end
 
 --Python Config
-nvim_lsp.pyls.setup{
+--[[ nvim_lsp.pyls.setup{
   on_attach=on_attach;
   settings = {
     pyls = {
@@ -60,11 +61,11 @@ nvim_lsp.pyls.setup{
       }
     }
   };
-}
+} ]]
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
-  cmd = {"clangd", "--background-index", "--clang-tidy"},
+  cmd = {"clangd", "--background-index", "--clang-tidy","--compile-commands-dir=./build/"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 
