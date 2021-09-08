@@ -27,6 +27,12 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+  -- Gps
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+
   -- Autocomplete
   use 'nvim-lua/completion-nvim'
 
