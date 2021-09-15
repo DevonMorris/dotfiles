@@ -24,9 +24,11 @@ require('telescope').setup{
     },
   },
   extensions = {
-      fzy_native = {
-          override_generic_sorter = false,
-          override_file_sorter = true,
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
     },
   },
 }
@@ -57,67 +59,6 @@ M.find_dots = function(opts)
   }):find()
 end
 
-local filter = vim.tbl_filter
-M.terminals = function(opts)
-  local bufnrs = filter(function(b)
-    if 1 ~= vim.fn.buflisted(b) then
-        return false
-    end
-    if not opts.show_all_buffers and not vim.api.nvim_buf_is_loaded(b) then
-      return false
-    end
-    if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
-      return false
-    end
-    return true
-  end, vim.api.nvim_list_bufs())
-  if not next(bufnrs) then return end
-
-  local t_bufnrs = filter(function(b)
-      return vim.fn.getbufinfo(b)[1].variables.term_title ~= nil
-  end, bufnrs)
-  if not next(t_bufnrs) then return end
-
-  local buffers = {}
-  local default_selection_idx = 1
-  for _, bufnr in ipairs(t_bufnrs) do
-    local flag = bufnr == vim.fn.bufnr('') and '%' or (bufnr == vim.fn.bufnr('#') and '#' or ' ')
-
-    if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
-      default_selection_idx = 2
-    end
-
-    local element = {
-      bufnr = bufnr,
-      flag = flag,
-      info = vim.fn.getbufinfo(bufnr)[1],
-    }
-
-    if opts.sort_lastused and (flag == "#" or flag == "%") then
-      local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
-      table.insert(buffers, idx, element)
-    else
-      table.insert(buffers, element)
-    end
-  end
-
-  if not opts.bufnr_width then
-    local max_bufnr = math.max(unpack(bufnrs))
-    opts.bufnr_width = #tostring(max_bufnr)
-  end
-
-  pickers.new(opts, {
-    prompt_title = 'Terminals',
-    finder    = finders.new_table {
-      results = buffers,
-      entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts)
-    },
-    previewer = conf.grep_previewer(opts),
-    sorter = conf.generic_sorter(opts),
-    default_selection_index = default_selection_idx,
-  }):find()
-end
-
 -- Keymappings for Telescope
 local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
@@ -131,7 +72,7 @@ set_keymap('n', '<leader>d',
   [[<Cmd>lua require'config.telescope'.find_dots{}<CR>]],
   opts)
 set_keymap('n', '<leader>gr',
-  [[<Cmd>lua require'telescope.builtin'.grep_string{ only_sort_text = true, search = vim.fn.input("Grep For >")}<CR>]],
+  [[<Cmd>lua require'telescope.builtin'.live_grep{}<CR>]],
   opts)
 set_keymap('n', '<leader>r',
   [[<Cmd>lua require'telescope.builtin'.lsp_references{}<CR>]],
@@ -151,9 +92,6 @@ set_keymap('n', '<leader>h',
 set_keymap('n', '<leader>a',
   [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
   opts)
-set_keymap('n', '<leader>x',
-  [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
-  opts)
 set_keymap('n', '<C-G>s',
   [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]],
   opts)
@@ -166,17 +104,14 @@ set_keymap('n', '<C-G>b',
 set_keymap('n', '<leader>q',
   [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]],
   opts)
-set_keymap('n', '<leader>wc',
-  [[<Cmd>lua require'telescope'.extensions.docker.containers{}<CR>]],
-  opts)
-set_keymap('n', '<leader>ws',
-  [[<Cmd>lua require'telescope'.extensions.docker.search{}<CR>]],
-  opts)
-set_keymap('n', '<leader>wi',
-  [[<Cmd>lua require'telescope'.extensions.docker.images{}<CR>]],
-  opts)
 set_keymap('n', '<leader>i',
   [[<Cmd>lua require'telescope.builtin'.file_browser{hidden = true}<CR>]],
+  opts)
+set_keymap('n', '<leader>/',
+  [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>]],
+  opts)
+set_keymap('n', '<leader>:',
+  [[<Cmd>lua require'telescope.builtin'.command_history{}<CR>]],
   opts)
 
 return M
