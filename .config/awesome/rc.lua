@@ -57,7 +57,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/gruvbox_material/theme.lua")
+beautiful.init("~/.config/awesome/themes/rose_pine/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "st"
@@ -183,7 +183,7 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.centered(wallpaper, s)
+        gears.wallpaper.maximized(wallpaper, s)
     end
 end
 
@@ -553,14 +553,10 @@ awful.rules.rules = {
     },
     { rule_any = { class = {"Slack", "zoom"} },
       properties = { screen = 1, tag = "Msg" } },
-    { rule_any = { class = {"Firefox"} },
-      properties = { screen = 1, tag = "Web" } },
     { rule_any = { class = {"Spotify"} },
-      properties = { screen = 1, tag = "Msg" } },
+      properties = { screen = 1, tag = "Tunes" } },
     { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view"} },
       properties = { screen = 1, tag = "Viz" } },
-    { rule_any = { class = {"Zathura"} },
-      properties = { screen = 1, tag = "Read" } },
 }
 -- }}}
 

@@ -77,6 +77,7 @@ return require('packer').startup(function(use)
 
   -- Theme
   use 'sainnhe/gruvbox-material'
+  use 'rose-pine/neovim'
 
   -- Statusline
   use {
