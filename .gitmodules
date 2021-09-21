@@ -1,5 +1,5 @@
 [submodule ".sources/st-deus"]
-	path = .sources/st-deus
+	path = .sources/st
 	url = https://github.com/DevonMorris/st-deus
 [submodule ".sources/dwm-deus"]
 	path = .sources/dwm-deus
