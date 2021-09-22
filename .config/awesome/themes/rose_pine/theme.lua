@@ -1,5 +1,5 @@
 -------------------------------
---  "gruvbox_material" awesome theme  --
+--  "rose-pine" awesome theme  --
 --    By Devon Morris  --
 -------------------------------
 
@@ -15,11 +15,11 @@ theme.wallpaper = themes_path .. "rose_pine/rose_pine.jpg"
 theme.font      = "sans 8"
 
 -- {{{ Colors
-theme.fg_normal  = "#d4be98"
-theme.fg_focus   = "#282828"
+theme.fg_normal  = "#575279"
+theme.fg_focus   = "#faf4ed"
 theme.fg_urgent  = "#282828"
-theme.bg_normal  = "#1d2021"
-theme.bg_focus   = "#a9b665"
+theme.bg_normal  = "#faf4ed"
+theme.bg_focus   = "#d7827e"
 theme.bg_urgent  = "#ea6962"
 theme.bg_systray = theme.bg_normal
 -- }}}
@@ -75,61 +75,61 @@ theme.menu_width  = dpi(100)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "gruvbox_material/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "gruvbox_material/taglist/squarez.png"
+theme.taglist_squares_sel   = themes_path .. "rose_pine/taglist/squarefz.png"
+theme.taglist_squares_unsel = themes_path .. "rose_pine/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "gruvbox_material/awesome-icon.png"
+theme.awesome_icon           = themes_path .. "rose_pine/awesome-icon.png"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = themes_path .. "gruvbox_material/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "gruvbox_material/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "gruvbox_material/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "gruvbox_material/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "gruvbox_material/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "gruvbox_material/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "gruvbox_material/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "gruvbox_material/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "gruvbox_material/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "gruvbox_material/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "gruvbox_material/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "gruvbox_material/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "gruvbox_material/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "gruvbox_material/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "gruvbox_material/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "gruvbox_material/layouts/cornerse.png"
+theme.layout_tile       = themes_path .. "rose_pine/layouts/tile.png"
+theme.layout_tileleft   = themes_path .. "rose_pine/layouts/tileleft.png"
+theme.layout_tilebottom = themes_path .. "rose_pine/layouts/tilebottom.png"
+theme.layout_tiletop    = themes_path .. "rose_pine/layouts/tiletop.png"
+theme.layout_fairv      = themes_path .. "rose_pine/layouts/fairv.png"
+theme.layout_fairh      = themes_path .. "rose_pine/layouts/fairh.png"
+theme.layout_spiral     = themes_path .. "rose_pine/layouts/spiral.png"
+theme.layout_dwindle    = themes_path .. "rose_pine/layouts/dwindle.png"
+theme.layout_max        = themes_path .. "rose_pine/layouts/max.png"
+theme.layout_fullscreen = themes_path .. "rose_pine/layouts/fullscreen.png"
+theme.layout_magnifier  = themes_path .. "rose_pine/layouts/magnifier.png"
+theme.layout_floating   = themes_path .. "rose_pine/layouts/floating.png"
+theme.layout_cornernw   = themes_path .. "rose_pine/layouts/cornernw.png"
+theme.layout_cornerne   = themes_path .. "rose_pine/layouts/cornerne.png"
+theme.layout_cornersw   = themes_path .. "rose_pine/layouts/cornersw.png"
+theme.layout_cornerse   = themes_path .. "rose_pine/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "gruvbox_material/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "gruvbox_material/titlebar/close_normal.png"
+theme.titlebar_close_button_focus  = themes_path .. "rose_pine/titlebar/close_focus.png"
+theme.titlebar_close_button_normal = themes_path .. "rose_pine/titlebar/close_normal.png"
 
 theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
 theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
 
-theme.titlebar_ontop_button_focus_active  = themes_path .. "gruvbox_material/titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "gruvbox_material/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "gruvbox_material/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "gruvbox_material/titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_active  = themes_path .. "rose_pine/titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_active = themes_path .. "rose_pine/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_inactive  = themes_path .. "rose_pine/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_inactive = themes_path .. "rose_pine/titlebar/ontop_normal_inactive.png"
 
-theme.titlebar_sticky_button_focus_active  = themes_path .. "gruvbox_material/titlebar/sticky_focus_active.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "gruvbox_material/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "gruvbox_material/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "gruvbox_material/titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_focus_active  = themes_path .. "rose_pine/titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_active = themes_path .. "rose_pine/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_inactive  = themes_path .. "rose_pine/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_inactive = themes_path .. "rose_pine/titlebar/sticky_normal_inactive.png"
 
-theme.titlebar_floating_button_focus_active  = themes_path .. "gruvbox_material/titlebar/floating_focus_active.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "gruvbox_material/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "gruvbox_material/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "gruvbox_material/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_active  = themes_path .. "rose_pine/titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_active = themes_path .. "rose_pine/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_inactive  = themes_path .. "rose_pine/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_inactive = themes_path .. "rose_pine/titlebar/floating_normal_inactive.png"
 
-theme.titlebar_maximized_button_focus_active  = themes_path .. "gruvbox_material/titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "gruvbox_material/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "gruvbox_material/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "gruvbox_material/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_active  = themes_path .. "rose_pine/titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_active = themes_path .. "rose_pine/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_inactive  = themes_path .. "rose_pine/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path .. "rose_pine/titlebar/maximized_normal_inactive.png"
 -- }}}
 -- }}}
 
