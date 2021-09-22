@@ -8,7 +8,7 @@ export FZF_CTRL_T_COMMAND='fd . -t f -H 2> /dev/null'
 export FZF_CTRL_T_OPTS="--preview 'bat {} 2> /dev/null | head -200'"
 export FZF_ALT_C_COMMAND='fd . -t d -H 2> /dev/null'
 export FZF_ALT_C_OPTS="--preview 'tree {} 2> /dev/null | head -200'"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --color=light'
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
 fkill() {
