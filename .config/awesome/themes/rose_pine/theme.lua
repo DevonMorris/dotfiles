@@ -17,10 +17,10 @@ theme.font      = "sans 8"
 -- {{{ Colors
 theme.fg_normal  = "#575279"
 theme.fg_focus   = "#faf4ed"
-theme.fg_urgent  = "#282828"
+theme.fg_urgent  = "#faf4ed"
 theme.bg_normal  = "#faf4ed"
-theme.bg_focus   = "#d7827e"
-theme.bg_urgent  = "#ea6962"
+theme.bg_focus   = "#6e6a86"
+theme.bg_urgent  = "#d7827e"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
