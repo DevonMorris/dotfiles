@@ -93,6 +93,7 @@ highlight clear VertSplit
 " 80 column limit
 highlight ColorColumn ctermbg=black
 set colorcolumn=81
+set cursorline
 
 " In Git commit messages, make it 72 characters
 autocmd FileType gitcommit set textwidth=72
