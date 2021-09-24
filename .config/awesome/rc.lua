@@ -57,7 +57,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/rose_pine/theme.lua")
+beautiful.init("~/.config/awesome/themes/gruvbox_material/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "st"
@@ -255,7 +255,14 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            --battery_widget(),
+            --docker_widget{number_of_containers = 10},
+            battery_widget(),
+            fs_widget(),
+            spotify_widget({
+               font = 'Ubuntu Mono 9',
+               play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
+               pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg'
+            }),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
@@ -626,7 +633,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 --
 -- Programs to run upon starting awesomewm
--- awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
+awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
 awful.spawn("picom -b")
