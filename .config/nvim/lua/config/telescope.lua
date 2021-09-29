@@ -89,9 +89,6 @@ set_keymap('n', '<leader>t',
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
   opts)
-set_keymap('n', '<leader>a',
-  [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
-  opts)
 set_keymap('n', '<C-G>s',
   [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]],
   opts)

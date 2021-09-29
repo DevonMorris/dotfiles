@@ -34,10 +34,18 @@ return require('packer').startup(function(use)
   }
 
   -- Autocomplete
-  use 'nvim-lua/completion-nvim'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
 
   -- Async
   use 'tpope/vim-dispatch'
+
+  -- Code Actions
+  use {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu'
+  }
 
   -- Language specific
   use 'lervag/vimtex'

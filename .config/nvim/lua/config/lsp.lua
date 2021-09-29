@@ -1,7 +1,13 @@
 local nvim_lsp = require'lspconfig'
 local nvim_lsp_util = require'lspconfig/util'
 
-local completion = require'completion'
+local cmp = require'cmp'
+cmp.setup{
+  sources = {
+        { name = 'nvim_lsp' },
+        { name = 'buffer' }
+  }
+}
 local lsp_status = require'lsp-status'
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -15,7 +21,6 @@ local buf_set_keymap = vim.api.nvim_buf_set_keymap
 local opts = { noremap=true, silent=true }
 
 local on_attach = function(client, bufnr)
-  completion.on_attach{}
   buf_set_keymap(bufnr, 'n', '<c-]>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -23,6 +28,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<c-k>', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap(bufnr, 'n', '<leader>a', '<Cmd>CodeActionMenu<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>ci', '<Cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>co', '<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<c-l>r', '<Cmd>LspRestart<CR>', opts)
@@ -67,6 +73,7 @@ end
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   cmd = {"clangd", "--background-index", "--clang-tidy","--compile-commands-dir=./build/"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
