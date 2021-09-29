@@ -12,7 +12,7 @@ theme.wallpaper = themes_path .. "melange/melange.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "IBM Plex Sans 9"
 
 -- {{{ Colors
 theme.fg_normal  = "#94A8D1"
@@ -59,6 +59,10 @@ theme.tasklist_fg_focus = theme.fg_focus
 --theme.bg_widget        = "#494B4F"
 --theme.border_widget    = "#3F3F3F"
 -- }}}
+theme.fg_widget = theme.fg_normal
+theme.bg_widget = theme.bg_normal
+theme.notification_fg = theme.fg_normal
+theme.notification_bg = theme.bg_normal
 
 -- {{{ Mouse finder
 theme.mouse_finder_color = "#CC9393"

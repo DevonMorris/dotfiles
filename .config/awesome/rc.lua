@@ -512,6 +512,14 @@ awful.rules.rules = {
                      placement = awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
+    { rule_any = {
+        role = {
+          "gimp-toolbox",
+          "gimp-dock"
+        }
+      },
+      properties = { ontop = true, floating = true }
+    },
 
     -- Floating clients.
     { rule_any = {
@@ -539,7 +547,6 @@ awful.rules.rules = {
           "Microsoft Teams - Preview",
           "Ocu",
           "Slack",
-          "Spotify",
           "zoom"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -562,7 +569,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "Msg" } },
     { rule_any = { class = {"Spotify"} },
       properties = { screen = 1, tag = "Tunes" } },
-    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view"} },
+    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp"} },
       properties = { screen = 1, tag = "Viz" } },
 }
 -- }}}
