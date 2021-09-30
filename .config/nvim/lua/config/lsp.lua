@@ -1,11 +1,13 @@
 local nvim_lsp = require'lspconfig'
 local nvim_lsp_util = require'lspconfig/util'
 
+-- TODO: move cmp stuff to its own file
 local cmp = require'cmp'
 cmp.setup{
   sources = {
         { name = 'nvim_lsp' },
-        { name = 'buffer' }
+        { name = 'buffer' },
+        { name = "neorg" }
   }
 }
 local lsp_status = require'lsp-status'

@@ -115,4 +115,11 @@ return require('packer').startup(function(use)
                   {'nvim-telescope/telescope.nvim'},
       }
   }
+
+  use {
+    'nvim-neorg/neorg',
+    requires = {{'nvim-lua/plenary.nvim'},
+                {"vhyrro/neorg-telescope"}
+    }
+  }
 end)
