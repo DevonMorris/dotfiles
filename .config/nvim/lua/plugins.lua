@@ -118,6 +118,7 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-neorg/neorg',
+    branch = 'unstable',
     requires = {{'nvim-lua/plenary.nvim'},
                 {"vhyrro/neorg-telescope"}
     }
