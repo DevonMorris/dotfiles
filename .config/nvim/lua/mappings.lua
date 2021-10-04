@@ -1,4 +1,4 @@
-opts = { noremap=true, silent=true }
+local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
 
 -- Alternate File
