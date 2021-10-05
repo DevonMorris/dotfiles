@@ -1,8 +1,0 @@
-rofi.separator-style: none
-rofi.line-margin: 0
-rofi.line-padding: 1
-rofi.bw: 0
-rofi.hide-scrollbar: True
-rofi.matching: fuzzy
-rofi.font: DejaVu Sans Mono 10
-rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
