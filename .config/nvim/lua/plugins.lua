@@ -36,7 +36,13 @@ return require('packer').startup(function(use)
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'
+  use 'onsails/lspkind-nvim'
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
 
   -- Async
   use 'tpope/vim-dispatch'

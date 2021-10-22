@@ -1,4 +1,5 @@
 require'config.colorscheme'
+require'config.snippets'
 require'config.completion'
 require'config.fugitive'
 require'config.gitsigns'
