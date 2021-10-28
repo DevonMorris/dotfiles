@@ -1,4 +1,9 @@
-require'neuron'.setup{
+local ok, neuron = pcall(require, 'neuron')
+if not ok then
+  return
+end
+
+neuron.setup{
     virtual_titles = true,
     mappings = true,
     run = nil, -- function to run when in neuron dir

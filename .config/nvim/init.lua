@@ -10,20 +10,17 @@ for everything regarding plain vim config check out ~/.vimrc
 -- Source vimrc for neovim/plugin agnostic config
 vim.cmd'source ~/.vimrc'
 
+-- Plugins
+require'devo.plugins'
+
 -- Utility functions to use from cmd
-require'functions'
+require'devo.functions'
 
 -- Autocmds
-require'autocmd'
+require'devo.autocmd'
 
 -- Mappings
-require'mappings'
+require'devo.mappings'
 
 -- Settings
-require'settings'
-
--- Plugins
-require'plugins'
-
--- Package configuration and package specific mappings
-require'config'
+require'devo.settings'

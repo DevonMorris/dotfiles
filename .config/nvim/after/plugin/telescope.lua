@@ -34,31 +34,6 @@ require('telescope').setup{
 }
 require('telescope').load_extension('fzf')
 
-M = {}
-
-M.find_dots = function(opts)
-  opts.path_display = utils.get_default(opts.path_display, {"shorten"})
-  opts = opts or {}
-
-  opts.cwd = os.getenv("HOME")
-  -- By creating the entry maker after the cwd options,
-  -- we ensure the maker uses the cwd options when being created.
-  opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
-
-  pickers.new(opts, {
-    prompt_title = '~~ Dotfiles ~~',
-    finder = finders.new_oneshot_job(
-      { "git",
-      "--git-dir="..os.getenv("HOME").."/.dots/",
-      "--work-tree="..os.getenv("HOME"),
-      "ls-tree", "--full-tree", "-r", "--name-only", "HEAD" },
-      opts
-    ),
-    previewer = previewers.vim_buffer_cat.new(opts),
-    sorter = conf.file_sorter(opts),
-  }):find()
-end
-
 -- Keymappings for Telescope
 local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
@@ -69,7 +44,7 @@ set_keymap('n', '<leader>p',
   [[<Cmd>lua require'telescope.builtin'.find_files{find_command = {'fd', '--type', 'f', '--no-ignore'}, follow = true}<CR>]],
   opts)
 set_keymap('n', '<leader>d',
-  [[<Cmd>lua require'config.telescope'.find_dots{}<CR>]],
+  [[<Cmd>lua require'devo.telescope'.find_dots{}<CR>]],
   opts)
 set_keymap('n', '<leader>gr',
   [[<Cmd>lua require'telescope.builtin'.live_grep{}<CR>]],
@@ -110,5 +85,3 @@ set_keymap('n', '<leader>/',
 set_keymap('n', '<leader>:',
   [[<Cmd>lua require'telescope.builtin'.command_history{}<CR>]],
   opts)
-
-return M
