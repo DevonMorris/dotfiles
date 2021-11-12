@@ -47,12 +47,6 @@ return require('packer').startup(function(use)
   -- Async
   use 'tpope/vim-dispatch'
 
-  -- Code Actions
-  use {
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu'
-  }
-
   -- Language specific
   use 'lervag/vimtex'
   use {

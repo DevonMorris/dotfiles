@@ -85,3 +85,6 @@ set_keymap('n', '<leader>/',
 set_keymap('n', '<leader>:',
   [[<Cmd>lua require'telescope.builtin'.command_history{}<CR>]],
   opts)
+set_keymap('n', '<leader>a',
+  [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
+  opts)
