@@ -312,6 +312,9 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
     -- Standard program
+    awful.key({ modkey }, "z",
+        function() awful.screen.focused().mywibox.visible = not awful.screen.focused().mywibox.visible end,
+              {description = "toggle bar", group = "screen"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "Return", function () awful.spawn(terminal, {floating = true}) end,
