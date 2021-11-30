@@ -1,5 +1,5 @@
-set makeprg=cargo
-set errorformat=
+setl makeprg=cargo
+setl errorformat=
             \%-G,
             \%-Gerror:\ aborting\ %.%#,
             \%-Gerror:\ Could\ not\ compile\ %.%#,
