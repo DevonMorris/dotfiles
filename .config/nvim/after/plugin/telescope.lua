@@ -12,7 +12,7 @@ require('telescope').setup{
   defaults = {
     file_sorter = sorters.get_fzy_sorter,
     file_previewer   = previewers.vim_buffer_cat.new,
-    path_display = {"shorten"},
+    path_display = {"smart"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -56,7 +56,7 @@ set_keymap('n', '<leader>s',
   [[<Cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>]],
   opts)
 set_keymap('n', '<leader>b',
-  [[<Cmd>lua require'telescope.builtin'.buffers{}<CR>]],
+  [[<Cmd>lua require'telescope.builtin'.buffers{sort_mru = true, ignore_current_buffer = true}<CR>]],
   opts)
 set_keymap('n', '<leader>t',
   [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]],
