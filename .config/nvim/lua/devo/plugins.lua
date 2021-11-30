@@ -54,6 +54,10 @@ return require('packer').startup(function(use)
     ft = 'clojure',
     tag = 'v4.15.0'
   }
+  use {
+    'itchyny/vim-haskell-indent',
+    ft = 'haskell'
+  }
 
   -- Typing/Editing
   use 'b3nj5m1n/kommentary'
@@ -67,7 +71,6 @@ return require('packer').startup(function(use)
 
 	-- Git
   use 'tpope/vim-fugitive'
-	use 'junegunn/gv.vim'
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
