@@ -65,7 +65,7 @@ end
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  cmd = {"clangd", "--background-index", "--clang-tidy","--compile-commands-dir=./build/"},
+  cmd = {"clangd", "--background-index", "--clang-tidy", "--compile-commands-dir=./build/", "--completion-style=detailed"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 
