@@ -35,14 +35,14 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_exec([[
     augroup lsp
       autocmd! * <buffer>
-      autocmd! BufEnter,BufWritePost <buffer> :lua vim.lsp.diagnostic.set_loclist{open_loclist=false}
+      autocmd! BufEnter,BufWritePost <buffer> :lua vim.diagnostic.setloclist{open=false}
     augroup END
   ]], false)
 end
 
 local clangd_on_attach = function(client, bufnr)
   on_attach(client, bufnr)
-  buf_set_keymap(bufnr, 'n', 'H', "<Cmd>lua require'lspconfig'.clangd.switch_source_header(0)<CR>", opts)
+  buf_set_keymap(bufnr, 'n', 'H', "<Cmd><CR>", opts)
 end
 
 --Python Config
