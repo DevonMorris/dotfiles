@@ -23,10 +23,8 @@ require("awful.hotkeys_popup.keys")
 
 -- Widgets
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
 
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
@@ -255,14 +253,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            --docker_widget{number_of_containers = 10},
-            -- battery_widget(),
+            battery_widget(),
             fs_widget(),
-            spotify_widget({
-               font = 'Ubuntu Mono 9',
-               play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
-               pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg'
-            }),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
@@ -570,9 +562,9 @@ awful.rules.rules = {
     },
     { rule_any = { class = {"Slack", "zoom"} },
       properties = { screen = 1, tag = "Msg" } },
-    { rule_any = { class = {"Spotify"} },
+    { rule_any = { class = {"Spotify", "spotify"}, name = {"Spotify", "spotify"} },
       properties = { screen = 1, tag = "Tunes" } },
-    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp"} },
+    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv"} },
       properties = { screen = 1, tag = "Viz" } },
 }
 -- }}}
@@ -645,6 +637,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Programs to run upon starting awesomewm
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("nm-applet")
--- awful.spawn("blueman-applet")
-awful.spawn("picom -b")
--- awful.spawn("/home/devon/scripts/random_feh home/devon/Pictures/Plants 5s")
+awful.spawn("blueman-applet")
+-- awful.spawn("picom -b")
