@@ -113,7 +113,7 @@ nvim_lsp.tsserver.setup{on_attach=on_attach}
 nvim_lsp.html.setup{on_attach=on_attach}
 
 --Rust
-nvim_lsp.rls.setup{on_attach=on_attach}
+nvim_lsp.rust_analyzer.setup{on_attach=on_attach}
 
 --Haskell
 nvim_lsp.hls.setup{
