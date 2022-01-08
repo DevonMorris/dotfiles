@@ -562,7 +562,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "Msg" } },
     { rule_any = { class = {"Spotify", "spotify"}, name = {"Spotify", "spotify"} },
       properties = { screen = 1, tag = "Tunes" } },
-    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv"} },
+    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv", "feh"} },
       properties = { screen = 1, tag = "Viz" } },
 }
 -- }}}
