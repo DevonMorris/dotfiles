@@ -13,8 +13,8 @@ set_keymap('n', '<C-C>', '<Cmd>ccl<Bar>lcl<CR>', opts)
 set_keymap('n', '<C-J>', '<Cmd>lnext<CR>zz', opts)
 set_keymap('n', '<C-K>', '<Cmd>lprev<CR>zz', opts)
 
--- Execute some lua
---set_keymap('n', '<leader>l', ':lua ', { noremap = true, silent = false})
+-- Search clear
+set_keymap('n', '<C-L>', '<Cmd>nohlsearch<CR>', opts)
 
 -- Y act like D and C
 set_keymap('n', 'Y', 'y$', opts)
