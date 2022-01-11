@@ -14,7 +14,7 @@ vim.o.hlsearch = true
 vim.o.inccommand = "nosplit"
 
 -- Undo
-vim.o.undodir = "~/.vim/undodir"
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
 -- Swapping and Backups
