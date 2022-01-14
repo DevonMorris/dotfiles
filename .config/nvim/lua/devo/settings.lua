@@ -10,7 +10,7 @@ vim.o.numberwidth = 2
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.o.inccommand = "nosplit"
 
 -- Undo
