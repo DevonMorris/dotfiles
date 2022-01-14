@@ -1,7 +1,0 @@
-#!/bin/sh
-while true
-do
-  # Grab a random image from plants
-  feh --randomize --bg-fill $1/*
-  sleep $2
-done
