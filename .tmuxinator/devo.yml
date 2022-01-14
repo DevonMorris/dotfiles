@@ -7,10 +7,6 @@ startup_window: term
 windows:
   - vim:
       - vim
-  - notes:
-      root: ~/torc/notes/
-      panes:
-        - vim -c Neorg
   - term:
   - top:
       - htop
