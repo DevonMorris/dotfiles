@@ -14,8 +14,9 @@ require'devo.functions'
 -- Autocmds
 require'devo.autocmd'
 
+-- Settings
+require'devo.settings'
+
 -- Mappings
 require'devo.mappings'
 
--- Settings
-require'devo.settings'

@@ -97,12 +97,6 @@ return require('packer').startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
-  -- Tree
-  use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons'
-  }
-
   -- Peek
   use 'nacro90/numb.nvim'
 

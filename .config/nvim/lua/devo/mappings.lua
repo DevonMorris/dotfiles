@@ -28,3 +28,7 @@ set_keymap('n', 'J', "mzJ`z", opts)
 set_keymap('i', ',', ",<c-g>u", opts)
 set_keymap('i', '.', ".<c-g>u", opts)
 set_keymap('i', ':', ":<c-g>u", opts)
+
+-- Netrw
+set_keymap('n', '<leader>ex', '<Cmd>execute \'Explore\' getcwd()<CR>', opts)
+set_keymap('n', '<leader>cex', '<Cmd>Ex<CR>', opts)

@@ -63,3 +63,7 @@ vim.o.expandtab = true
 -- Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Netrw settings
+vim.g.netrw_banner=false
+vim.g.netrw_altfile=1

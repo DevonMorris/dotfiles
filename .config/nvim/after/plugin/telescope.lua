@@ -76,9 +76,6 @@ set_keymap('n', '<C-G>b',
 set_keymap('n', '<leader>q',
   [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]],
   opts)
-set_keymap('n', '<leader>i',
-  [[<Cmd>lua require'telescope.builtin'.file_browser{hidden = true}<CR>]],
-  opts)
 set_keymap('n', '<leader>/',
   [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>]],
   opts)
