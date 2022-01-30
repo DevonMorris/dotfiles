@@ -58,6 +58,13 @@ return require('packer').startup(function(use)
     'itchyny/vim-haskell-indent',
     ft = 'haskell'
   }
+  use {
+    'mfussenegger/nvim-jdtls',
+    config = function()
+      require("plugin.jdtls.config").attach()
+    end,
+    module = "jdtls"
+  }
 
   -- Typing/Editing
   use 'b3nj5m1n/kommentary'
@@ -115,7 +122,6 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-neorg/neorg',
-    branch = 'unstable',
     requires = {{'nvim-lua/plenary.nvim'},
                 {"vhyrro/neorg-telescope"}
     }
