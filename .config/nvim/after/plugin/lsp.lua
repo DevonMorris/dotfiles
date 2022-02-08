@@ -63,6 +63,9 @@ end
     }
   };
 } ]]
+require'lspconfig'.jedi_language_server.setup{
+  on_attach = on_attach,
+}
 
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
@@ -128,4 +131,9 @@ nvim_lsp.hls.setup{
 nvim_lsp.clojure_lsp.setup{
   on_attach=on_attach,
   filtypes = { "clojure", "edn" },
+}
+
+--Go
+require'lspconfig'.gopls.setup{
+  on_attach=on_attach
 }
