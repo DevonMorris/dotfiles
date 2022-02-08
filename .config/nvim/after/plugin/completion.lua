@@ -20,6 +20,10 @@ cmp.setup{
       },
     }
   },
+  mapping = {
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+  },
   snippet = {
     expand = function(args)
       require'luasnip'.lsp_expand(args.body)

@@ -40,7 +40,7 @@ vim.o.termguicolors = true
 vim.o.mouse = "a"
 
 -- Completion
-vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+vim.opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 
 -- Matchpairs
 vim.opt.matchpairs:append({'<:>'})

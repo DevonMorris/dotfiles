@@ -1,8 +1,8 @@
 unalias -a
 
-alias grep='grep -i --colour=auto'
-alias egrep='egrep -i --colour=auto'
-alias fgrep='fgrep -i --colour=auto'
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
 
 if which exa &>/dev/null; then
   alias ls='exa -h --color=auto'
