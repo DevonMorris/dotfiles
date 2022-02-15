@@ -1,8 +1,10 @@
 local nvim_lsp = require'lspconfig'
 local nvim_lsp_util = require'lspconfig/util'
 
--- TODO: move cmp stuff to its own file
 local lsp_status = require'lsp-status'
+
+-- LSP loading status
+require'fidget'.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -70,7 +72,7 @@ require'lspconfig'.jedi_language_server.setup{
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  cmd = {"clangd", "--background-index", "--clang-tidy", "--compile-commands-dir=./build/", "--completion-style=detailed"},
+  cmd = {"clangd", "--background-index", "--clang-tidy", "--compile-commands-dir=./build/", "--completion-style=detailed", "--limit-references=10", "--limit-results=10"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 

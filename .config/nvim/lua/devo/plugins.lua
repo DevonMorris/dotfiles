@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   -- Lsp
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
+  use 'j-hui/fidget.nvim'
 
   -- Treesitter
   use {
