@@ -1,14 +1,12 @@
 local nvim_lsp = require'lspconfig'
 local nvim_lsp_util = require'lspconfig/util'
 
-local lsp_status = require'lsp-status'
-
 -- LSP loading status
 require'fidget'.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
+    virtual_text = true,
     signs = true,
   }
 )
@@ -23,8 +21,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>l', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap(bufnr, 'n', ']e', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap(bufnr, 'n', '[e', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap(bufnr, 'n', ']e', '<Cmd>lua vim.diagnostic.goto_next({float=false})<CR>', opts)
+  buf_set_keymap(bufnr, 'n', '[e', '<Cmd>lua vim.diagnostic.goto_prev({float=false})<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>ci', '<Cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>co', '<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
