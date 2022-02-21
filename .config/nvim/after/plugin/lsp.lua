@@ -65,13 +65,18 @@ end
     }
   };
 } ]]
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 require'lspconfig'.jedi_language_server.setup{
+  capabilities = capabilities,
   on_attach = on_attach,
 }
 
+
 --C++ config
 nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = capabilities,
   cmd = {"clangd", "--background-index", "--clang-tidy", "--compile-commands-dir=./build/", "--completion-style=detailed", "--limit-references=10", "--limit-results=10"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
@@ -120,22 +125,26 @@ nvim_lsp.tsserver.setup{on_attach=on_attach}
 nvim_lsp.html.setup{on_attach=on_attach}
 
 --Rust
-nvim_lsp.rust_analyzer.setup{on_attach=on_attach}
+nvim_lsp.rust_analyzer.setup{
+  capabilities=capabilities,
+  on_attach=on_attach
+}
 
 --Haskell
 nvim_lsp.hls.setup{
-  on_attach=on_attach,
+  on_attach = on_attach,
   filetypes = { "haskell", "lhaskell" },
   root_dir = nvim_lsp_util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git")
 }
 
 --Clojure
 nvim_lsp.clojure_lsp.setup{
-  on_attach=on_attach,
+  on_attach = on_attach,
   filtypes = { "clojure", "edn" },
 }
 
 --Go
 require'lspconfig'.gopls.setup{
+  capabilities = capabilities,
   on_attach=on_attach
 }

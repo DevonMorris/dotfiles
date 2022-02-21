@@ -1,4 +1,5 @@
 local lspkind = require'lspkind'
+local ls = require 'luasnip'
 
 local cmp = require'cmp'
 cmp.setup{
@@ -23,6 +24,13 @@ cmp.setup{
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+    ["<C-l>"] = cmp.mapping(
+      cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      },
+      { "i", "c" }
+    ),
   },
   snippet = {
     expand = function(args)
