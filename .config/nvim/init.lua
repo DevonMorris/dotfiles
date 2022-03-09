@@ -19,4 +19,3 @@ require'devo.settings'
 
 -- Mappings
 require'devo.mappings'
-
