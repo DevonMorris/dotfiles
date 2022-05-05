@@ -1,5 +1,3 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
 -- parser_configs.norg = {
 --     install_info = {
 --         url = "https://github.com/nvim-neorg/tree-sitter-norg",
@@ -9,7 +7,7 @@ local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 -- }
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },
