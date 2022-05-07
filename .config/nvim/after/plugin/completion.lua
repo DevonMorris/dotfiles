@@ -2,6 +2,7 @@ local lspkind = require'lspkind'
 local ls = require 'luasnip'
 
 local cmp = require'cmp'
+local types = require'cmp.types'
 cmp.setup{
   sources = {
         { name = 'nvim_lsp' },
@@ -24,13 +25,15 @@ cmp.setup{
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-    ["<C-l>"] = cmp.mapping(
+    ["<C-y>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       },
       { "i", "c" }
     ),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
   },
   snippet = {
     expand = function(args)
