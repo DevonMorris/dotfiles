@@ -30,8 +30,3 @@ source "$HOME/.shell.d/direnv.sh"
 
 # Work related config
 [ -f $HOME/.shell.d/work.sh ] && source "$HOME/.shell.d/work.sh"
-
-# Start devo tmuxinator on non-login shells
-if tty -s && [ ! -n "$TMUX" ] ; then
-  muxn devo
-fi
