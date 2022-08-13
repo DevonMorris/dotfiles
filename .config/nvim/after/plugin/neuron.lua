@@ -11,7 +11,7 @@ neuron.setup{
     leader = "<leader>n",
 }
 
-opts = { noremap=true, silent=true }
+local opts = { noremap=true, silent=true }
 local set_keymap = vim.api.nvim_set_keymap
 set_keymap('n', '<leader>ns',
   [[<Cmd>lua require'neuron'.rib{address = "127.0.0.1:8200", verbose = true, open = false}<CR>]],

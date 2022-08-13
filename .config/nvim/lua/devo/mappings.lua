@@ -9,6 +9,9 @@ set_keymap('n', '<C-N>', '<Cmd>cn<CR>zz', opts)
 set_keymap('n', '<C-P>', '<Cmd>cp<CR>zz', opts)
 set_keymap('n', '<C-C>', '<Cmd>ccl<Bar>lcl<CR>', opts)
 
+-- Clear Search
+set_keymap('n', '<C-L>', '<Cmd>nohlsearch<CR>', opts)
+
 -- Y act like D and C
 set_keymap('n', 'Y', 'y$', opts)
 

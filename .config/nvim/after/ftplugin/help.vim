@@ -1,1 +1,1 @@
-autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
+autocmd! BufEnter * if &ft ==# 'help' | wincmd o | endif

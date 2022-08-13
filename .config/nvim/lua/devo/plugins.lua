@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
   use {
     'mfussenegger/nvim-jdtls',
     config = function()
-      require("plugin.jdtls.config").attach()
+      require('plugin.jdtls.config').attach()
     end,
     module = "jdtls"
   }
@@ -99,6 +99,9 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'rose-pine/neovim'
   use 'savq/melange'
+  use 'folke/tokyonight.nvim'
+  use 'kaiuri/nvim-juliana'
+  use 'karb94/neoscroll.nvim'
 
   -- Statusline
   use {

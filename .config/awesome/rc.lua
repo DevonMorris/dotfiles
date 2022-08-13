@@ -58,7 +58,7 @@ end
 beautiful.init("~/.config/awesome/themes/gruvbox_material/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "wezterm"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -73,8 +73,8 @@ modkey = "Mod1"
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.floating,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.floating,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"Term", "Viz", "Tunes", "Web", "Msg", "VDI"}, s, awful.layout.layouts[1])
+    awful.tag({"Term", "Viz", "Tunes", "Web", "Msg"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -564,8 +564,10 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "Tunes" } },
     { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv", "feh"} },
       properties = { screen = 1, tag = "Viz" } },
-    { rule_any = { class = {"vmware-view", "Vmware-view"} },
-      properties = { screen = 1, tag = "VDI" } },
+    { rule_any = { class = {"Navigator", "firefox"} },
+      properties = { screen = 1, tag = "Web" } },
+    -- { rule_any = { class = {"vmware-view", "Vmware-view"} },
+    --   properties = { screen = 1, tag = "VDI" } },
 }
 -- }}}
 
@@ -638,4 +640,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
-awful.spawn("picom -b")
+-- awful.spawn("picom -b")

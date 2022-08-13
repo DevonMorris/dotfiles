@@ -17,6 +17,7 @@ lualine.setup{
     section_separators = {nil, nil},
     component_separators = {nil, nil},
     icons_enabled = true,
+    globalstatus = true,
   },
   sections = {
     lualine_a = { {'mode', upper = true} },
