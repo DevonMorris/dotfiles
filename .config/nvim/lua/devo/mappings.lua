@@ -7,6 +7,10 @@ set_keymap('n', '<C-H>', '<C-^>', opts)
 -- Quickfix
 set_keymap('n', '<C-N>', '<Cmd>cn<CR>zz', opts)
 set_keymap('n', '<C-P>', '<Cmd>cp<CR>zz', opts)
+set_keymap('n', '<C-D>', '<C-D>zz', opts)
+set_keymap('n', '<C-U>', '<C-U>zz', opts)
+set_keymap('n', '}', '}zz', opts)
+set_keymap('n', '{', '{zz', opts)
 set_keymap('n', '<C-C>', '<Cmd>ccl<Bar>lcl<CR>', opts)
 
 -- Clear Search
