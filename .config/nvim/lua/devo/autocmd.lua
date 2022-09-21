@@ -40,3 +40,13 @@ vim.api.nvim_create_autocmd(
 -- Remove whitespace on save
 vim.api.nvim_create_augroup("StripWhitespace", {clear = true})
 vim.api.nvim_create_autocmd("BufWritePre", {command = "%s/\\s\\+$//e", group = "StripWhitespace"})
+
+-- Remove whitespace on save
+vim.api.nvim_create_augroup("CodeFormat", {clear = true})
+vim.api.nvim_create_autocmd("BufWritePre",
+  {
+    pattern = {"*.hpp", "*.h", "*.cpp", "*.tpp", "*.c"},
+    command = "lua vim.lsp.buf.formatting()",
+    group = "CodeFormat"
+  }
+)
