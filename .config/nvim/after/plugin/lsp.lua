@@ -29,13 +29,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(bufnr, 'n', '<leader>ci', '<Cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>co', '<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    buf_set_keymap(bufnr, "v", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
+  buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+  -- Deprecated need to figre our how to replace this
+  -- buf_set_keymap(bufnr, "v", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 
   vim.api.nvim_exec([[
     augroup lsp
@@ -80,7 +76,7 @@ nvim_lsp.clangd.setup{on_attach=clangd_on_attach,
   capabilities = capabilities,
   cmd = {"clangd", "--background-index", "--clang-tidy", "--compile-commands-dir=./build/", "--completion-style=detailed", "--limit-references=10", "--limit-results=10"},
   -- for older versions of clangd
-  -- cmd = {"clangd", "--background-index", "--compile-commands-dir=./build/", "--completion-style=detailed", "--limit-results=10"},
+  -- cmd = {"clangd", "--background-index", "--completion-style=detailed", "--limit-results=10"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 

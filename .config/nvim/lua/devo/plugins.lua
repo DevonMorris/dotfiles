@@ -51,32 +51,11 @@ return require('packer').startup(function(use)
 
   -- Language specific
   use 'lervag/vimtex'
-  use {
-    'Olical/conjure',
-    ft = 'clojure',
-    tag = 'v4.15.0'
-  }
-  use {
-    'itchyny/vim-haskell-indent',
-    ft = 'haskell'
-  }
-  use {
-    'mfussenegger/nvim-jdtls',
-    config = function()
-      require('plugin.jdtls.config').attach()
-    end,
-    module = "jdtls"
-  }
 
   -- Typing/Editing
   use 'b3nj5m1n/kommentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use {
-    'guns/vim-sexp',
-    ft = {'clojure', 'scheme'},
-    requires = 'tpope/vim-sexp-mappings-for-regular-people'
-  }
 
 	-- Git
   use 'tpope/vim-fugitive'
@@ -97,11 +76,6 @@ return require('packer').startup(function(use)
 
   -- Theme
   use 'sainnhe/gruvbox-material'
-  use 'rose-pine/neovim'
-  use 'savq/melange'
-  use 'folke/tokyonight.nvim'
-  use 'kaiuri/nvim-juliana'
-  use 'karb94/neoscroll.nvim'
 
   -- Statusline
   use {
@@ -123,12 +97,5 @@ return require('packer').startup(function(use)
                   {'nvim-lua/plenary.nvim'},
                   {'nvim-telescope/telescope.nvim'},
       }
-  }
-
-  use {
-    'nvim-neorg/neorg',
-    requires = {{'nvim-lua/plenary.nvim'},
-                {"vhyrro/neorg-telescope"}
-    }
   }
 end)

@@ -13,7 +13,7 @@ local lualine = require'lualine'
 
 lualine.setup{
   options = {
-    theme = 'gruvbox-material',
+    theme = 'gruvbox',
     section_separators = {nil, nil},
     component_separators = {nil, nil},
     icons_enabled = true,
