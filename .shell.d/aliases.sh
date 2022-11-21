@@ -12,6 +12,10 @@ else
   alias la='ls -al -h --color=auto'
 fi
 
+if which fdfind &>/dev/null; then
+  alias fd='fdfind'
+fi
+
 alias nb="jupyter notebook"
 alias open="xdg-open"
 alias muxn="tmuxinator"
