@@ -58,7 +58,7 @@ end
 beautiful.init("~/.config/awesome/themes/gruvbox_material/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "wezterm"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"Term", "Viz", "Tunes", "Web", "Msg"}, s, awful.layout.layouts[1])
+    awful.tag({"Term", "Viz", "Tunes", "Web", "Msg", "Games"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            battery_widget(),
+            -- battery_widget(),
             fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
