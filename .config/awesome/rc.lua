@@ -211,7 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"Term", "Viz", "Tunes", "Web", "Msg", "Notes"}, s, awful.layout.layouts[1])
+    awful.tag({"Term", "Notes", "Tunes", "Web", "Msg", "Viz"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -324,10 +324,6 @@ globalkeys = gears.table.join(
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
@@ -357,9 +353,9 @@ globalkeys = gears.table.join(
               {description = "take a screenshot", group = "launcher"}),
 
     -- Brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 5") end,
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("sudo light -A 5") end,
               {description = "Increase brightness", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("light -U 5") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("sudo light -U 5") end,
               {description = "Decrease brightness", group = "hotkeys"}),
 
     -- Spotify
@@ -369,10 +365,14 @@ globalkeys = gears.table.join(
               {description = "Play/Pause spotify", group = "hotkeys"}),
     awful.key({ }, "XF86AudioPrev", function () os.execute("sp prev") end,
               {description = "Play/Pause spotify", group = "hotkeys"}),
-    awful.key({ }, "XF86AudioLowerVolume", function () os.execute('volume "spotify" "-5%"') end,
-              {description = "Play/Pause spotify", group = "hotkeys"}),
-    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute('volume "spotify" "+5%"') end,
-              {description = "Play/Pause spotify", group = "hotkeys"})
+    awful.key({ }, "XF86AudioLowerVolume", function () os.execute('pactl -- set-sink-volume 0 -5%') end,
+              {description = "Lower Volume", group = "hotkeys"}),
+    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute('pactl -- set-sink-volume 0 +5%') end,
+              {description = "Raise Volume", group = "hotkeys"}),
+
+    -- Lock
+    awful.key({ modkey, "Control" }, "l", function () os.execute('slock') end,
+              {description = "Lock Screen", group = "hotkeys"})
 )
 
 clientkeys = gears.table.join(
