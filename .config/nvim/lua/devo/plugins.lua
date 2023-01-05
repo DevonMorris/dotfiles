@@ -51,6 +51,10 @@ return require('packer').startup(function(use)
 
   -- Language specific
   use 'lervag/vimtex'
+  use 'simrat39/rust-tools.nvim'
+
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
 
   -- Typing/Editing
   use 'b3nj5m1n/kommentary'
@@ -73,6 +77,7 @@ return require('packer').startup(function(use)
                 {'nvim-lua/plenary.nvim'}}
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-ui-select.nvim' }
 
   -- Theme
   use 'sainnhe/gruvbox-material'
@@ -88,14 +93,4 @@ return require('packer').startup(function(use)
 
   -- Suda
   use 'lambdalisue/suda.vim'
-
-  -- Notes
-  use {'oberblastmeister/neuron.nvim',
-      branch = 'unstable',
-      opt = true,
-      requires = {{'nvim-lua/popup.nvim'},
-                  {'nvim-lua/plenary.nvim'},
-                  {'nvim-telescope/telescope.nvim'},
-      }
-  }
 end)

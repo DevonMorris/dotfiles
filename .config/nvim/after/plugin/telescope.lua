@@ -30,6 +30,11 @@ require('telescope').setup{
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    }
   },
 }
 require('telescope').load_extension('fzf')
@@ -85,3 +90,4 @@ set_keymap('n', '<leader>:',
 set_keymap('n', '<leader>a',
   [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]],
   opts)
+require("telescope").load_extension("ui-select")

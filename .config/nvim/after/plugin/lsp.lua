@@ -6,7 +6,7 @@ require'fidget'.setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
+    virtual_text = false,
     signs = true,
   }
 )
@@ -124,9 +124,17 @@ nvim_lsp.tsserver.setup{on_attach=on_attach}
 nvim_lsp.html.setup{on_attach=on_attach}
 
 --Rust
-nvim_lsp.rust_analyzer.setup{
+--rust analyzer is managed through rust-tools.nvim
+local rust_on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
+  buf_set_keymap(bufnr, 'n', '<leader>x', '<Cmd>RustRunnables<CR>', opts)
+  buf_set_keymap(bufnr, 'n', '<leader>m', '<Cmd>RustExpandMacro<CR>', opts)
+  buf_set_keymap(bufnr, 'n', 'K', '<Cmd>RustHoverActions<CR>', opts)
+end
+
+local rust_analyzer_opts = {
   capabilities=capabilities,
-  on_attach=on_attach,
+  on_attach=rust_on_attach,
   settings = {
     -- to enable rust-analyzer settings visit:
     -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -138,6 +146,36 @@ nvim_lsp.rust_analyzer.setup{
     },
   },
 }
+require('rust-tools').setup({
+    -- rust-tools options
+    tools = {
+        -- Automatically set inlay hints (type hints)
+        autoSetHints = true,
+        -- Whether to show hover actions inside the hover window
+        -- This overrides the default hover handler
+        hover_with_actions = false,
+
+        -- These apply to the default RustSetInlayHints command
+        inlay_hints = {
+
+            -- wheter to show parameter hints with the inlay hints or not
+            show_parameter_hints = true,
+
+            -- prefix for parameter hints
+            parameter_hints_prefix = "<- ",
+
+            -- prefix for all the other hints (type, chaining)
+            -- other_hints_prefix = "=> ",
+            other_hints_prefix = ">>> ",
+        },
+    },
+    --
+    -- rust-analyer options
+    -- all the opts to send to nvim-lspconfig
+    -- these override the defaults set by rust-tools.nvim
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+    server = rust_analyzer_opts,
+})
 
 --Haskell
 nvim_lsp.hls.setup{
