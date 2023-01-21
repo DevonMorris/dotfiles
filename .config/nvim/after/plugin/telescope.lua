@@ -10,9 +10,10 @@ local conf = require('telescope.config').values
 
 require('telescope').setup{
   defaults = {
+    layout_strategy = "vertical",
     file_sorter = sorters.get_fzy_sorter,
     file_previewer   = previewers.vim_buffer_cat.new,
-    path_display = {"smart"},
+    path_display = {"truncate"},
     mappings = {
       i = {
         ["<esc>"] = actions.close,
