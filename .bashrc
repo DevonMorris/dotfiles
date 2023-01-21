@@ -31,5 +31,3 @@ source "$HOME/.shell.d/node.sh"
 
 # Work related config
 [ -f $HOME/.shell.d/work.sh ] && source "$HOME/.shell.d/work.sh"
-. "$HOME/.cargo/env"
-
