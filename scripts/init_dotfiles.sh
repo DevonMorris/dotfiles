@@ -15,5 +15,5 @@ then
   exit
 fi
 
-git clone https://gitlab.com/DevonMorris/dotfiles.git $HOME/.dots
+git clone https://github.com/DevonMorris/dotfiles.git $HOME/.dots
 cd $HOME/.dots && stow -vvv -t $HOME --adopt .
