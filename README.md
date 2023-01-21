@@ -3,9 +3,11 @@
 ![setup](assets/setup.png)
 
 ## Set Up Script
-The following command will install the dotfiles and create a backup of any
-conflicting files as needed. Additionally it installs a bare git repo in the
-`~/.dots` directory. Use the `dots` script to manage the dotfiles in this repo.
+The following command will install the dotfiles into the `~/.dots` and symlink
+into the home directory using `stow`. Note: this will adopt any files you
+currently have configured e.g. `.vimrc` instead of overwriting them. To get
+my copies, you can go into `~/.dots` and check out my versions or commit your
+versions.
 ```bash
 curl -s https://raw.githubusercontent.com/DevonMorris/dotfiles/master/scripts/init_dotfiles.sh | bash
 ```
@@ -20,4 +22,4 @@ I personally use [Packer](https://github.com/wbthomason/packer.nvim) as my packa
 I use [awesome](https://awesomewm.org/) for my window manager. Check out the my `~/.config/awesome/rc.lua`.
 
 ## Mirrors
-You can find my dotfiles on [my website](https://git.devonmorris.dev/dotfiles), [github](https://github.com/DevonMorris/dotfiles) and [gitlab](https://gitlab.com/DevonMorris/dotfiles)
+You can find my dotfiles on [github](https://github.com/DevonMorris/dotfiles) and [gitlab](https://gitlab.com/DevonMorris/dotfiles)
