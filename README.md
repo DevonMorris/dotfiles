@@ -19,8 +19,5 @@ I personally use [Packer](https://github.com/wbthomason/packer.nvim) as my packa
 ## Awesome Window Manager
 I use [awesome](https://awesomewm.org/) for my window manager. Check out the my `~/.config/awesome/rc.lua`.
 
-## St
-Check out my suckless terminal deus theme at [st-deus](https://github.com/DevonMorris/st-deus)
-
 ## Mirrors
 You can find my dotfiles on [my website](https://git.devonmorris.dev/dotfiles), [github](https://github.com/DevonMorris/dotfiles) and [gitlab](https://gitlab.com/DevonMorris/dotfiles)
