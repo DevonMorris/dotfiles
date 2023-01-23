@@ -49,6 +49,9 @@ return require('packer').startup(function(use)
   -- Async
   use 'tpope/vim-dispatch'
 
+  -- Better Netrw
+  use 'tpope/vim-vinegar'
+
   -- Language specific
   use 'lervag/vimtex'
   use 'simrat39/rust-tools.nvim'
