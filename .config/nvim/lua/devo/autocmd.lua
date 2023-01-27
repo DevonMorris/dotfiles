@@ -27,14 +27,22 @@ vim.api.nvim_create_autocmd(
 
 -- Hybrid Numbers: Relative Numbers in Active windows, Norelative number in
 -- inactive windows
+local switch_rel_num = function(rel_on)
+  if vim.api.nvim_win_get_config(0).relative ~= '' then
+    return
+  end
+  vim.o.relativenumber = rel_on
+end
+
 vim.api.nvim_create_augroup("HybridNumbers", {clear = true})
 vim.api.nvim_create_autocmd(
   {"BufEnter", "FocusGained", "InsertLeave"},
-  {command = "set relativenumber", group = "HybridNumbers"}
+  {callback = function() switch_rel_num(true) end, group = "HybridNumbers"}
 )
+
 vim.api.nvim_create_autocmd(
   {"BufLeave", "FocusLost", "InsertEnter"},
-  {command = "set norelativenumber", group = "HybridNumbers"}
+  {callback = function() switch_rel_num(false) end, group = "HybridNumbers"}
 )
 
 -- Remove whitespace on save
