@@ -22,7 +22,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Widgets
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
