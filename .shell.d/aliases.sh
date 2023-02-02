@@ -19,6 +19,7 @@ fi
 alias nb="jupyter notebook"
 alias open="xdg-open"
 alias muxn="tmuxinator"
+alias devo="tmuxinator devo"
 
 alias free='free -h'
 alias df='df -h'
