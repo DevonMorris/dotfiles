@@ -55,7 +55,7 @@ set_keymap('n', '<leader>d',
 set_keymap('n', '<leader>gr',
   [[<Cmd>lua require'telescope.builtin'.live_grep{}<CR>]],
   opts)
-set_keymap('n', '<leader>r',
+set_keymap('n', 'gr',
   [[<Cmd>lua require'telescope.builtin'.lsp_references{}<CR>]],
   opts)
 set_keymap('n', '<leader>s',

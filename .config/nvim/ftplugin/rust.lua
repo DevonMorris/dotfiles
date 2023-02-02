@@ -12,6 +12,7 @@ local rust_on_attach = function(client, bufnr)
   buf_set_keymap(bufnr, 'n', '<leader>x', '<Cmd>RustRunnables<CR>', opts)
   buf_set_keymap(bufnr, 'n', '<leader>m', '<Cmd>RustExpandMacro<CR>', opts)
   buf_set_keymap(bufnr, 'n', 'K', '<Cmd>RustHoverActions<CR>', opts)
+  buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>RustOpenExternalDocs<CR>', opts)
 end
 
 local rust_analyzer_opts = {
@@ -58,3 +59,5 @@ require('rust-tools').setup({
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = rust_analyzer_opts,
 })
+
+vim.opt.matchpairs:append({'<:>'})
