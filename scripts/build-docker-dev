@@ -5,16 +5,43 @@
 # Run a docker container and volume in home directory for configs
 set -euo pipefail
 
-IMAGE=""
+APT_DEPS=${APT_DEPS:=""}
+TAG="$1-dev"
 
 function build() {
   docker build \
     $HOME/dockerfiles \
     -f $HOME/dockerfiles/dev.Dockerfile \
-    -t "$1-dev" \
-    --build-arg USER=$USER \
-    --build-arg ID=$(id -u) \
+    -t "$TAG" \
+    --build-arg APT_DEPS="$APT_DEPS" \
     --build-arg BASE=$1
 }
 
-build $@
+VALID_ARGS=$(getopt -o d:t: --long apt-deps:,tag: -- "$@")
+if [[ $? -ne 0 ]]; then
+    exit 1;
+fi
+
+eval set -- "$VALID_ARGS"
+while [ : ]; do
+  case "$1" in
+    -d | --apt-deps)
+        if [[ -f $2 ]];
+        then
+          APT_DEPS="${APT_DEPS} $(<$2)"
+        else
+          APT_DEPS="${APT_DEPS} $2"
+        fi
+        shift 2
+        ;;
+    -t | --t)
+        TAG=$2
+        shift 2
+        ;;
+    --) shift;
+        break
+        ;;
+  esac
+done
+
+build "$@"
