@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Author: Devon Morris <devonmorris1992@gmail.com>
+#
+# Run a docker container and volume in home directory for configs
+set -euo pipefail
+
+IMAGE=""
+
+function build() {
+  docker build \
+    $HOME/dockerfiles \
+    -f $HOME/dockerfiles/dev.Dockerfile \
+    -t "$1-dev" \
+    --build-arg USER=$USER \
+    --build-arg ID=$(id -u) \
+    --build-arg BASE=$1
+}
+
+build $@
