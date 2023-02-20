@@ -23,8 +23,8 @@ cmp.setup{
     }
   },
   mapping = {
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
     ["<C-y>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
