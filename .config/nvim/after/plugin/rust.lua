@@ -26,6 +26,10 @@ local rust_analyzer_opts = {
       checkOnSave = {
         command = "clippy",
       },
+      cargo = {
+        allFeatures = true,
+        allTargets = true,
+      }
     },
   },
 }

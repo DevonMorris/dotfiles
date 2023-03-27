@@ -28,6 +28,20 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+local battery_widget_visible = false -- A flag to store the widget's visibility status
+
+function toggle_battery_widget()
+    if battery_widget_visible then
+        -- Hide the battery widget
+        battery_widget.visible = false
+    else
+        -- Show the battery widget
+        battery_widget.visible = true
+    end
+    -- Update the visibility flag
+    battery_widget_visible = not battery_widget_visible
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -373,6 +387,13 @@ globalkeys = gears.table.join(
     -- Lock
     awful.key({ modkey, "Control" }, "l", function () os.execute('slock') end,
               {description = "Lock Screen", group = "hotkeys"})
+
+    -- Toggle battery_widget visibility
+    awful.key({ modkey, "Shift" }, "b",
+        function()
+            toggle_battery_widget()
+        end,
+        {description = "toggle battery_widget visibility", group = "custom"})
 )
 
 clientkeys = gears.table.join(

@@ -1,5 +1,6 @@
 local nvim_lsp = require'lspconfig'
 local devo_lsp = require'devo.lsp'
+local buf_set_keymap = vim.api.nvim_buf_set_keymap
 
 local on_attach = devo_lsp.on_attach
 local capabilities = devo_lsp.capabilities

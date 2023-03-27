@@ -43,6 +43,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
 
+  -- Copilot
+  use "github/copilot.vim"
+
   -- Snippets
   use 'L3MON4D3/LuaSnip'
 
