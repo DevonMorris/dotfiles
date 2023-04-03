@@ -22,21 +22,23 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Widgets
-local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")({enable_battery_warning = false})
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
-local battery_widget_visible = false -- A flag to store the widget's visibility status
+local battery_widget_visible = true -- A flag to store the widget's visibility status
+local battery_widget_container = wibox.container.background()
+battery_widget_container:set_widget(battery_widget)
 
 function toggle_battery_widget()
     if battery_widget_visible then
         -- Hide the battery widget
-        battery_widget.visible = false
+        battery_widget_container:set_widget(nil)
     else
         -- Show the battery widget
-        battery_widget.visible = true
+        battery_widget_container:set_widget(battery_widget)
     end
     -- Update the visibility flag
     battery_widget_visible = not battery_widget_visible
@@ -267,7 +269,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
-            -- battery_widget(),
+            battery_widget_container,
             fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
