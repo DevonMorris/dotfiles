@@ -70,7 +70,7 @@ set_keymap('n', '<leader>t',
 set_keymap('n', '<leader>h',
   [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]],
   opts)
-set_keymap('n', '<C-G>s',
+set_keymap('n', '<C-G>d',
   [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]],
   opts)
 set_keymap('n', '<C-G>v',
