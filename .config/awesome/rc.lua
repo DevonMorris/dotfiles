@@ -585,7 +585,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "Msg" } },
     { rule_any = { class = {"Spotify", "spotify"}, name = {"Spotify", "spotify"} },
       properties = { screen = 1, tag = "Tunes" } },
-    { rule_any = { class = {"gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv", "feh"} },
+    { rule_any = { class = {"Gazebo GUI", "gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv", "feh", "CloudCompare"}, name = {"Gazebo Sim"} },
       properties = { screen = 1, tag = "Viz" } },
     { rule_any = { class = {"Navigator", "firefox"} },
       properties = { screen = 1, tag = "Web" } },
