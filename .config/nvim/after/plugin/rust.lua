@@ -65,3 +65,4 @@ require('rust-tools').setup({
 })
 
 vim.opt.matchpairs:append({'<:>'})
+vim.o.colorcolumn = '101'
