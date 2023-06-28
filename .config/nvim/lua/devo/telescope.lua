@@ -1,11 +1,11 @@
-local telescope = require'telescope.builtin'
+local telescope = require("telescope.builtin")
 M = {}
 
 M.find_dots = function(opts)
-  opts = opts or {}
+	opts = opts or {}
 
-  opts.cwd = os.getenv("HOME").."/.dots"
-  telescope.git_files(opts)
+	opts.cwd = os.getenv("HOME") .. "/.dots"
+	telescope.git_files(opts)
 end
 
 return M

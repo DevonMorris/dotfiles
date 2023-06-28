@@ -6,17 +6,16 @@ date: Tue Jun 27 11:21:51 PM EDT 2023
 ]]
 
 -- Utility functions to use from cmd
-require'devo.functions'
+require("devo.functions")
 
 -- Autocmds
-require'devo.autocmd'
+require("devo.autocmd")
 
 -- Settings
-require'devo.settings'
+require("devo.settings")
 
 -- Mappings
-require'devo.mappings'
+require("devo.mappings")
 
 -- Plugins
-require'devo.plugins'
-
+require("devo.plugins")

@@ -32,7 +32,7 @@ vim.o.winblend = 0
 vim.o.pumheight = 10
 vim.o.wrap = false
 vim.o.scrolloff = 10
-vim.o.colorcolumn = '81'
+vim.o.colorcolumn = "81"
 vim.o.cursorline = true
 vim.o.termguicolors = true
 
@@ -40,10 +40,10 @@ vim.o.termguicolors = true
 vim.o.mouse = "a"
 
 -- Completion
-vim.opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 
 -- Matchpairs
-vim.opt.matchpairs:append({'<:>'})
+vim.opt.matchpairs:append({ "<:>" })
 
 -- Splits
 vim.o.splitright = true
@@ -53,7 +53,7 @@ vim.o.splitbelow = true
 vim.o.hidden = true
 
 -- Clipboard
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Default tabbing
 vim.o.tabstop = 2
@@ -65,5 +65,5 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Netrw settings
-vim.g.netrw_banner=false
-vim.g.netrw_altfile=1
+vim.g.netrw_banner = false
+vim.g.netrw_altfile = 1
