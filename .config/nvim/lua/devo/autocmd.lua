@@ -54,7 +54,7 @@ vim.api.nvim_create_augroup("CodeFormat", {clear = true})
 vim.api.nvim_create_autocmd("BufWritePre",
   {
     pattern = {"*.hpp", "*.h", "*.cpp", "*.tpp", "*.c", "*.rs"},
-    command = "lua vim.lsp.buf.formatting()",
+    command = "lua vim.lsp.buf.format({async = true})",
     group = "CodeFormat"
   }
 )
