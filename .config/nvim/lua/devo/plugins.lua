@@ -16,6 +16,8 @@ return require('lazy').setup({
   'neovim/nvim-lspconfig',
   'nvim-lua/lsp-status.nvim',
   { 'j-hui/fidget.nvim', tag = "legacy" },
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter',
