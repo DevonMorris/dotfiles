@@ -6,8 +6,6 @@ startup_window: term
 
 windows:
   - vim:
-      - vim
   - term:
   - top:
       - htop
-  - vpn:
