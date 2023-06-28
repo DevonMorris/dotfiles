@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   -- Lsp
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
-  use 'j-hui/fidget.nvim'
+  use { 'j-hui/fidget.nvim', tag = "legacy" }
 
   -- Treesitter
   use {
@@ -28,12 +28,6 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
-
-  -- Gps
-  use {
-    "SmiteshP/nvim-gps",
-    requires = "nvim-treesitter/nvim-treesitter"
-  }
 
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
@@ -44,7 +38,7 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
 
   -- Copilot
-  use "github/copilot.vim"
+  use "zbirenbaum/copilot.lua"
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
