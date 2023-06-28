@@ -12,7 +12,7 @@ lualine.setup{
     lualine_a = { {'mode', upper = true} },
     lualine_b = { {'branch', icon = ''} },
     lualine_c = { {'filename', file_status = true, path = 1}, {'diagnostics', sources = {'nvim_diagnostic'}} },
-    lualine_x = { { gps.get_location, condition = gps.is_available }, 'encoding', 'fileformat', 'filetype' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },
