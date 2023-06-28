@@ -18,6 +18,8 @@ return require('lazy').setup({
   { 'j-hui/fidget.nvim', tag = "legacy" },
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
+  'jose-elias-alvarez/null-ls.nvim',
+  'jay-babu/mason-null-ls.nvim',
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter',
