@@ -388,7 +388,7 @@ globalkeys = gears.table.join(
 
     -- Lock
     awful.key({ modkey, "Control" }, "l", function () os.execute('slock') end,
-              {description = "Lock Screen", group = "hotkeys"})
+              {description = "Lock Screen", group = "hotkeys"}),
 
     -- Toggle battery_widget visibility
     awful.key({ modkey, "Shift" }, "b",
