@@ -1,27 +1,34 @@
 require'gitsigns'.setup{
   numhl = true,
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-    buffer = true,
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
 
-    ['n ]g'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
-    ['n [g'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+    -- Navigation
+    map('n', ']g', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
 
-    ['n <C-G>a'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ['n <C-G>A'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
-    ['n <C-G>u'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-    ['n <C-G>r'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ['n <C-G>R'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ['n <C-G>B'] = '<cmd>Gitsigns toggle_current_line_blame<CR>',
+    map('n', '[g', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
 
-    -- Text objects
-    ['o ig'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',
-    ['x ig'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',
-    },
-  current_line_blame_opts = {
-    virt_text = true,
-    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 50,
-  },
+    -- Actions
+    map('n', '<G-G>a', gs.stage_hunk)
+    map('n', '<C-G>r', gs.reset_hunk)
+    map('v', '<C-G>a', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<C-G>r', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('n', '<C-G>A', gs.stage_buffer)
+    map('n', '<C-G>u', gs.undo_stage_hunk)
+    map('n', '<C-G>R', gs.reset_buffer)
+    map('n', '<C-G>p', gs.preview_hunk)
+  end
 }
