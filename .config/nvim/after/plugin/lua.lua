@@ -1,10 +1,12 @@
-local devo_lsp = require'devo.lsp'
 local nvim_lsp = require'lspconfig'
-local nvim_lsp_util = require'lspconfig/util'
+local devo_lsp = require'devo.lsp'
+
 local on_attach = devo_lsp.on_attach
 local capabilities = devo_lsp.capabilities
 
-require'lspconfig'.lua_ls.setup {
+nvim_lsp.lua_ls.setup {
+  on_attach=on_attach,
+  capabilities=capabilities,
   settings = {
     Lua = {
       runtime = {
