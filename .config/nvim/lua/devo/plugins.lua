@@ -1,96 +1,92 @@
--- Install packer if not already installed
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-  execute 'packadd packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Any configuration that is pre-loading goes here
-vim.g.kommentary_create_default_mappings = false
-
-return require('packer').startup(function(use)
-  -- Let packer manages packer
-  use 'wbthomason/packer.nvim'
-
+return require('lazy').setup({
   -- Lsp
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/lsp-status.nvim'
-  use { 'j-hui/fidget.nvim', tag = "legacy" }
+  'neovim/nvim-lspconfig',
+  'nvim-lua/lsp-status.nvim',
+  { 'j-hui/fidget.nvim', tag = "legacy" },
 
   -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'nvim-treesitter/playground'
+  'nvim-treesitter/nvim-treesitter',
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  'nvim-treesitter/playground',
 
   -- Autocomplete
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/nvim-cmp'
-  use 'onsails/lspkind-nvim'
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/nvim-cmp',
+  'onsails/lspkind-nvim',
 
   -- Copilot
-  use "zbirenbaum/copilot.lua"
+  'zbirenbaum/copilot.lua',
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
+  'L3MON4D3/LuaSnip',
 
   -- Async
-  use 'tpope/vim-dispatch'
+  'tpope/vim-dispatch',
 
   -- Better Netrw
-  use 'tpope/vim-vinegar'
+  'tpope/vim-vinegar',
 
   -- Language specific
-  use 'lervag/vimtex'
-  use 'simrat39/rust-tools.nvim'
+  'lervag/vimtex',
+  'simrat39/rust-tools.nvim',
 
   -- Debugging
-  use 'mfussenegger/nvim-dap'
+  'mfussenegger/nvim-dap',
 
   -- Typing/Editing
-  use 'b3nj5m1n/kommentary'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
+  'b3nj5m1n/kommentary',
+  'tpope/vim-surround',
+  'tpope/vim-repeat',
 
 	-- Git
-  use 'tpope/vim-fugitive'
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
+  'tpope/vim-fugitive',
+  { 'lewis6991/gitsigns.nvim',
+    dependencies = {
       'nvim-lua/plenary.nvim'
     }
-  }
+  },
 
   -- Telescope
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'},
-                {'nvim-lua/plenary.nvim'}}
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+    dependencies = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim'
+    }
+  },
+  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  {'nvim-telescope/telescope-ui-select.nvim' },
 
   -- Theme
-  use 'sainnhe/gruvbox-material'
+  'sainnhe/gruvbox-material',
 
   -- Statusline
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+    dependencies = {
+      'kyazdani42/nvim-web-devicons'
+    }
+  },
 
   -- Peek
-  use 'nacro90/numb.nvim'
+  'nacro90/numb.nvim',
 
   -- Suda
-  use 'lambdalisue/suda.vim'
-end)
+  'lambdalisue/suda.vim',
+})
