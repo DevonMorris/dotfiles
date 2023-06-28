@@ -19,16 +19,15 @@ local rust_analyzer_opts = {
   capabilities=capabilities,
   on_attach=rust_on_attach,
   settings = {
-    -- to enable rust-analyzer settings visit:
-    -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
     ["rust-analyzer"] = {
       -- enable clippy on save
-      checkOnSave = {
+      check = {
         command = "clippy",
+        extraArgs = { "--", "-D", "warnings", "-D", "clippy::missing_docs_in_private_items" },
       },
       cargo = {
-        allFeatures = true,
-        allTargets = true,
+        features = "all",
+        autoreload = false
       }
     },
   },
@@ -36,14 +35,9 @@ local rust_analyzer_opts = {
 require('rust-tools').setup({
     -- rust-tools options
     tools = {
-        -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
-        -- Whether to show hover actions inside the hover window
-        -- This overrides the default hover handler
-        hover_with_actions = false,
-
         -- These apply to the default RustSetInlayHints command
         inlay_hints = {
+            auto = false,
 
             -- wheter to show parameter hints with the inlay hints or not
             show_parameter_hints = true,
@@ -64,5 +58,5 @@ require('rust-tools').setup({
     server = rust_analyzer_opts,
 })
 
-vim.opt.matchpairs:append({'<:>'})
+vim.o.matchpairs = "(:),{:},[:],<:>"
 vim.o.colorcolumn = '101'
