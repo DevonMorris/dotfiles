@@ -22,7 +22,7 @@ require'gitsigns'.setup{
     end, {expr=true})
 
     -- Actions
-    map('n', '<G-G>a', gs.stage_hunk)
+    map('n', '<C-G>a', gs.stage_hunk)
     map('n', '<C-G>r', gs.reset_hunk)
     map('v', '<C-G>a', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
     map('v', '<C-G>r', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
