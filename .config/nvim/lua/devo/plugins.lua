@@ -61,9 +61,12 @@ return require("lazy").setup({
 
 	-- Git
 	"tpope/vim-fugitive",
-	{ "lewis6991/gitsigns.nvim", dependencies = {
-		"nvim-lua/plenary.nvim",
-	} },
+	{
+		"lewis6991/gitsigns.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
 
 	-- Telescope
 	{
@@ -82,9 +85,6 @@ return require("lazy").setup({
 	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons",
-		},
 	},
 
 	-- Peek
