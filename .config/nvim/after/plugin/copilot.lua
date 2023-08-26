@@ -10,3 +10,4 @@ require("copilot").setup({
 		},
 	},
 })
+vim.cmd("Copilot disable")
