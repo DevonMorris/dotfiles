@@ -49,6 +49,7 @@ return require("lazy").setup({
 	-- Language specific
 	"lervag/vimtex",
 	"simrat39/rust-tools.nvim",
+	"rust-lang/rust.vim",
 
 	-- Debugging
 	"mfussenegger/nvim-dap",

@@ -23,7 +23,15 @@ local rust_analyzer_opts = {
 			-- enable clippy on save
 			check = {
 				command = "clippy",
-				extraArgs = { "--", "-D", "warnings", "-D", "clippy::missing_docs_in_private_items" },
+				extraArgs = {
+					"--",
+					"-D",
+					"warnings",
+					"-D",
+					"clippy::missing_docs_in_private_items",
+					"-D",
+					"missing_docs",
+				},
 			},
 			cargo = {
 				features = "all",
@@ -60,3 +68,4 @@ require("rust-tools").setup({
 
 vim.o.matchpairs = "(:),{:},[:],<:>"
 vim.o.colorcolumn = "101"
+vim.b.makeprg = "cargo build"
