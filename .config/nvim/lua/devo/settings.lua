@@ -25,7 +25,7 @@ vim.o.backup = false
 vim.o.cursorline = true
 
 -- Display
-vim.o.updatetime = 50
+vim.o.redrawtime = 10
 vim.o.guicursor = ""
 vim.o.pumblend = 0
 vim.o.winblend = 0
@@ -56,8 +56,8 @@ vim.o.hidden = true
 vim.o.clipboard = "unnamedplus"
 
 -- Default tabbing
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- Leader

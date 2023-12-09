@@ -67,7 +67,6 @@ set_keymap(
 	[[<Cmd>lua require'telescope.builtin'.buffers{sort_mru = true, ignore_current_buffer = true}<CR>]],
 	opts
 )
-set_keymap("n", "<leader>t", [[<Cmd>lua require'telescope.builtin'.builtin{}<CR>]], opts)
 set_keymap("n", "<leader>h", [[<Cmd>lua require'telescope.builtin'.help_tags{}<CR>]], opts)
 set_keymap("n", "<C-G>d", [[<Cmd>lua require'telescope.builtin'.git_status{}<CR>]], opts)
 set_keymap("n", "<C-G>v", [[<Cmd>lua require'telescope.builtin'.git_commits{}<CR>]], opts)

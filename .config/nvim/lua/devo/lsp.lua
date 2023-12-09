@@ -18,6 +18,7 @@ local opts = { noremap = true, silent = true }
 M.on_attach = function(_, bufnr)
 	buf_set_keymap(bufnr, "n", "<c-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	buf_set_keymap(bufnr, "n", "gt", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -31,6 +32,7 @@ M.on_attach = function(_, bufnr)
 	buf_set_keymap(bufnr, "n", "<leader>co", "<Cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "<leader>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+	buf_set_keymap(bufnr, "v", "<leader>f", "<Cmd>lua vim.lsp.formatexpr()<CR>", opts)
 	vim.api.nvim_exec(
 		[[
     augroup lsp

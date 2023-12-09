@@ -12,10 +12,10 @@ nvim_lsp.clangd.setup({
 		"clangd",
 		"--background-index",
 		"--clang-tidy",
-		"--compile-commands-dir=./build/",
 		"--completion-style=detailed",
 		"--limit-references=10",
 		"--limit-results=10",
+		"--offset-encoding=utf-8",
 	},
 	-- for older versions of clangd
 	-- cmd = {"clangd", "--background-index", "--completion-style=detailed", "--limit-results=10"},

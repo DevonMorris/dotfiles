@@ -1,5 +1,4 @@
 local lspkind = require("lspkind")
-local ls = require("luasnip")
 
 local cmp = require("cmp")
 local types = require("cmp.types")
@@ -7,7 +6,6 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "luasnip" },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "neorg" },
 	},

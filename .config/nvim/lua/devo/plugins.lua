@@ -18,8 +18,6 @@ return require("lazy").setup({
 	{ "j-hui/fidget.nvim", tag = "legacy" },
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
-	"jay-babu/mason-null-ls.nvim",
 
 	-- Treesitter
 	"nvim-treesitter/nvim-treesitter",
@@ -30,15 +28,11 @@ return require("lazy").setup({
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
-	"saadparwaiz1/cmp_luasnip",
 	"hrsh7th/nvim-cmp",
 	"onsails/lspkind-nvim",
 
 	-- Copilot
 	"zbirenbaum/copilot.lua",
-
-	-- Snippets
-	"L3MON4D3/LuaSnip",
 
 	-- Async
 	"tpope/vim-dispatch",
@@ -48,7 +42,6 @@ return require("lazy").setup({
 
 	-- Language specific
 	"lervag/vimtex",
-	"simrat39/rust-tools.nvim",
 	"rust-lang/rust.vim",
 
 	-- Debugging
