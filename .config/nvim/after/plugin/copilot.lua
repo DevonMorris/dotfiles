@@ -1,13 +1,13 @@
 require("copilot").setup({
-	panel = {
-		enabled = false,
-	},
-	suggestion = {
-		enabled = true,
-		auto_trigger = true,
-		keymap = {
-			accept = "<tab>",
-		},
-	},
+    panel = {
+        enabled = false,
+    },
+    suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+            accept = "<C-y>",
+        },
+    },
 })
 vim.cmd("Copilot disable")
