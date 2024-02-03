@@ -52,9 +52,6 @@ vim.o.splitbelow = true
 -- Buffers
 vim.o.hidden = true
 
--- Clipboard
-vim.o.clipboard = "unnamedplus"
-
 -- Default tabbing
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
