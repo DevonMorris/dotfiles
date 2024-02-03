@@ -653,4 +653,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn("setxkbmap -layout us -option ctrl:nocaps")
 awful.spawn("nm-applet")
 awful.spawn("blueman-applet")
--- awful.spawn("picom -b")
+awful.spawn("lxpolkit")
