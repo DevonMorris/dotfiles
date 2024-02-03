@@ -6,7 +6,7 @@ require("copilot").setup({
         enabled = true,
         auto_trigger = true,
         keymap = {
-            accept = "<C-y>",
+            accept = "<C-a>",
         },
     },
 })

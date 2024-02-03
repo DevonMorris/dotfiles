@@ -42,6 +42,13 @@ cmp.setup({
             cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
             { "i", "c" }
         ),
+        ["<C-y>"] = cmp.mapping(
+            cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Insert,
+                select = true,
+            }),
+            { "i", "c" }
+        ),
     },
     preselect = cmp.PreselectMode.None,
 })
