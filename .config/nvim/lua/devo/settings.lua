@@ -25,7 +25,7 @@ vim.o.backup = false
 vim.o.cursorline = true
 
 -- Display
-vim.o.redrawtime = 10
+vim.o.redrawtime = 100
 vim.o.guicursor = ""
 vim.o.pumblend = 0
 vim.o.winblend = 0
