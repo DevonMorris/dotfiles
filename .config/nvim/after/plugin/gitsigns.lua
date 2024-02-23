@@ -1,4 +1,23 @@
-require("gitsigns").setup({
+local gs = require("gitsigns")
+
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+local next_hunk = function()
+    if vim.wo.diff then
+        vim.cmd('norm ]c')
+    else
+        gs.next_hunk()
+    end
+end
+local prev_hunk = function()
+    if vim.wo.diff then
+        vim.cmd('norm [c')
+    else
+        gs.prev_hunk()
+    end
+end
+local next_hunk_repeat, prev_hunk_repeat = ts_repeat_move.make_repeatable_move_pair(next_hunk, prev_hunk)
+
+gs.setup({
     numhl = false,
     signcolumn = true,
 
@@ -11,25 +30,8 @@ require("gitsigns").setup({
             vim.keymap.set(mode, l, r, opts)
         end
         -- Navigation
-        map("n", "]g", function()
-            if vim.wo.diff then
-                return "]c"
-            end
-            vim.schedule(function()
-                gs.next_hunk()
-            end)
-            return "<Ignore>"
-        end, { expr = true })
-
-        map("n", "[g", function()
-            if vim.wo.diff then
-                return "[c"
-            end
-            vim.schedule(function()
-                gs.prev_hunk()
-            end)
-            return "<Ignore>"
-        end, { expr = true })
+        map({ "n", "x", "o" }, "]g", next_hunk_repeat)
+        map({ "n", "x", "o" }, "[g", prev_hunk_repeat)
 
         -- Actions
         map("n", "<C-G>a", gs.stage_hunk)
@@ -44,5 +46,6 @@ require("gitsigns").setup({
         map("n", "<C-G>u", gs.undo_stage_hunk)
         map("n", "<C-G>R", gs.reset_buffer)
         map("n", "<C-G>p", gs.preview_hunk)
+        map({ 'o', 'x' }, 'ig', ':<C-U>Gitsigns select_hunk<CR>')
     end,
 })
