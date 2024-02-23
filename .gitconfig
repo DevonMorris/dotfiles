@@ -2,11 +2,35 @@
 	email = devonmorris1992@gmail.com
 	name = Devon Morris
 [push]
-	default = simple
+    default = current
 [core]
-	editor = nvim
+    editor = nvim
+    pager = delta
+    hooksPath = .githooks
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    true-color = always
+    syntax-theme = gruvbox-dark
+    diff-so-fancy = true
+    navigate = true
+    light = false
 [alias]
-	subup = submodule update --init --recursive
-	subreset = submodule foreach --recursive git reset --hard HEAD
-	subclean = submodule foreach --recursive git clean -dxf
+    subup = submodule update --init --recursive
+    subreset = submodule foreach --recursive git reset --hard HEAD
+    subclean = submodule foreach --recursive git clean -dxf
     copy-commit = ! git rev-parse --short HEAD | xclip -selection clipboard
+[merge]
+    conflictStyle = zdiff3
+[init]
+    defaultBranch = main
+[rerere]
+    enabled = true
+[diff]
+    algorithm = histogram
+    colorMoved = default
+    submodule = log
+[status]
+	submoduleSummary = true
+[includeIf "gitdir:~/work/"]
+path = "~/.work_dots/.gitconfig"
