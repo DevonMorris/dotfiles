@@ -9,3 +9,4 @@
 	subup = submodule update --init --recursive
 	subreset = submodule foreach --recursive git reset --hard HEAD
 	subclean = submodule foreach --recursive git clean -dxf
+    copy-commit = ! git rev-parse --short HEAD | xclip -selection clipboard
