@@ -5,3 +5,6 @@ fi
 if type pandoc &>/dev/null; then
   eval "$(pandoc --bash-completion)"
 fi
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
