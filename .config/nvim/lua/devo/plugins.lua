@@ -30,6 +30,26 @@ return require("lazy").setup({
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/playground",
 
+    -- Zen Mode (writing and man pages)
+    {
+        "folke/zen-mode.nvim",
+        dependencies = {
+            "folke/twilight.nvim",
+        }
+    },
+
+    -- Tables
+    "godlygeek/tabular",
+
+    -- Snippets
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
+    },
+
     -- Autocomplete
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

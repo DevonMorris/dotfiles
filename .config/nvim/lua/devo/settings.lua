@@ -43,7 +43,7 @@ vim.o.mouse = "a"
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 
 -- Matchpairs
-vim.opt.matchpairs:append({ "<:>" })
+vim.o.matchpairs = "(:),{:},[:],<:>"
 
 -- Splits
 vim.o.splitright = true

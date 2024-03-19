@@ -1,8 +1,14 @@
 local lspkind = require("lspkind")
+local ls = require("luasnip")
 
 local cmp = require("cmp")
 local types = require("cmp.types")
 cmp.setup({
+    snippet = {
+        expand = function(args)
+            ls.lsp_expand(args.body)
+        end,
+    },
     sources = {
         {
             name = "nvim_lsp",
@@ -18,6 +24,7 @@ cmp.setup({
             end
         },
         { name = "path" },
+        { name = "luasnip" },
         { name = "buffer", keyword_length = 5 },
     },
     formatting = {
