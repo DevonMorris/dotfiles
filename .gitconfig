@@ -21,7 +21,7 @@
     subclean = submodule foreach --recursive git clean -dxf
     copy-commit = ! git rev-parse --short HEAD | xclip -selection clipboard
 [merge]
-    conflictStyle = zdiff3
+    conflictStyle = diff3
 [init]
     defaultBranch = main
 [rerere]
