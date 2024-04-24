@@ -25,6 +25,7 @@ cmp.setup({
         },
         { name = "path" },
         { name = "luasnip" },
+        { name = "conjure" },
         { name = "buffer", keyword_length = 5 },
     },
     formatting = {
