@@ -3,6 +3,9 @@
 # contact: devonmorris1992@gmail.com
 # date: Fri Apr 16 20:25:34 EDT 2021
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # Source system config if available
 [ -r /etc/bash.bashrc ] && source /etc/bash.bashrc
 [ -r /etc/bashrc ] && source /etc/bashrc
