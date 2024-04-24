@@ -11,6 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Since conjure doesn't use setup, we have to set these vars early
+vim.g["conjure#client#scheme#stdio#command"] = "csi -quiet -:c"
+vim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
+vim.g["conjure#eval#comment_prefix"] = ";"
+
 return require("lazy").setup({
     -- Lsp
     "neovim/nvim-lspconfig",
@@ -19,8 +24,6 @@ return require("lazy").setup({
         "j-hui/fidget.nvim",
         tag = "legacy"
     },
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
 
     -- Treesitter
     {
@@ -114,4 +117,11 @@ return require("lazy").setup({
 
     -- Suda
     "lambdalisue/suda.vim",
+
+    -- The dark arts
+    "guns/vim-sexp",
+    "tpope/vim-sexp-mappings-for-regular-people",
+    "Olical/conjure",
+    "PaterJason/cmp-conjure"
+
 })
