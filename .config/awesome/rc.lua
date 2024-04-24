@@ -572,7 +572,7 @@ awful.rules.rules = {
     {
         rule_any = {
             class = { "Gazebo GUI", "gazebo", "rviz", "rqt_graph", "rqt_image_view", "Gimp", "Sxiv", "feh",
-                "CloudCompare" },
+                "CloudCompare", "rerun" },
             name = { "Gazebo Sim" }
         },
         properties = { screen = 1, tag = "Viz" }
