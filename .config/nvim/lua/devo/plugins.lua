@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g["conjure#client#scheme#stdio#command"] = "csi -quiet -:c"
 vim.g["conjure#client#scheme#stdio#prompt_pattern"] = "\n-#;%d-> "
 vim.g["conjure#eval#comment_prefix"] = ";"
+vim.g["conjure#filetypes"] = { "scheme", "lisp" }
 
 return require("lazy").setup({
     -- Lsp
@@ -67,7 +68,7 @@ return require("lazy").setup({
     "tpope/vim-dispatch",
 
     -- Better Netrw
-    "tpope/vim-vinegar",
+    "stevearc/oil.nvim",
 
     -- Language specific
     "lervag/vimtex",

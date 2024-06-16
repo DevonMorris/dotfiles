@@ -48,10 +48,26 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
 vim.api.nvim_create_augroup("StripWhitespace", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", { command = "%s/\\s\\+$//e", group = "StripWhitespace" })
 
+-- Retab on save
+vim.api.nvim_create_augroup("Retab", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function()
+        local excludes = { "make" }
+        for _, exclude in pairs(excludes) do
+            if vim.bo.filetype == exclude then
+                return
+            end
+        end
+        vim.cmd("retab")
+    end,
+    group = "Retab" }
+)
+
 -- Format code on save
 vim.api.nvim_create_augroup("CodeFormat", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.hpp", "*.h", "*.cpp", "*.tpp", "*.c", "*.rs", "*.lua" },
+    pattern = { "*.hpp", "*.h", "*.cpp", "*.tpp", "*.c", "*.rs", "*.lua", "*.cmake", "CMakeLists.txt" },
     command = "lua vim.lsp.buf.format({async = true})",
     group = "CodeFormat",
 })
