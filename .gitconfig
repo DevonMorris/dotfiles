@@ -1,6 +1,6 @@
 [user]
-	email = devonmorris1992@gmail.com
-	name = Devon Morris
+    email = devonmorris1992@gmail.com
+    name = Devon Morris
 [push]
     default = current
 [core]
@@ -19,7 +19,8 @@
     subup = submodule update --init --recursive
     subreset = submodule foreach --recursive git reset --hard HEAD
     subclean = submodule foreach --recursive git clean -dxf
-    copy-commit = ! git rev-parse --short HEAD | xclip -selection clipboard
+    copy-commit = ! git rev-parse HEAD | xclip -selection clipboard
+    copy-commit-short = ! git rev-parse HEAD | xclip -selection clipboard
 [merge]
     conflictStyle = diff3
 [init]
@@ -31,6 +32,6 @@
     colorMoved = default
     submodule = log
 [status]
-	submoduleSummary = true
+    submoduleSummary = true
 [includeIf "gitdir:~/work/"]
 path = "~/.work_dots/.gitconfig"
