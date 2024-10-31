@@ -3,7 +3,7 @@ M = {}
 require("fidget").setup({})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
+    signs = false,
     underline = false,
     update_in_insert = false,
     virtual_text = false,
@@ -30,15 +30,6 @@ M.on_attach = function(_, bufnr)
     buf_set_keymap(bufnr, "n", "<leader>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
     buf_set_keymap(bufnr, "v", "<leader>f", "<Cmd>lua vim.lsp.formatexpr()<CR>", opts)
-    vim.api.nvim_exec(
-        [[
-    augroup lsp
-      autocmd! * <buffer>
-      autocmd! BufEnter,BufWritePost <buffer> :lua vim.diagnostic.setloclist{open=false}
-    augroup END
-  ]],
-        false
-    )
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

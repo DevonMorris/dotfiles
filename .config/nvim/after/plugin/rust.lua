@@ -42,10 +42,18 @@ local rust_analyzer_opts = {
                 },
             },
             cargo = {
+                buildScripts = {
+                    enable = true,
+                    rebuildOnSave = false,
+                },
                 features = "all",
                 allTargets = true,
-                autoreload = false,
+                autoreload = true,
             },
+            procMacro = {
+                enable = true,
+            },
+            checkOnSave = false,
         },
     },
 }

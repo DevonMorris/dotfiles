@@ -8,7 +8,7 @@ require("oil").setup({
     ["<C-h>"] = false,
   },
   view_options = {
-    show_hidden = false,
+    show_hidden = true,
   },
 })
 
