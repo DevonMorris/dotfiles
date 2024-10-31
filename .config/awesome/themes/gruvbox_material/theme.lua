@@ -8,7 +8,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "gruvbox_material/gruvbox-background.jpg"
+theme.wallpaper = themes_path .. "gruvbox_material/gruvbox-background.png"
 -- }}}
 
 -- {{{ Styles

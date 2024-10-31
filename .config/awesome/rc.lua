@@ -270,10 +270,15 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
+            s.mytasklist, -- Middle widget
         },
-        s.mytasklist, -- Middle widget
+        {
+            layout = wibox.layout.align.horizontal,
+            spacing = 10,
+        },
         {             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = 10,
             mytextclock,
             battery_widget_container,
             fs_widget(),
