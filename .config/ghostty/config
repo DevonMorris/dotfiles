@@ -14,6 +14,9 @@ window-decoration = false
 window-theme = ghostty
 gtk-adwaita = false
 
+# Just close please
+confirm-close-surface = false
+
 # Clipboard
 clipboard-read = allow
 clipboard-paste-protection = false
