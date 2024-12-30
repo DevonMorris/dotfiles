@@ -78,8 +78,33 @@ end
 beautiful.init("~/.config/awesome/themes/gruvbox_material/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
-editor = os.getenv("EDITOR") or "editor"
+-- The terminal priority is
+-- ghostty
+-- alacritty
+-- urxvt
+-- gnome-terminal
+-- xterm
+--
+-- If none of these are available then simply warn and continue
+local terminals = { "ghostty", "alacritty", "urxvt", "gnome-terminal", "xterm" }
+
+terminal = ""
+for _, t in ipairs(terminals) do
+    -- The awesome user guide explicitly says not to do this, but this should
+    -- run fast enough to not be an issues
+    local f = io.popen("which " .. t)
+    f:read("*all")
+    local rc = { f:close() }
+    if  rc[1] == true then
+        naughty.notify({ preset = naughty.config.presets.normal,
+            title = "Terminal found",
+            text = "Terminal found: " .. t
+        })
+        terminal = t
+        break
+    end
+end
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
