@@ -1,3 +1,21 @@
+# Font
 font-family = "CommitMono"
-theme = "GruvboxDark"
 
+# Theme
+theme = light:"devo",dark:"devo"
+
+# Cursors
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Window decoration
+window-decoration = false
+window-theme = ghostty
+gtk-adwaita = false
+
+# Clipboard
+clipboard-read = allow
+clipboard-paste-protection = false
+
+# Bindings
