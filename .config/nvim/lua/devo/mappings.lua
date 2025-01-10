@@ -32,3 +32,7 @@ set_keymap("i", ":", ":<c-g>u", opts)
 -- Netrw
 set_keymap("n", "<leader>ex", "<Cmd>execute 'Explore' getcwd()<CR>", opts)
 set_keymap("n", "<leader>cex", "<Cmd>Ex<CR>", opts)
+
+-- Dispatch
+set_keymap("n", "<F1>", ":FocusDispatch! ", { noremap = true })
+set_keymap("n", "<F4>", "<Cmd>Dispatch<CR>", opts)
