@@ -78,12 +78,6 @@ return require("lazy").setup({
 
     -- Git
     "tpope/vim-fugitive",
-    {
-        "lewis6991/gitsigns.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
 
     -- Telescope
     {
@@ -106,9 +100,6 @@ return require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
     },
-
-    -- Peek
-    "nacro90/numb.nvim",
 
     -- Suda
     "lambdalisue/suda.vim",
