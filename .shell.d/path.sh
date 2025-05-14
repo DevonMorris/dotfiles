@@ -26,6 +26,7 @@ pathprepend \
   "${HOME}/.node/bin" \
   "${HOME}/.deno/bin" \
   "${HOME}/bin" \
+  "${HOME}/.atuin/bin"
 
 pathappend \
   "/usr/local/opt/coreutils/libexec/gnubin" \
