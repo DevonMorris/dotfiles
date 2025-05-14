@@ -1,13 +1,16 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -57,8 +60,33 @@ return require("lazy").setup({
 
     -- Copilot
     "zbirenbaum/copilot.lua",
+    {
+        "yetone/avante.nvim",
+        event = "VeryLazy",
+        version = false, -- Never set this value to "*"! Never!
+        -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+        build = "make",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "stevearc/dressing.nvim",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            --- The below dependencies are optional,
+            "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+            "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+            "zbirenbaum/copilot.lua",        -- for providers='copilot'
+            {
+                -- Make sure to set this up properly if you have lazy=true
+                'MeanderingProgrammer/render-markdown.nvim',
+                opts = {
+                    file_types = { "Avante" },
+                },
+                ft = { "Avante" },
+            },
+        },
+    },
 
-    -- Async
+    -- Async Jobs
     "tpope/vim-dispatch",
 
     -- Better Netrw
@@ -82,6 +110,7 @@ return require("lazy").setup({
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
+        tag = '0.1.8',
         dependencies = {
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim",

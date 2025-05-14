@@ -2,7 +2,7 @@ M = {}
 -- LSP loading status
 require("fidget").setup({})
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({
     signs = false,
     underline = false,
     update_in_insert = false,
@@ -20,8 +20,10 @@ M.on_attach = function(_, bufnr)
     buf_set_keymap(bufnr, "n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap(bufnr, "n", "<leader>l", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    buf_set_keymap(bufnr, "n", "]e", "<Cmd>lua vim.diagnostic.goto_next({float=false, severity = vim.diagnostic.severity.ERROR})<CR>", opts)
-    buf_set_keymap(bufnr, "n", "[e", "<Cmd>lua vim.diagnostic.goto_prev({float=false, severity = vim.diagnostic.severity.ERROR})<CR>", opts)
+    buf_set_keymap(bufnr, "n", "]e",
+        "<Cmd>lua vim.diagnostic.goto_next({float=false, severity = vim.diagnostic.severity.ERROR})<CR>", opts)
+    buf_set_keymap(bufnr, "n", "[e",
+        "<Cmd>lua vim.diagnostic.goto_prev({float=false, severity = vim.diagnostic.severity.ERROR})<CR>", opts)
     buf_set_keymap(bufnr, "n", "]d", "<Cmd>lua vim.diagnostic.goto_next({float=false})<CR>", opts)
     buf_set_keymap(bufnr, "n", "[d", "<Cmd>lua vim.diagnostic.goto_prev({float=false})<CR>", opts)
     buf_set_keymap(bufnr, "n", "<leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)

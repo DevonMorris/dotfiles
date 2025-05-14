@@ -4,7 +4,7 @@ local sorters = require("telescope.sorters")
 require("telescope").setup({
     defaults = {
         layout_strategy = "horizontal",
-        layout_config = { height = 0.6, width = 0.6 },
+        layout_config = { height = 0.4, width = 0.4 },
         preview = false,
         file_sorter = sorters.get_fzy_sorter,
         path_display = { "truncate" },

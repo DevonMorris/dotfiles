@@ -2,7 +2,7 @@
 Neovim init.lua
 author: Devon Morris
 contact: devonmorris1992@gmail.com
-date: Tue Jun 27 11:21:51 PM EDT 2023
+date: Wed May 14 09:47:48 AM EDT 2025
 ]]
 
 -- Utility functions to use from cmd
