@@ -1,6 +1,9 @@
 [colors]
 draw_bold_text_with_bright_colors = false
 
+[window]
+decorations = "None"
+
 [colors.bright]
 black = "0x665c54"
 blue = "0xbdae93"
