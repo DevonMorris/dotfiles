@@ -35,6 +35,7 @@ source "$HOME/.shell.d/node.sh"
 source "$HOME/.shell.d/ocaml.sh"
 source "$HOME/.shell.d/atuin.sh"
 source "$HOME/.shell.d/lean.sh"
+source "$HOME/.shell.d/tmux.sh"
 
 # Work related config
 [ -f $HOME/.shell.d/work.sh ] && source "$HOME/.shell.d/work.sh"
