@@ -21,5 +21,5 @@ set_keymap("i", ".", ".<c-g>u", opts)
 set_keymap("i", ":", ":<c-g>u", opts)
 
 -- Dispatch
-set_keymap("n", "<F1>", ":FocusDispatch! ", { noremap = true })
+set_keymap("n", "<F1>", ":FocusDispatch ", { noremap = true })
 set_keymap("n", "<F4>", "<Cmd>Dispatch<CR>", opts)
