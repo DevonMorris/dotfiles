@@ -13,17 +13,17 @@ import = [
 # ]
 
 [font.bold]
-family = "CommitMono"
+family = "BerkeleyMono"
 style = "Bold"
 
 [font.bold_italic]
-family = "CommitMono"
-style = "Bold Italic"
+family = "BerkeleyMono"
+style = "Bold Oblique"
 
 [font.italic]
-family = "CommitMono"
-style = "Italic"
+family = "BerkeleyMono"
+style = "Oblique"
 
 [font.normal]
-family = "CommitMono"
+family = "BerkeleyMono"
 style = "Regular"
