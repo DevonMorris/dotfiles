@@ -1,6 +1,7 @@
 -- require('avante').setup({
 --     provider = "copilot",
 --     auto_suggestions_provider = nil,
+--     mode = "legacy",
 --     copilot = {
 --         model = "claude-3.5-sonnet",
 --         endpoint = "https://api.githubcopilot.com",
@@ -21,5 +22,4 @@
 --         enable_cursor_planning_mode = false,
 --         enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
 --     },
---     hints = { enabled = false },
 -- })
