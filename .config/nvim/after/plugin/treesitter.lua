@@ -1,5 +1,5 @@
 ---@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
     ensure_installed = { "rust", "c", "cpp", "lua", "ocaml", "go", "python", "bash" },
     auto_install = true,
     highlight = {
