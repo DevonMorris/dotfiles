@@ -35,6 +35,18 @@ return require("lazy").setup({
         }
     },
 
+    -- Lean
+    {
+      'Julian/lean.nvim',
+      event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+      },
+      opts = {
+        mappings = true,
+      }
+    },
+
     -- Tables
     "godlygeek/tabular",
 
