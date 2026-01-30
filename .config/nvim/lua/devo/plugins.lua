@@ -18,10 +18,6 @@ return require("lazy").setup({
     -- Lsp
     "neovim/nvim-lspconfig",
     "nvim-lua/lsp-status.nvim",
-    {
-        "j-hui/fidget.nvim",
-        tag = "legacy"
-    },
 
     -- Treesitter
     {

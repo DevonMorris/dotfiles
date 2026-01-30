@@ -1,6 +1,4 @@
 M = {}
--- LSP loading status
-require("fidget").setup({})
 
 vim.diagnostic.config({
     signs = false,
