@@ -18,10 +18,12 @@ return require("lazy").setup({
     -- Lsp
     "neovim/nvim-lspconfig",
     "nvim-lua/lsp-status.nvim",
+    "j-hui/fidget.nvim",
 
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate"
     },
 
