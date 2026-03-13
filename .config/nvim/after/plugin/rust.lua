@@ -14,9 +14,10 @@ local rust_analyzer_opts = {
             diagnostics = {
                 enable = false,
             },
+            lruCapacity = 44,
             check = {
                 command = "clippy",
-                features = "all",
+                features = {},
                 extraArgs = {
                     "--",
                     "-D",
@@ -29,10 +30,9 @@ local rust_analyzer_opts = {
             },
             cargo = {
                 buildScripts = {
-                    enable = true,
-                    rebuildOnSave = false,
+                    enable = false,
                 },
-                features = "all",
+                features = {},
                 allTargets = true,
                 autoreload = true,
             },
@@ -43,11 +43,11 @@ local rust_analyzer_opts = {
                 hideDeprecated = true,
             },
             procMacro = {
-                enable = true,
+                enable = false,
             },
             checkOnSave = false,
             cachePriming = {
-                enable = true,
+                enable = false,
             },
             lens = {
                 enable = false,
