@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 vim.diagnostic.config({
     signs = false,

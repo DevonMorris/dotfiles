@@ -1,12 +1,8 @@
 local devo_lsp = require("devo.lsp")
 
-local on_attach = devo_lsp.on_attach
-local capabilities = devo_lsp.capabilities
-
-vim.lsp.enable('lua_ls')
-vim.lsp.config('lua_ls', {
-    on_attach = on_attach,
-    capabilities = capabilities,
+return {
+    on_attach = devo_lsp.on_attach,
+    capabilities = devo_lsp.capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -27,4 +23,4 @@ vim.lsp.config('lua_ls', {
             },
         },
     },
-})
+}

@@ -19,3 +19,15 @@ require("devo.mappings")
 
 -- Plugins
 require("devo.plugins")
+
+-- LSP (servers configured in lsp/<server>.lua; the lsp/ files require
+-- devo.lsp, so it must finish loading before enable resolves them)
+require("devo.lsp")
+vim.lsp.enable({
+    "clangd",
+    "lua_ls",
+    "rust_analyzer",
+    "ruff",
+    "ty",
+    "typos_lsp",
+})

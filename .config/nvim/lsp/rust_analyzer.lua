@@ -1,14 +1,8 @@
 local devo_lsp = require("devo.lsp")
-local on_attach = devo_lsp.on_attach
-local capabilities = devo_lsp.capabilities
 
-local rust_on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-end
-
-local rust_analyzer_opts = {
-    capabilities = capabilities,
-    on_attach = rust_on_attach,
+return {
+    on_attach = devo_lsp.on_attach,
+    capabilities = devo_lsp.capabilities,
     settings = {
         ["rust-analyzer"] = {
             diagnostics = {
@@ -55,8 +49,3 @@ local rust_analyzer_opts = {
         },
     },
 }
-
-vim.lsp.enable('rust_analyzer')
-vim.lsp.config('rust_analyzer',
-    rust_analyzer_opts
-)
