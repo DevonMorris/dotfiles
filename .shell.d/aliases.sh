@@ -4,13 +4,8 @@ alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
 
-if which exa &>/dev/null; then
-  alias ls='exa -h --color=auto'
-  alias la='exa -h -al --color=auto'
-else
-  alias ls='ls -h --color=auto'
-  alias la='ls -al -h --color=auto'
-fi
+alias ls='ls -h --color=auto'
+alias la='ls -al -h --color=auto'
 
 if which fdfind &>/dev/null; then
   alias fd='fdfind'
