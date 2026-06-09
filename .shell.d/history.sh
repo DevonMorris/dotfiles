@@ -2,8 +2,7 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=10000
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-[[ -x "$(command -v atuin)" ]] && eval "$(atuin init bash)"
+# atuin itself is initialized once, in atuin.sh
 
 function atuin-off {
     export ATUIN_DB_PATH=/tmp/atuin_dev.db
