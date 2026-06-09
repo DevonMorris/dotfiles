@@ -5,24 +5,13 @@
     default = current
 [core]
     editor = nvim
-    pager = delta
     hooksPath = .githooks
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    true-color = always
-    syntax-theme = gruvbox-dark
-    diff-so-fancy = true
-    navigate = true
-    light = false
 [alias]
     subup = submodule update --init --recursive
     subreset = submodule foreach --recursive git reset --hard HEAD
     subclean = submodule foreach --recursive git clean -dxf
     copy-commit = ! git rev-parse HEAD | xclip -selection clipboard
     copy-commit-short = ! git rev-parse HEAD | xclip -selection clipboard
-[merge]
-    conflictStyle = diff3
 [init]
     defaultBranch = main
 [rerere]
