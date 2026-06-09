@@ -46,7 +46,15 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
 
 -- Remove whitespace on save
 vim.api.nvim_create_augroup("StripWhitespace", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", { command = "%s/\\s\\+$//e", group = "StripWhitespace" })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+        if not vim.bo.modifiable then
+            return
+        end
+        vim.cmd("%s/\\s\\+$//e")
+    end,
+    group = "StripWhitespace",
+})
 
 -- Retab on save
 vim.api.nvim_create_augroup("Retab", { clear = true })
@@ -58,6 +66,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
             if vim.bo.filetype == exclude then
                 return
             end
+        end
+        if not vim.bo.modifiable then
+            return
         end
         vim.cmd("retab")
     end,

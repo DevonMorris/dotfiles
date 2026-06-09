@@ -19,4 +19,6 @@ return require("lazy").setup({
     spec = {
         { import = "plugins" },
     },
+    -- No plugins need luarocks
+    rocks = { enabled = false },
 })
