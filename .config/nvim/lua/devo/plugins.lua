@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
     -- Lsp
     "neovim/nvim-lspconfig",
-    "nvim-lua/lsp-status.nvim",
     "j-hui/fidget.nvim",
 
     -- Treesitter
@@ -76,7 +75,6 @@ return require("lazy").setup({
         build = "make",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            "stevearc/dressing.nvim",
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
             --- The below dependencies are optional,
@@ -108,7 +106,6 @@ return require("lazy").setup({
     "mfussenegger/nvim-dap",
 
     -- Typing/Editing
-    "b3nj5m1n/kommentary",
     "tpope/vim-surround",
     "tpope/vim-repeat",
 
@@ -118,9 +115,7 @@ return require("lazy").setup({
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
-        tag = '0.1.8',
         dependencies = {
-            "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim",
         },
     },

@@ -66,5 +66,5 @@ set_keymap("n", "<C-G>b", [[<Cmd>lua require'telescope.builtin'.git_branches{}<C
 set_keymap("n", "<leader>q", [[<Cmd>lua require'telescope.builtin'.quickfix{}<CR>]], opts)
 set_keymap("n", "<leader>/", [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>]], opts)
 set_keymap("n", "<leader>:", [[<Cmd>lua require'telescope.builtin'.command_history{}<CR>]], opts)
-set_keymap("n", "<leader>a", [[<Cmd>lua require'telescope.builtin'.lsp_code_actions{}<CR>]], opts)
+set_keymap("n", "<leader>a", [[<Cmd>lua vim.lsp.buf.code_action()<CR>]], opts)
 require("telescope").load_extension("ui-select")
