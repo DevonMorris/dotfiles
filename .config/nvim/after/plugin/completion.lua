@@ -39,8 +39,6 @@ cmp.setup({
         }),
     },
     mapping = {
-        ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4)),
-        ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
         ["<C-p>"] = cmp.mapping(
             cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
             { "i", "c" }

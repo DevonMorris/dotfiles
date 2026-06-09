@@ -43,7 +43,7 @@ local rust_analyzer_opts = {
                 hideDeprecated = true,
             },
             procMacro = {
-                enable = false,
+                enable = true,
             },
             checkOnSave = false,
             cachePriming = {

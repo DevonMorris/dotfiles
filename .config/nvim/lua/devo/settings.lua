@@ -31,13 +31,15 @@ vim.o.pumblend = 0
 vim.o.winblend = 0
 vim.o.pumheight = 10
 vim.o.wrap = false
-vim.o.scrolloff = 10
 vim.o.colorcolumn = "81"
 vim.o.cursorline = true
 vim.o.termguicolors = true
 
 -- Mouse/Keyboard
 vim.o.mouse = "a"
+
+-- TODO: linematch is breaking diffget for some reason
+vim.opt.diffopt:remove("linematch:40")
 
 -- Completion
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }

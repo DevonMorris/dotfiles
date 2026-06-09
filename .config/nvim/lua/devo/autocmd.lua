@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local c = vim.lsp.get_client_by_id(args.data.client_id)
         if not c then return end
 
-        if c.supports_method('textDocument/formatting') then
+        if c:supports_method('textDocument/formatting') then
             local augroup = vim.api.nvim_create_augroup("CodeFormat_" .. args.buf, { clear = true })
             -- Format the current buffer on save
             vim.api.nvim_create_autocmd('BufWritePre', {

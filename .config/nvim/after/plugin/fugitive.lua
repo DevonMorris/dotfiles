@@ -4,7 +4,7 @@
 local function copy_commit() vim.fn.setreg("+", vim.fn.system("git rev-parse HEAD")) end
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_var("fugitive_no_maps", 1)
+vim.api.nvim_set_var("fugitive_no_maps", 0)
 vim.api.nvim_set_keymap("n", "<leader>gb", "<Cmd>Git blame<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-G>g", "<Cmd>diffget //2<CR>", opts)
 vim.api.nvim_set_keymap("n", "<C-G>h", "<Cmd>diffget //3<CR>", opts)
